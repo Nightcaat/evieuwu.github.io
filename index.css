@@ -27,3 +27,7 @@ body {
 	color: white;
 	font-family: courier, serif;
 }
+
+pre {
+	font-size: 16px;
+}
