@@ -1,3 +1,4 @@
 index.html;Home
 socials.html;Social Media
 about.html;About
+test.html;epictest
