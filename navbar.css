@@ -17,7 +17,7 @@ ul.navbar {
 ul.navbar li {
 	display: inline;
 	float: left;
-	margin-right: 10px;
+	margin-left: 8px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
@@ -27,7 +27,7 @@ ul.navbar li:not(.noborder) {
 }
 
 ul.navbar li.noborder {
-	margin-top: 20px; 
+	margin-top: 20px;
 }
 
 ul.navbar li a {

@@ -1,0 +1,38 @@
+div.projectContainer {
+	top: 87px;
+	display: flex;
+	height: 100px;
+	width: 100%;
+}
+
+.projectContainer h1 {
+	position: relative;
+	left: 47%;
+	transform: translate(-50%, 0%);
+	top: 15%;
+}
+
+ul.projectContainer {
+	position: relative;
+	list-style-type: none;
+	width: 90%;
+	justify-content: space-around;
+}
+
+ul.projectContainer li.projectThing {
+	position: relative;
+	text-align: center;
+	margin-right: 10px;
+}
+
+a:link {
+	color: #fff;
+	background-color: transparent;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #fff;
+	background-color: transparent;
+	text-decoration: none;
+}
