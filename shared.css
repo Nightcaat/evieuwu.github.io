@@ -1,0 +1,31 @@
+body {
+	background-color: #111111;
+	color: white;
+	font-family: courier, serif;
+	margin: 0px;
+	margin-left: 10px;
+}
+
+pre {
+	font-size: 16px;
+}
+
+div.center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	font-size: 24px;
+	overflow: hidden;
+}
+
+.gradient {
+	background: #04fbd6;
+	background: -webkit-linear-gradient(to right, #04fbd6, #e283d9);
+	background: linear-gradient(to right, #04fbd6, #e283d9);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	font-size: 32px;
+}
