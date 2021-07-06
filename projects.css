@@ -16,6 +16,7 @@ ul.projectContainer {
 	position: relative;
 	list-style-type: none;
 	width: 90%;
+	margin-top: 20px;
 	justify-content: space-around;
 }
 

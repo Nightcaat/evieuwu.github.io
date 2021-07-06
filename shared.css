@@ -29,3 +29,28 @@ div.center {
 	color: transparent;
 	font-size: 32px;
 }
+
+#loading {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	background-color: #333;
+}
+
+#text {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	transform-origin: 0% 0%;
+	animation: load 1.5s infinite;
+}
+
+@keyframes load {
+	25%		{transform: rotate(0deg) translate(-50%, -50%)}
+	75%		{transform: rotate(360deg) translate(-50%, -50%)}
+}

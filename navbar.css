@@ -10,6 +10,7 @@ ul.navbar {
 	position: absolute;
 	top: 0;
 	left: 0;
+	bottom: 90%;
 	width: 100%;
 	z-index: 1;
 }
@@ -17,17 +18,14 @@ ul.navbar {
 ul.navbar li {
 	display: inline;
 	float: left;
-	margin-left: 8px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	position: relative;
+	margin-left: 0.5%;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 ul.navbar li:not(.noborder) {
 	border: 1px solid #fff;
-}
-
-ul.navbar li.noborder {
-	margin-top: 20px;
 }
 
 ul.navbar li a {
@@ -41,8 +39,10 @@ ul.navbar li a {
 
 ul.navbar li a:hover:not(.active) {
 	background-color: #333;
+	transition: 500ms linear;
 }
 
-.active {
+ul.navbar li a.active {
 	background-color: #444;
+	transition: 500ms linear;
 }
