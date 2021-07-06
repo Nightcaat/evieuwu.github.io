@@ -18,5 +18,5 @@ function getOff() {
 
 $(document).ready(function() {
 	// Animate loader off screen
-	setTimeout(function() {getOff();}, 500);
+	setTimeout(function() {getOff();}, 100);
 });
