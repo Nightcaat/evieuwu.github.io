@@ -1,13 +1,13 @@
 div.projectContainer {
-	top: 87px;
-	display: flex;
+	top: 25%;
+	display: absolute;
 	height: 100px;
 	width: 100%;
 }
 
 .projectContainer h1 {
 	position: relative;
-	left: 47%;
+	left: 50%;
 	transform: translate(-50%, 0%);
 	top: 15%;
 }
