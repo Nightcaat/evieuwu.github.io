@@ -1,29 +1,17 @@
-div.projectContainer {
-	top: 25%;
-	display: absolute;
-	height: 100px;
-	width: 100%;
-}
-
-.projectContainer h1 {
-	position: relative;
-	left: 50%;
-	transform: translate(-50%, 0%);
-	top: 15%;
-}
-
 ul.projectContainer {
-	position: relative;
+	position: absolute;
 	list-style-type: none;
-	width: 90%;
-	margin-top: 20px;
-	justify-content: space-around;
+	width: 99%;
+	margin-top: 5%;
+	margin-left: 0px;
+	padding: 0px;
 }
 
 ul.projectContainer li.projectThing {
 	position: relative;
 	text-align: center;
 	margin-right: 10px;
+	width: 100%;
 }
 
 a:link {
