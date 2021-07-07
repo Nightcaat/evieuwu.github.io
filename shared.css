@@ -6,6 +6,18 @@ body {
 	margin-left: 10px;
 }
 
+a:link {
+	color: #04fbd6;
+	background-color: transparent;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #e283d9;
+	background-color: transparent;
+	text-decoration: none;
+}
+
 pre {
 	font-size: 16px;
 }
