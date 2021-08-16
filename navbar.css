@@ -26,6 +26,7 @@ ul.navbar li a {
 	padding: 14px 16px;
 	text-decoration: none;
 	font-size: 24px;
+	transition: 100ms linear;
 }
 
 ul.navbar li.evelyn {
@@ -34,10 +35,10 @@ ul.navbar li.evelyn {
 
 ul.navbar li a:hover:not(.active) {
 	background-color: #333;
-	transition: 500ms linear;
+	transition: 250ms linear;
 }
 
 ul.navbar li a.active {
 	background-color: #444;
-	transition: 500ms linear;
+	transition: 250ms linear;
 }
