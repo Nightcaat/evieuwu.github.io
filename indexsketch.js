@@ -27,15 +27,12 @@ function setup() {
 	let main = document.querySelector('main');
 	width = main.offsetWidth;
 	height = main.offsetHeight;
-	createCanvas(width - 10, height - 10);
+	createCanvas(width, height);
 	particles = [];
 	for (var i = 0; i < numParticles; i++) {
 		particles[i] = new Particle();
 	}
 	frameRate(30);
-	strokeWeight(2);
-	stroke("#ffffff");
-	rect(0, 0, width, height);
 }
 
 function draw() {

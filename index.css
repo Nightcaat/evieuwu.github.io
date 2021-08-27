@@ -8,10 +8,10 @@
 
 main {
 	position: absolute;
-	top: 30%;
+	top: 40%;
 	left: 0;
 	width: 100%;
-	height: 70%;
+	height: 60%;
 	overflow-x: hidden;
 	overflow-y: hidden;
 	z-index: -1;
