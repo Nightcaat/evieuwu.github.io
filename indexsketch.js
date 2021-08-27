@@ -59,10 +59,10 @@ function draw() {
 				continue;
 			}
 			distance = dist(particles[x].pos.x, particles[x].pos.y, particles[y].pos.x, particles[y].pos.y);
-			if (distance > 250) {
+			if (distance > 200) {
 				continue;
 			}
-			stroke('rgba(255,255,255,' + (1 - (distance / 250)) + ')');
+			stroke('rgba(255,255,255,' + (1 - (distance / 200)) + ')');
 			strokeWeight(1);
 			line(particles[x].pos.x, particles[x].pos.y, particles[y].pos.x, particles[y].pos.y);
 		}
