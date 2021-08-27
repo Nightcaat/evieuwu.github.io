@@ -1,7 +1,7 @@
 ul.navbar {
 	list-style-type: none;
 	overflow: hidden;
-	background-color: #222;
+	background-color: #CF3068;
 	position: relative;
 	top: 0;
 	left: 0;
@@ -10,6 +10,7 @@ ul.navbar {
 	z-index: 1;
 	padding: 0px;
 	margin: 0px;
+	padding-bottom: 10px;
 }
 
 ul.navbar li {
@@ -17,11 +18,12 @@ ul.navbar li {
 	float: left;
 	position: relative;
 	margin-left: 0.5%;
+	padding-top: 5px;
 }
 
 ul.navbar li a {
 	display: block;
-	color: #ddd;
+	color: #222;
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
@@ -34,11 +36,13 @@ ul.navbar li.evelyn {
 }
 
 ul.navbar li a:hover:not(.active) {
-	background-color: #333;
+	background-color: #df5082;
 	transition: 250ms linear;
+	border-radius: 15px;
 }
 
 ul.navbar li a.active {
-	background-color: #444;
+	background-color: #df5082;
 	transition: 250ms linear;
+	border-radius: 15px;
 }
