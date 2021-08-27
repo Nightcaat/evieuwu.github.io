@@ -63,8 +63,8 @@ function Polygon() {
 }
 
 function Bar() {
-	this.height = 0;
-	this.heightChange = 1;
+	this.height = 50;
+	this.heightChange = 0;
 	
 	this.draw = function(x) {
 		stroke("#FF7E6A");
@@ -91,18 +91,41 @@ function setup() {
 	width = main.offsetWidth;
 	height = main.offsetHeight;
 	cnv = createCanvas(width, height);
-	particles = [];
-	numParticles = 100;
-	var isMobile = navigator.userAgent.toLowerCase().match(/mobile/i);
-	var isTablet = navigator.userAgent.toLowerCase().match(/tablet/i);
-	var isAndroid = navigator.userAgent.toLowerCase().match(/android/i);
-	var isiPhone = navigator.userAgent.toLowerCase().match(/iphone/i);
-	var isiPad = navigator.userAgent.toLowerCase().match(/ipad/i);
-	if (isMobile || isTablet || isAndroid || isiPhone || isiPad) {
-		numParticles = 20;
-	}
-	for (var i = 0; i < numParticles; i++) {
-		particles[i] = new Particle();
+	simulation = round(map(random(), 0, 1, -0.5, 2.5));
+	let i;
+	switch (simulation) {
+		case 0:
+			particles = [];
+			numParticles = 100;
+			var isMobile = navigator.userAgent.toLowerCase().match(/mobile/i);
+			var isTablet = navigator.userAgent.toLowerCase().match(/tablet/i);
+			var isAndroid = navigator.userAgent.toLowerCase().match(/android/i);
+			var isiPhone = navigator.userAgent.toLowerCase().match(/iphone/i);
+			var isiPad = navigator.userAgent.toLowerCase().match(/ipad/i);
+			if (isMobile || isTablet || isAndroid || isiPhone || isiPad) {
+				numParticles = 20;
+			}
+			for (i = 0; i < numParticles; i++) {
+				particles[i] = new Particle();
+			}
+			break;
+		case 1:
+			polys = [];
+			for (i = 0; i < 200; i++) {
+				polys[i] = new Polygon();
+			}
+			break;
+		case 2:
+			barWidth = windowWidth / 50;
+			w = windowWidth;
+			i = 0;
+			let x = 0;
+			while (x < w) {
+				bars[i] = new Bar();
+				x += barWidth;
+				i++;
+			}
+			break;
 	}
 	frameRate(30);
 }
