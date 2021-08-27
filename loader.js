@@ -16,6 +16,10 @@ function getOff() {
 	}
 }
 
+function openMenu() {
+	$(".navbar").toggleClass("open");s
+}
+
 $(document).ready(function() {
 	// Pick random background waves
 	document.getElementsByClassName("spacer")[0].style.backgroundImage = "url('assets/layer-" + Math.ceil(Math.random() * 9) + ".svg')";

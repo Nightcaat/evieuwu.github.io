@@ -1,4 +1,4 @@
-let numParticles = 100;
+let numParticles = 75;
 let width = 0;
 let height = 0;
 let radius = 100;
@@ -96,14 +96,14 @@ function setup() {
 	switch (simulation) {
 		case 0:
 			particles = [];
-			numParticles = 100;
+			numParticles = 75;
 			var isMobile = navigator.userAgent.toLowerCase().match(/mobile/i);
 			var isTablet = navigator.userAgent.toLowerCase().match(/tablet/i);
 			var isAndroid = navigator.userAgent.toLowerCase().match(/android/i);
 			var isiPhone = navigator.userAgent.toLowerCase().match(/iphone/i);
 			var isiPad = navigator.userAgent.toLowerCase().match(/ipad/i);
 			if (isMobile || isTablet || isAndroid || isiPhone || isiPad) {
-				numParticles = 20;
+				numParticles = 25;
 			}
 			for (i = 0; i < numParticles; i++) {
 				particles[i] = new Particle();
@@ -135,14 +135,14 @@ function newSim() {
 	switch (simulation) {
 		case 0:
 			particles = [];
-			numParticles = 100;
+			numParticles = 75;
 			var isMobile = navigator.userAgent.toLowerCase().match(/mobile/i);
 			var isTablet = navigator.userAgent.toLowerCase().match(/tablet/i);
 			var isAndroid = navigator.userAgent.toLowerCase().match(/android/i);
 			var isiPhone = navigator.userAgent.toLowerCase().match(/iphone/i);
 			var isiPad = navigator.userAgent.toLowerCase().match(/ipad/i);
 			if (isMobile || isTablet || isAndroid || isiPhone || isiPad) {
-				numParticles = 20;
+				numParticles = 25;
 			}
 			for (i = 0; i < numParticles; i++) {
 				particles[i] = new Particle();
@@ -223,7 +223,7 @@ function draw() {
 		text("FPS: " + fps, 10, 150);
 	}
 	setTimeout(function() {fps--;}, 1000);
-	if (thisFrameCount > 1200) {
+	if (thisFrameCount > 600) {
 		if (random() > 0.2) {
 			newsimulation = round(map(random(), 0, 1, 0, 1));
 			while (newsimulation == simulation) {

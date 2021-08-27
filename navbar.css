@@ -13,14 +13,6 @@ ul.navbar {
 	padding-bottom: 10px;
 }
 
-ul.navbar li {
-	display: block;
-	float: left;
-	position: relative;
-	margin-left: 0.5%;
-	padding-top: 5px;
-}
-
 ul.navbar li a {
 	display: block;
 	color: #222;
@@ -45,4 +37,39 @@ ul.navbar li a.active {
 	background-color: #df5082;
 	transition: 250ms linear;
 	border-radius: 15px;
+}
+
+@media (max-width: 800px) {
+	ul.navbar:not(.open) li:not(.hamburger):not(.evelyn) {
+		float: none;
+		display: none;
+	}
+	ul.navbar.open li {
+		float: none;
+		display: block;
+	}
+	a.hamburger:after {
+		content: "≡";
+		display: block;
+	}
+	li.hamburger {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+}
+
+@media (min-width: 800px) {
+	ul.navbar li {
+		float: left;
+	}
+	a.hamburger:after {
+		content: "";
+	}
+	ul.navbar li {
+		display: block;
+		position: relative;
+		margin-left: 0.5%;
+		padding-top: 5px;
+	}
 }
