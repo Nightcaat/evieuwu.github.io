@@ -16,10 +16,10 @@ function Particle() {
 	}
 	
 	this.update = function() {
-		if (this.pos.x < 0 || this.pos.x > width) {
+		if (this.pos.x <= 0 || this.pos.x >= width) {
 			this.vel.x *= -1;
 		}
-		if (this.pos.y < 0 || this.pos.y > height) {
+		if (this.pos.y <= 0 || this.pos.y >= height) {
 			this.vel.y *= -1;
 		}
 		this.pos.add(this.vel);
@@ -34,6 +34,15 @@ function setup() {
 	height = main.offsetHeight;
 	cnv = createCanvas(width, height);
 	particles = [];
+	numParticles = 100;
+	var isMobile = navigator.userAgent.toLowerCase().match(/mobile/i);
+	var isTablet = navigator.userAgent.toLowerCase().match(/tablet/i);
+	var isAndroid = navigator.userAgent.toLowerCase().match(/android/i);
+	var isiPhone = navigator.userAgent.toLowerCase().match(/iphone/i);
+	var isiPad = navigator.userAgent.toLowerCase().match(/ipad/i);
+	if (isMobile || isTablet || isAndroid || isiPhone || isiPad) {
+		numParticles = 20;
+	}
 	for (var i = 0; i < numParticles; i++) {
 		particles[i] = new Particle();
 	}
