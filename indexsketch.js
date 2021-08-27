@@ -37,12 +37,12 @@ function setup() {
 	for (var i = 0; i < numParticles; i++) {
 		particles[i] = new Particle();
 	}
-	frameRate(60);
+	frameRate(30);
 }
 
 function draw() {
 	background("#001220");
-	for (var x = 0; x < numParticles; x++) {
+	for (var x = 0; x < particles.length; x++) {
 		particles[x].update();
 		particles[x].show();
 		// Move particles if too close to mouse
@@ -54,7 +54,7 @@ function draw() {
 			particles[x].pos.sub(difference);
 		}
 
-		for (var y = 0; y < numParticles; y++) {
+		for (var y = 0; y < particles.length; y++) {
 			if (y == x) {
 				continue;
 			}
