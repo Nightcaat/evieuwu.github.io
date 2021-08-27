@@ -19,6 +19,9 @@ function getOff() {
 $(document).ready(function() {
 	// Pick random background waves
 	document.getElementsByClassName("spacer")[0].style.backgroundImage = "url('assets/layer-" + Math.ceil(Math.random() * 9) + ".svg')";
-	// Animate loader off screen
+});
+
+$(window).on("load", function() {
+	// Animate away the loading screen
 	setTimeout(function() {getOff();}, 50);
 });

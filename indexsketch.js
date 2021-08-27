@@ -33,6 +33,9 @@ function setup() {
 		particles[i] = new Particle();
 	}
 	frameRate(30);
+	strokeWeight(2);
+	stroke("#ffffff");
+	rect(0, 0, width, height);
 }
 
 function draw() {
