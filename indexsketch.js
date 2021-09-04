@@ -10,13 +10,15 @@ let simulation = 0;
 let barWidth = 0;
 let w = 0;
 let bars = [];
+let balls = [];
+let maxBalls = 100;
 
 function Particle() {
 	this.pos = createVector(random() * width, random() * height);
 	this.vel = p5.Vector.random2D();
 	
 	this.show = function() {
-		stroke("#ffffff");
+		stroke("#C65A52");
 		strokeWeight(3);
 		point(this.pos.x, this.pos.y);
 	}
@@ -35,7 +37,7 @@ function Particle() {
 }
 
 function Polygon() {
-	this.pos = createVector(random() * windowWidth, -25);
+	this.pos = createVector(random() * windowWidth, -15);
 	this.rot = map(random(), 0, 1, 0, 50);
 	this.radius = map(random(), 0, 1, 5, 25);
 	this.vel = createVector(0, 0);
@@ -67,7 +69,7 @@ function Bar() {
 	this.heightChange = 0;
 	
 	this.draw = function(x) {
-		stroke("#FF7E6A");
+		stroke("#C65A52");
 		fill("#FA7268");
 		rect(x, 0, barWidth, this.height);
 	}
@@ -86,12 +88,44 @@ function Bar() {
 	}
 }
 
+function Ball() {
+	this.pos = createVector(random() * windowWidth, random() * windowHeight);
+	this.r = 0;
+	this.maxr = map(random(), 0, 1, 20, 50);
+	this.expand = true;
+	this.speed = map(random(), 0, 1, 1, 3);
+	
+	this.update = function() {
+		if (this.r >= this.maxr) {
+			this.expand = false;
+		}
+		if (this.expand) {
+			this.r += this.speed;
+		} else {
+			this.r -= this.speed;
+		}
+		if (this.r <= 0) {
+			this.pos = createVector(random() * windowWidth, random() * windowHeight);
+			this.r = 0;
+			this.maxr = map(random(), 0, 1, 10, 50);
+			this.expand = true;
+			this.speed = map(random(), 0, 1, 1, 3);
+		}
+	}
+	
+	this.draw = function() {
+		stroke("#C65A52");
+		fill("#FA7268");
+		circle(this.pos.x, this.pos.y, this.r / 2);
+	}
+}
+
 function setup() {
 	let main = document.querySelector('main');
 	width = main.offsetWidth;
 	height = main.offsetHeight;
 	cnv = createCanvas(width, height);
-	simulation = round(map(random(), 0, 1, -0.5, 2.5));
+	simulation = round(map(random(), 0, 1, -0.5, 3.5));
 	let i;
 	switch (simulation) {
 		case 0:
@@ -124,6 +158,11 @@ function setup() {
 				bars[i] = new Bar();
 				x += barWidth;
 				i++;
+			}
+			break;
+		case 3:
+			for (let i = 0; i < maxBalls; i++) {
+				balls[i] = new Ball();
 			}
 			break;
 	}
@@ -165,6 +204,11 @@ function newSim() {
 				i++;
 			}
 			break;
+		case 3:
+			for (let i = 0; i < maxBalls; i++) {
+				balls[i] = new Ball();
+			}
+			break;
 	}
 }
 
@@ -192,7 +236,7 @@ function draw() {
 					if (distance > 200) {
 						continue;
 					}
-					stroke('rgba(255,255,255,' + (1 - (distance / 200)) + ')');
+					stroke('rgba(198, 90, 82,' + (1 - (distance / 200)) + ')');
 					strokeWeight(1);
 					line(particles[x].pos.x, particles[x].pos.y, particles[y].pos.x, particles[y].pos.y);
 				}
@@ -214,6 +258,12 @@ function draw() {
 				bars[i].update();
 			}
 			break;
+		case 3:
+			for (let i = 0; i < balls.length; i++) {
+				balls[i].draw();
+				balls[i].update();
+			}
+			break;
 	}
 	fps++;
 	thisFrameCount++;
@@ -224,10 +274,10 @@ function draw() {
 	}
 	setTimeout(function() {fps--;}, 1000);
 	if (thisFrameCount > 600) {
-		if (random() > 0.2) {
-			newsimulation = round(map(random(), 0, 1, 0, 1));
+		if (random() < 0.1) {
+			newsimulation = round(map(random(), 0, 1, -0.5, 3.5));
 			while (newsimulation == simulation) {
-				newsimulation = round(map(random(), 0, 1, -0.5, 2.5));
+				newsimulation = round(map(random(), 0, 1, -0.5, 3.5));
 			}
 			simulation = newsimulation;
 			newSim();
