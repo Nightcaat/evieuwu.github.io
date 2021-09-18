@@ -19,14 +19,14 @@ main {
 
 @media (max-width: 800px) {
 	main {
-		top: 10%;
-		height: 90%;
+		top: 0;
+		height: 100%;
 	}
 }
 
 @media (min-width: 800px) {
 	main {
-		top: 25%;
-		height: 75%;
+		top: 10%;
+		height: 90%;
 	}
 }
