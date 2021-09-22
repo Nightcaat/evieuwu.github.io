@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>ModKeeper Web Config Builder</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="index.css">
+		<script src="https://unpkg.com/vue@next"></script>
+		<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<v-app>
+				<v-main class="grey lighten-5">
+					<br>
+					<v-form :submit="formSubmit(false)">
+						<v-alert
+						border="left"
+						dismissable
+						color="green"
+						outlined
+						text
+						type="success"
+						width="250"
+						class="mx-auto"
+						v-show="displayAlert"
+						style="position:absolute;top:10px;left:10px;z-index:10;"
+						transition="scroll-y-transition"
+						>Code Copied!</v-alert>
+						<v-row>
+							<v-col cols="12">
+								<v-card>
+									<v-card-text style="text-align:center">ModKeeper Web Config</v-card-text>
+								</v-card>
+							</v-col>
+						</v-row>
+						<v-row>
+							<v-col cols="colsPer">
+								<v-card>
+									<v-card-text>General Settings</v-card-text>
+								</v-card>
+							</v-col>
+							<v-col cols="colsPer">
+								<v-card>
+									<v-card-text>Spam Protection</v-card-text>
+								</v-card>
+							</v-col>
+						</v-row>
+						<v-row>
+							<v-col cols="colsPer">
+								<v-text-field label="Prefix" v-model="form.prefix" counter="10" :rules="[prefRule]"></v-text-field>
+							</v-col>
+							<v-col cols="colsPer">
+								<v-checkbox label="Enable spam protection" color="success" v-model="form.spamon"></v-checkbox>
+							</v-col>
+						</v-row>
+						<v-row>
+							<v-col cols="colsPer">
+								<v-checkbox label="Enable automatic scam/phishing link checking" color="success" v-model="form.scamprotection"></v-checkbox>
+							</v-col>
+							<v-col cols="colsPer">
+								<v-text-field label="Character limit" color="success" v-model="form.spamchars" :rules="[charRule]"></v-checkbox>
+							</v-col>
+						</v-row>
+						<v-row>
+							<v-col cols="colsPer">
+							</v-col>
+							<v-col cols="colsPer">
+								<v-text-field label="Emoji limit" color="success" v-model="form.spamemojis" :rules="[emojiRule]"></v-checkbox>
+							</v-col>
+						</v-row>
+						<v-row justify="center">
+							<v-col cols="1">
+								<v-btn @click="copyCode()"
+								raised
+								elevation="8"
+								color="green">Copy Code</v-btn>
+							</v-col>
+						</v-row>
+					</v-form>
+					<br><br>
+					<v-footer>This site is maintained by EvelynProto (EvelynUwU#6483 on Discord)</v-footer>
+				</v-main>
+			</v-app>
+		</div>
+	</body>
+	<script>
+		new Vue({
+			el: '#app',
+			vuetify: new Vuetify(),
+			data: {
+				cols: 2,
+				colsPer: 12 / this.cols,
+				code: {},
+				displayAlert: false,
+				charRule: v  => {
+					if (!v.trim()) return true;
+					if (!isNaN(parseFloat(v)) && v >= 50 && v <= 2000) return true;
+					return 'Number has to be between 50 and 2000';
+				},
+				emojiRule: v  => {
+					if (!v.trim()) return true;
+					if (!isNaN(parseFloat(v)) && v >= 1 && v <= 2000) return true;
+					return 'Number has to be between 1 and 2000';
+				},
+				prefRule: v  => {
+					if (!v.trim()) return true;
+					if (v.length <= 10) return true;
+					return "Prefix must be shorter than 10 characters	";
+				},
+				form: {
+					prefix: "?",
+					spamon: true,
+					spamchars: 1000,
+					spamemojis: 15,
+					scamprotection: true,
+				},
+			},
+			methods: {
+				generateConfigCode: function() {
+					code = this.form;
+					console.log(btoa(JSON.stringify(code)));
+					return btoa(JSON.stringify(code));
+				},
+				formSubmit: function(ret) {
+					var generatedCode = this.generateConfigCode();
+					if (ret !== true) {
+						this.code = generatedCode;
+					}
+					return generatedCode;
+				},
+				codeChanged: function() {
+					if (newcode == this.formSubmit(true)) {
+						return;
+					}
+					console.log(newcode.value);
+					var decoded = JSON.parse(atob(newcode.value));
+					console.log(decoded);
+					document.getElementById("prefix").value = decoded["prefix"];
+				},
+				copyCode: function() {
+					navigator.clipboard.writeText(this.code);
+					this.displayAlert = true;
+					setTimeout(function() {
+						this.displayAlert = false;
+					}.bind(this), 3000);
+				}
+			},
+		})
+	</script>
+</html>
