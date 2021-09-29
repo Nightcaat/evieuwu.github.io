@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="index.css">
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+</style>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta property="og:title" content="evelyn"/>
+	<meta property="og:type" content="website"/>
+	<meta property="og:url" content="https://evelynproto.github.io/index.html"/>
+	<meta property="og:image" content="https://evelynproto.github.io/assets/favicon.png"/>
+	<meta property="og:description" content="The home of evelyn"/>
+	<meta name="theme-color" content="#e283d9">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>&lt;evelyn&gt;</title>
+</head>
+<body>
+	<div id="typingDiv"></div>
+	<div id="site" class="invisible">
+		<div id="siteTransition"></div>
+		<div id="flex">
+			<div id="project">
+				ajsgdskjgjasdkljglk
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	var text = [{"text": "Hi! I'm Evelyn!", "colour": null, "indent": null},
+				{"text": "Welcome to my new site!", "colour": null, "indent": null},
+				{"text": "I am a programmer, and enjoy playing video games in my spare time.", "colour": null, "indent": null},
+				{"text": "I currently know how to code in:", "colour": null, "indent": null},
+				{"text": "[", "colour": null, "indent": null},
+				{"text": "Python,", "colour": "#3E7BAC", "indent": 1},
+				{"text": "C,", "colour": "#A9BACD", "indent": 1},
+				{"text": "C#,", "colour": "#189F20", "indent": 1},
+				{"text": "JS,", "colour": "#EE3C4D", "indent": 1},
+				{"text": "HTML,", "colour": "#E44D26", "indent": 1},
+				{"text": "CSS", "colour": "#214CE5", "indent": 1},
+				{"text": "]", "colour": null, "indent": null},
+				{"text": "I've made this site to act as a home page for most of my projects.", "colour": null, "indent": null},
+				{"text": "Also to test my HTML/CSS/JS skills :3", "colour": null, "indent": null},
+				{"text": "I'll keep this up-to-date with new stuff I make.", "colour": null, "indent": null},
+				{"text": "For more information you can look below!", "colour": null, "indent": null},];
+	for (var i = 0; i < text.length; i++) {
+		var t = document.createElement("div");
+		t.id = "typing";
+		var obj = text[i];
+		if (obj["colour"] !== null) {
+			t.style.color = obj["colour"];
+		}
+		if (obj["indent"] !== null) {
+			t.style.paddingLeft = 32 + (obj["indent"] * 64) + "px";
+		}
+		document.getElementById("typingDiv").appendChild(t);
+	}
+	var elements = document.getElementById("typingDiv").children;
+	var textInc = 0;
+	var textIndex = 0;
+	var speed = 1;
+	var currentScroll = 0;
+	window.onload = onload();
+
+	function onload() {
+		typing();
+	}
+
+	function typing() {
+		if (textInc < text[textIndex]["text"].length) {
+			console.log(elements[textIndex].childNodes);
+			if (elements[textIndex].childNodes.length === 0) {
+				elements[textIndex].innerHTML = text[textIndex]["text"].substring(0, textInc + 1) +'<span aria-hidden="true"></span>';
+			} else {
+				var change = elements[textIndex].childNodes[0];
+				change.nodeValue = text[textIndex]["text"].substring(0, textInc + 1);
+			}	
+			textInc++;
+			window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+			currentScroll = document.body.scrollHeight;
+			setTimeout(typing, speed);
+		} else {
+			textInc = 0;
+			textIndex++;
+			if (textIndex >= text.length) {
+				document.getElementById("site").classList.remove("invisible");
+				window.scrollTo({ top: currentScroll + 100, behavior: 'smooth' })
+				return;
+			}
+			elements[textIndex - 1].innerHTML = text[textIndex - 1]["text"];
+			setTimeout(typing, speed);
+		}
+	}
+</script>
+</html>

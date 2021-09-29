@@ -1,0 +1,55 @@
+html, body {
+	background-color: #084c61;
+	color: #ffc857;
+	padding: 0px;
+	margin: 0px;
+}
+
+div #typing {
+	padding-top: 32px;
+	font-size: 64px;
+	font-family: 'Anonymous Pro', monospace;
+	padding-left: 32px;
+	padding-bottom: 16px;
+	margin-right: 32px;
+}
+
+div#site {
+	background-color: #177e89;
+	color: #db3a34;
+	width: 100%;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+div#project {
+	width: 250px;
+	height: 250px;
+	border-radius: 10%;
+	background-color: #ffc857;
+}
+
+div#siteTransition {
+	background-image: url("assets/wave.svg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 150px;
+	width: 100%;
+}
+
+.invisible * {
+	display: none;
+}
+
+span {
+	animation: blinkCursor 0.5s step-end infinite;
+	border-right: .15em solid #ffc857;
+}
+
+@keyframes blinkCursor {
+	from, to { border-color: #ffc857; }
+	50% { border-color: transparent }
+}
