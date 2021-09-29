@@ -11,6 +11,7 @@
 		<link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+		<script src="https://unpkg.com/vue-router"></script>
 	</head>
 	<body>
 		<div id="app">
@@ -25,12 +26,12 @@
 						outlined
 						text
 						type="success"
-						width="250"
+						width="auto"
 						class="mx-auto"
 						v-show="displayAlert"
 						style="position:absolute;top:10px;left:10px;z-index:10;"
 						transition="scroll-y-transition"
-						>Code Copied!</v-alert>
+						>{{alertText}}</v-alert>
 						<v-row>
 							<v-col cols="12">
 								<v-card>
@@ -49,36 +50,318 @@
 									<v-card-text>Spam Protection</v-card-text>
 								</v-card>
 							</v-col>
+							<v-col v-if="showServer">
+								<v-card>
+									<v-card-text>Server Settings</v-card-text>
+								</v-card>
+							</v-col>
 						</v-row>
 						<v-row>
 							<v-col cols="colsPer">
 								<v-text-field label="Prefix" v-model="form.prefix" counter="10" :rules="[prefRule]"></v-text-field>
 							</v-col>
 							<v-col cols="colsPer">
-								<v-checkbox label="Enable spam protection" color="success" v-model="form.spamon"></v-checkbox>
+								<v-checkbox label="Enable spam protection" color="success" v-model="form.spamOn"></v-checkbox>
+							</v-col>
+							<v-col cols="colsPer" v-if="showServer">
+								<v-combobox
+								v-model="form.adminRoles"
+								:items="serverCode.roles"
+								label="Roles with admin permission"
+								multiple
+								chips
+								filled
+								dense
+								>
+									<template v-slot:selection="{ attrs, item, parent, selected }">
+										<v-chip
+										v-if="item === Object(item)"
+										v-bind="attrs"
+										:color="`${item.color} lighten-3`"
+										:input-value="selected"
+										label
+										small
+										>
+										<span class="pr-2">
+											{{ item[1] }}
+										</span>
+											<v-icon
+											small
+											@click="parent.selectItem(item)"
+											>
+												$delete
+											</v-icon>
+										</v-chip>
+									</template>
+									<template v-slot:item="{ index, item }">
+										{{ item[1] }} (ID: {{ item[0] }})
+									</template>
+								</v-combobox>
 							</v-col>
 						</v-row>
 						<v-row>
 							<v-col cols="colsPer">
-								<v-checkbox label="Enable automatic scam/phishing link checking" color="success" v-model="form.scamprotection"></v-checkbox>
+								<v-checkbox label="Enable automatic scam/phishing link checking" color="success" v-model="form.scamProtection"></v-checkbox>
 							</v-col>
 							<v-col cols="colsPer">
-								<v-text-field label="Character limit" color="success" v-model="form.spamchars" :rules="[charRule]"></v-checkbox>
+								<v-text-field label="Character limit" color="success" v-model="form.spamChars" :rules="[charRule]"></v-checkbox>
+							</v-col>
+							<v-col cols="colsPer" v-if="showServer">
+								<v-combobox
+								v-model="form.modRoles"
+								:items="serverCode.roles"
+								label="Roles with mod permission"
+								multiple
+								chips
+								filled
+								dense
+								>
+									<template v-slot:selection="{ attrs, item, parent, selected }">
+										<v-chip
+										v-if="item === Object(item)"
+										v-bind="attrs"
+										:color="`${item.color} lighten-3`"
+										:input-value="selected"
+										label
+										small
+										>
+										<span class="pr-2">
+											{{ item[1] }}
+										</span>
+											<v-icon
+											small
+											@click="parent.selectItem(item)"
+											>
+												$delete
+											</v-icon>
+										</v-chip>
+									</template>
+									<template v-slot:item="{ index, item }">
+										{{ item[1] }} (ID: {{ item[0] }})
+									</template>
+								</v-combobox>
 							</v-col>
 						</v-row>
 						<v-row>
 							<v-col cols="colsPer">
+								<v-combobox
+								v-model="form.scamAction"
+								:items="scamActions"
+								label="What to do if someone posts a scam link"
+								chips
+								filled
+								dense
+								>
+									<template v-slot:selection="{ attrs, item, parent, selected }">
+										<v-chip
+										:color="`${item.color} lighten-3`"
+										:input-value="selected"
+										label
+										small
+										>
+										<span class="pr-2">
+											{{ item }}
+										</span>
+											<v-icon
+											small
+											@click="parent.selectItem(item)"
+											>
+												$delete
+											</v-icon>
+										</v-chip>
+									</template>
+									<template v-slot:item="{ index, item }">
+										{{ item }}
+									</template>
+								</v-combobox>
 							</v-col>
 							<v-col cols="colsPer">
-								<v-text-field label="Emoji limit" color="success" v-model="form.spamemojis" :rules="[emojiRule]"></v-checkbox>
+								<v-text-field label="Emoji limit" color="success" v-model="form.spamEmojis" :rules="[emojiRule]"></v-checkbox>
+							</v-col>
+							<v-col cols="colsPer" v-if="showServer">
+								<v-combobox
+								v-model="form.helperRoles"
+								:items="serverCode.roles"
+								label="Roles with helper permission"
+								multiple
+								chips
+								filled
+								dense
+								>
+									<template v-slot:selection="{ attrs, item, parent, selected }">
+										<v-chip
+										v-if="item === Object(item)"
+										v-bind="attrs"
+										:color="`${item.color} lighten-3`"
+										:input-value="selected"
+										label
+										small
+										>
+										<span class="pr-2">
+											{{ item[1] }}
+										</span>
+											<v-icon
+											small
+											@click="parent.selectItem(item)"
+											>
+												$delete
+											</v-icon>
+										</v-chip>
+									</template>
+									<template v-slot:item="{ index, item }">
+										{{ item[1] }} (ID: {{ item[0] }})
+									</template>
+								</v-combobox>
+							</v-col>
+						</v-row>
+						<v-row>
+							<v-col cols="colsPer">
+								<v-combobox
+								v-model="form.auditChannel"
+								:items="serverCode.channels"
+								label="Audit log channel"
+								chips
+								filled
+								dense
+								v-if="showServer"
+								>
+									<template v-slot:selection="{ attrs, item, parent, selected }">
+										<v-chip
+										v-if="item === Object(item)"
+										v-bind="attrs"
+										:color="`${item.color} lighten-3`"
+										:input-value="selected"
+										label
+										small
+										>
+										<span class="pr-2">
+											{{ item[1] }}
+										</span>
+											<v-icon
+											small
+											@click="parent.selectItem(item)"
+											>
+												$delete
+											</v-icon>
+										</v-chip>
+									</template>
+									<template v-slot:item="{ index, item }">
+										{{ item[1] }} (ID: {{ item[0] }})
+									</template>
+								</v-combobox>
+							</v-col>
+							<v-col cols="colsPer" v-if="showServer">
+								<v-combobox
+								v-model="form.spamIgnoreChannels"
+								:items="serverCode.channels"
+								label="Channels to ignore spam in"
+								multiple
+								chips
+								filled
+								dense
+								>
+									<template v-slot:selection="{ attrs, item, parent, selected }">
+										<v-chip
+										v-if="item === Object(item)"
+										v-bind="attrs"
+										:color="`${item.color} lighten-3`"
+										:input-value="selected"
+										label
+										small
+										>
+										<span class="pr-2">
+											{{ item[1] }}
+										</span>
+											<v-icon
+											small
+											@click="parent.selectItem(item)"
+											>
+												$delete
+											</v-icon>
+										</v-chip>
+									</template>
+									<template v-slot:item="{ index, item }">
+										{{ item[1] }} (ID: {{ item[0] }})
+									</template>
+								</v-combobox>
+							</v-col>
+							<v-col cols="colsPer" v-if="showServer">
+								<v-combobox
+								v-model="form.muteRole"
+								:items="serverCode.roles"
+								label="Mute Role"
+								chips
+								filled
+								dense
+								>
+									<template v-slot:selection="{ attrs, item, parent, selected }">
+										<v-chip
+										v-if="item === Object(item)"
+										v-bind="attrs"
+										:color="`${item.color} lighten-3`"
+										:input-value="selected"
+										label
+										small
+										>
+										<span class="pr-2">
+											{{ item[1] }}
+										</span>
+											<v-icon
+											small
+											@click="parent.selectItem(item)"
+											>
+												$delete
+											</v-icon>
+										</v-chip>
+									</template>
+									<template v-slot:item="{ index, item }">
+										{{ item[1] }} (ID: {{ item[0] }})
+									</template>
+								</v-combobox>
 							</v-col>
 						</v-row>
 						<v-row justify="center">
-							<v-col cols="1">
-								<v-btn @click="copyCode()"
+							<v-col class="buttonsCol" cols="1">
+								<v-btn @click="downloadCode()"
 								raised
 								elevation="8"
-								color="green">Copy Code</v-btn>
+								color="green"
+								class="buttonCenter">Copy Code</v-btn>
+								<br></br>
+								<v-dialog
+								v-model="dialog"
+								width="500"
+								>
+									<template v-slot:activator="{ on, attrs }">
+										<v-btn
+										color="red lighten-2"
+										dark
+										v-bind="attrs"
+										v-on="on"
+										class="buttonCenter"
+										elevation="8"
+										>
+										Upload Server File
+										</v-btn>
+									</template>
+									<v-card>
+										<v-card-title class="text-h5 grey lighten-2">
+										File Upload
+										</v-card-title>
+										<v-file-input v-model="files" style="padding-right:10px"></v-file-input>
+										<v-divider></v-divider>
+										<v-card-actions>
+											<v-spacer></v-spacer>
+											<v-btn
+											color="primary"
+											text
+											@click="dialog = false; getContents()"
+											>
+												Upload
+											</v-btn>
+										</v-card-actions>
+									</v-card>
+								</v-dialog>
 							</v-col>
 						</v-row>
 					</v-form>
@@ -89,7 +372,7 @@
 		</div>
 	</body>
 	<script>
-		new Vue({
+		const vm = new Vue({
 			el: '#app',
 			vuetify: new Vuetify(),
 			data: {
@@ -97,32 +380,48 @@
 				colsPer: 12 / this.cols,
 				code: {},
 				displayAlert: false,
+				alertText: "",
+				dialog: false,
+				serverCode: {},
+				showServer: false,
+				scamActions: ["Ban", "Kick", "Warn"],
+				files: [],
 				charRule: v  => {
 					if (!v.trim()) return true;
-					if (!isNaN(parseFloat(v)) && v >= 50 && v <= 2000) return true;
+					if (!isNaN(parseInt(v)) && v >= 50 && v <= 2000) return true;
 					return 'Number has to be between 50 and 2000';
 				},
 				emojiRule: v  => {
 					if (!v.trim()) return true;
-					if (!isNaN(parseFloat(v)) && v >= 1 && v <= 2000) return true;
+					if (!isNaN(parseInt(v)) && v >= 1 && v <= 2000) return true;
 					return 'Number has to be between 1 and 2000';
 				},
 				prefRule: v  => {
 					if (!v.trim()) return true;
 					if (v.length <= 10) return true;
-					return "Prefix must be shorter than 10 characters	";
+					return "Prefix must be shorter than 10 characters";
 				},
 				form: {
 					prefix: "?",
-					spamon: true,
-					spamchars: 1000,
-					spamemojis: 15,
-					scamprotection: true,
+					spamOn: true,
+					spamChars: 1000,
+					spamEmojis: 15,
+					spamIgnoreChannels: [],
+					scamProtection: true,
+					scamAction: null,
+					adminRoles: [],
+					modRoles: [],
+					helperRoles: [],
+					muteRole: null,
+					auditChannel: null,
+					blacklistWords: ["fuck", "shit"],
 				},
 			},
 			methods: {
 				generateConfigCode: function() {
 					code = this.form;
+					code.spamChars = parseInt(code.spamChars);
+					code.spamEmojis = parseInt(code.spamEmojis);
 					console.log(btoa(JSON.stringify(code)));
 					return btoa(JSON.stringify(code));
 				},
@@ -133,23 +432,45 @@
 					}
 					return generatedCode;
 				},
-				codeChanged: function() {
-					if (newcode == this.formSubmit(true)) {
-						return;
-					}
-					console.log(newcode.value);
-					var decoded = JSON.parse(atob(newcode.value));
-					console.log(decoded);
-					document.getElementById("prefix").value = decoded["prefix"];
-				},
 				copyCode: function() {
 					navigator.clipboard.writeText(this.code);
 					this.displayAlert = true;
 					setTimeout(function() {
 						this.displayAlert = false;
 					}.bind(this), 3000);
+				},
+				getContents: function() {
+					var reader = new FileReader();
+					reader.onload = function(e) {
+						var contents = e.target.result;
+						this.serverCode = JSON.parse(contents);
+						this.showServer = true;
+						this.alertText = "Imported Server Settings";
+						this.displayAlert = true;
+						setTimeout(function() {
+							this.displayAlert = false;
+						}.bind(this), 3000);
+					}.bind(this);
+					reader.readAsText(this.files);
+				},
+				downloadCode: function() {
+					var textToSave = this.code;
+					var hiddenElement = document.createElement('a');
+
+					hiddenElement.href = 'data:attachment/text,' + encodeURI(textToSave);
+					hiddenElement.target = '_blank';
+					hiddenElement.download = 'serverConfig.txt';
+					document.body.appendChild(hiddenElement);
+					hiddenElement.click();
 				}
 			},
+			mounted: function() {
+				var params = (new URL(document.location)).searchParams;
+				var servCode = params.get("u");
+				if (servCode == "true") {
+					this.dialog = true;
+				}
+			}
 		})
 	</script>
 </html>

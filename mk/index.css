@@ -13,3 +13,7 @@ div #app {
 	padding-right: 10px;
 	overflow: hidden;
 }
+
+.buttonsCol {
+	text-align: center;
+}
