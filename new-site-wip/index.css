@@ -19,9 +19,20 @@ div#site {
 	color: #db3a34;
 	width: 100%;
 	text-align: center;
+}
+
+div#flex-row {
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+
+div#flex-column {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
 }
 
@@ -30,6 +41,60 @@ div#project {
 	height: 250px;
 	border-radius: 10%;
 	background-color: #ffc857;
+	box-shadow: 5px 5px #B28C3C;
+	margin-bottom: 32px;
+}
+
+div#project img#project-image {
+	position: relative;
+	top: 8px;
+	border-radius: 10%;
+	margin-bottom: 8px;
+	height: 64px;
+}
+
+div#project div#project-header {
+	font-size: 24px;
+	font-family: 'Anonymous Pro', monospace;
+	text-align: center;
+	border-bottom: 2px solid #B28C3C;
+}
+
+div#project div#project-description {
+	font-size: 16px;
+	font-family: 'Anonymous Pro', monospace;
+	text-align: center;
+	margin-top: 8px;
+	border-bottom: 2px solid #B28C3C;
+}
+
+div#project div#project-links {
+	font-size: 16px;
+	font-family: 'Anonymous Pro', monospace;
+	text-align: center;
+	margin-top: 8px;
+}
+
+div#project div#project-links a:link {
+	color: #6930c3;
+	text-decoration: none;
+	transition-duration: 0.5s;
+}
+
+div#project div#project-links a:visited {
+	color: #6930c3;
+	text-decoration: none;
+}
+
+div#project div#project-links a:hover {
+	color: #72efdd;
+	text-decoration: none;
+	transition-duration: 0.25s;
+}
+
+div#project div#project-links a:active {
+	color: #72efdd;
+	text-decoration: none;
 }
 
 div#siteTransition {
