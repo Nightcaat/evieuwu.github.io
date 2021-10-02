@@ -69,7 +69,7 @@
 							A Discord bot with as many moderation features I could think of.
 						</div>
 						<div id="project-links">
-							
+							(No links yet)
 						</div>
 					</div>
 				</div>
@@ -90,9 +90,18 @@
 			</div>
 		</div>
 		<div id="links">
-			<div id="siteTransition upsideDown">
-
+			<div id="siteTransition" class="upsideDown"></div>
+			<div id="flex-row">
+				<div id="link">
+					<a href="about.html"> About Me </a>
+				</div>
+				<div id="link">
+					<a href="contact.html"> Contact Me </a>
+				</div>
 			</div>
+		</div>
+		<div id="footer">
+			This site was made and maintained by <a href="https://github.com/EvelynProto"> EvelynProto </a>
 		</div>
 	</div>
 </body>
@@ -106,16 +115,26 @@
 				{"text": "C,", "colour": "#A9BACD", "indent": 1},
 				{"text": "C#,", "colour": "#189F20", "indent": 1},
 				{"text": "JS,", "colour": "#EE3C4D", "indent": 1},
+				{"text": "VueJS,", "colour": "#41B883", "indent": 1},
 				{"text": "HTML,", "colour": "#E44D26", "indent": 1},
 				{"text": "CSS", "colour": "#214CE5", "indent": 1},
 				{"text": "]", "colour": null, "indent": null},
-				{"text": "I've made this site to act as a home page for most of my projects.", "colour": null, "indent": null},
+				{"text": "I have made:", "colour": null, "indent": null},
+				{"text": "[", "colour": null, "indent": null},
+				{"text": "Discord bots,", "colour": "#5865F2", "indent": 1},
+				{"text": "A simple game engine,", "colour": "#00FF75", "indent": 1},
+				{"text": "Front-end for flyLAT,", "colour": "#41B883", "indent": 1},
+				{"text": "Basic command line software", "colour": "#0C0C0C", "indent": 1},
+				{"text": "]", "colour": null, "indent": null},
+				{"text": "I'm mostly self-taught, but school did help to start me creating software.", "colour": null, "indent": null},
+				{"text": "This site exists to act as a home page for most of my projects.", "colour": null, "indent": null},
 				{"text": "Also to test my HTML/CSS/JS skills :3", "colour": null, "indent": null},
 				{"text": "I'll keep this up-to-date with new stuff I make.", "colour": null, "indent": null},
 				{"text": "For more information you can look below!", "colour": null, "indent": null},];
 	for (var i = 0; i < text.length; i++) {
 		var t = document.createElement("div");
 		t.id = "typing";
+		t.classList.add("invisible");
 		var obj = text[i];
 		if (obj["colour"] !== null) {
 			t.style.color = obj["colour"];
@@ -128,17 +147,65 @@
 	var elements = document.getElementById("typingDiv").children;
 	var textInc = 0;
 	var textIndex = 0;
-	var speed = 1;
+	var speed = 5;
 	var currentScroll = 0;
+	var skipAnim = false;
 	window.onload = onload();
 
 	function onload() {
+		document.addEventListener("keydown", keyDown);
 		typing();
 	}
 
+	function keyDown(e) {
+		if (e.keyCode == 13) {
+			skipAnim = true;
+			document.removeEventListener("keydown", keyDown);
+		}
+	}
+
 	function typing() {
+		if (skipAnim) {
+			while (textIndex < text.length) {
+				if (textInc < text[textIndex]["text"].length) {
+					for (var i = 0; i < elements[textIndex].classList.length; i++) {
+						if ("invisible" === elements[textIndex].classList[i]) {
+							elements[textIndex].classList.remove("invisible");
+							break;
+						}
+					}
+					
+					if (elements[textIndex].childNodes.length === 0) {
+						elements[textIndex].innerHTML = text[textIndex]["text"].substring(0, textInc + 1) +'<span aria-hidden="true"></span>';
+					} else {
+						var change = elements[textIndex].childNodes[0];
+						change.nodeValue = text[textIndex]["text"].substring(0, textInc + 1);
+					}	
+					textInc++;
+					window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+					currentScroll = document.body.scrollHeight;
+				} else {
+					textInc = 0;
+					textIndex++;
+					if (textIndex >= text.length) {
+						document.getElementById("site").classList.remove("invisible");
+						setTimeout(function() {
+							window.scrollTo({ top: currentScroll - window.innerHeight + 500, behavior: 'smooth' });
+						}.bind(this), 500);
+						return;
+					}
+					elements[textIndex - 1].innerHTML = text[textIndex - 1]["text"];
+				}
+			}
+		}
 		if (textInc < text[textIndex]["text"].length) {
-			console.log(elements[textIndex].childNodes);
+			for (var i = 0; i < elements[textIndex].classList.length; i++) {
+				if ("invisible" === elements[textIndex].classList[i]) {
+					elements[textIndex].classList.remove("invisible");
+					break;
+				}
+			}
+			
 			if (elements[textIndex].childNodes.length === 0) {
 				elements[textIndex].innerHTML = text[textIndex]["text"].substring(0, textInc + 1) +'<span aria-hidden="true"></span>';
 			} else {
@@ -154,11 +221,13 @@
 			textIndex++;
 			if (textIndex >= text.length) {
 				document.getElementById("site").classList.remove("invisible");
-				window.scrollTo({ top: currentScroll + 100, behavior: 'smooth' })
+				setTimeout(function() {
+					window.scrollTo({ top: currentScroll - window.innerHeight + 500, behavior: 'smooth' });
+				}.bind(this), 500);
 				return;
 			}
 			elements[textIndex - 1].innerHTML = text[textIndex - 1]["text"];
-			setTimeout(typing, speed);
+			setTimeout(typing, speed * 5);
 		}
 	}
 </script>
