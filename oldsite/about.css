@@ -1,0 +1,26 @@
+.aboutTitle {
+	background: #04fbd6;
+	background: -webkit-linear-gradient(to right, #04fbd6, #e283d9);
+	background: linear-gradient(to right, #04fbd6, #e283d9);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	font-size: 64px;
+	position: relative;
+}
+
+.aboutCenter {
+	position: absolute;
+	width: 100%;
+	left: 50%;
+	top: 10%;
+	transform: translateX(-50%);
+	text-align: center;
+	overflow: hidden;
+}
+
+.aboutInfo {
+	font-size: 20px;
+	height: 50%;
+	margin-top: 10px;
+}

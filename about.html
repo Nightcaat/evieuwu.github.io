@@ -1,83 +1,63 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="shared.css">
-<link rel="stylesheet" href="navbar.css">
-<link rel="stylesheet" href="about.css">
-<link rel="icon" type="image/png" href="assets/favicon.png"/>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title> &lt;about evelyn&gt; </title>
-		<script src="jquery.js"></script>
-		<script src="loader.js"></script>
-		<meta property="og:title" content="about evelyn"/>
-		<meta property="og:type" content="website"/>
-		<meta property="og:url" content="https://evelynproto.github.io/about.html"/>
-		<meta property="og:image" content="https://evelynproto.github.io/assets/favicon.png"/>
-		<meta property="og:description" content="About evelyn"/>
-		<meta name="theme-color" content="#e283d9">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	</head>
-	<body>
-		<div id="loading">
-			<p id="text" class="gradient">&lt;loading&gt;</p>
-		</div>
-		<section>
-			<ul class="navbar">
-				<li class="evelyn"> <div class="gradient">&lt;evelyn&gt;</div> </li>
-				<li>
-					<a href="index.html">Home</a>
-				</li>
-				<li>
-					<a href="projects.html">Projects</a>
-				</li>
-				<li>
-					<a href="contact.html">Contact</a>
-				</li>
-				<li>
-					<a href="about.html" class="active">About</a>
-				</li>
-				<li class="hamburger">
-					<a class="hamburger" onclick="openMenu()"></a>
-				</li>
-			</ul>
-			<div class="spacer layer-1"></div>
-		</section>
-		<section>
-			<div class="aboutCenter">
-				<div class="aboutInfo">
-					<div class="aboutTitle">
-						<u>Myself</u>
-					</div>
-					Hi, I'm a trans girl and I enjoy programming.<br>
-					If you want to know about pronouns or whatever, <a href="https://en.pronouns.page/@EvelynProto">here you go</a><br>
-					I've made some stuff in:<br>
-					Python (4 years experience),<br>
-					C (6 month experience) and<br>
-					VB.net (1 year experience, have stopped learning).<br>
-					You can find examples of stuff I've worked on <a href="projects.html">here</a><br>
-					I've also had brief stints in stuff like:<br>
-					3D modelling and<br>
-					Drawing (Dysgraphia makes drawing really hard tho)
+<link rel="stylesheet" href="about.css">
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+</style>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta property="og:title" content="evelyn"/>
+	<meta property="og:type" content="website"/>
+	<meta property="og:url" content="https://evelynproto.github.io/new-site-wip/contact.html"/>
+	<meta property="og:image" content="https://evelynproto.github.io/assets/favicon.png"/>
+	<meta property="og:description" content="Contact Evelyn"/>
+	<meta name="theme-color" content="#e283d9">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>&lt;About Evelyn&gt;</title>
+</head>
+<body>
+	<div id="typingDiv"></div>
+	<div id="site" class="invisible">
+		<div id="links">
+			<div id="siteTransition"></div>
+			<div id="flex-row">
+				<div id="link">
+					<a href="index.html"> Index </a>
 				</div>
-				<br>
-				<div class="aboutInfo">
-					<div class="aboutTitle">
-						<u>The site</u>
-					</div>
-					This site also exists. I made it mostly to replace my old one.<br>
-					It's supposed to be a bit more serious (and actually look good)<br>
-					I'll probably keep updating it (until I forget it exists) with cool epic stuff<br>
-					Ok you can leave this page now and go do something else<br>
-					Like look at the epic stuff I've done on the projects page.
+				<div id="link">
+					<a href="about.html"> Contact Me </a>
 				</div>
-				<div class="aboutInfo">
-					<div class="aboutTitle">
-						<u>More about me</u>
-					</div>
-					You can find more information about myself on <a href="https://github.com/evelynproto">my Github.</a><br>
-					If you want to contact me (for any reason), just go to the contact page at the top and all my information is there.
+				<div id="link">
+					<a href="oldsite/index.html"> Old Site</a>
 				</div>
 			</div>
-		</section>
-	</body>
+		</div>
+		<div id="footer">
+			This site was made and maintained by <a href="https://github.com/EvelynProto"> EvelynProto </a>
+		</div>
+	</div>
+</body>
+<script src="typing.js"></script>
+<script>
+	var text = [{"text": "Hi! I'm still Evelyn!", "colour": null, "indent": null},
+				{"text": "I'm a trans girl (she/her) and I enjoy programming and playing video games in my spare time!", "colour": null, "indent": null},
+				{"text": "If you want to know more about pronouns and other stuff <a href='https://en.pronouns.page/@EvelynProto'>click here</a>", "colour": null, "indent": null},
+				{"text": "I have quite a bit of experience in programming (as you can see on the index)", "colour": null, "indent": null},
+				{"text": "I've also had brief stints in other stuff like:", "colour": null, "indent": null},
+				{"text": "[", "colour": null, "indent": null},
+				{"text": "3D modelling,", "colour": "#EB7700", "indent": 1},
+				{"text": "Drawing art", "colour": null, "indent": 1},
+				{"text": "]", "colour": null, "indent": null},
+				{"text": "I'm also currently trying to teach myself machine learning because it's pretty cool.", "colour": null, "indent": null},
+				{"text": "On another note, I quite like anime and you can find what I watch on my <a href='https://myanimelist.net/profile/EvelynProto'>MAL</a> profile.", "colour": null, "indent": null},
+				{"text": "If you want to explore the rest of the site, use the links below!", "colour": null, "indent": null},
+				{"text": "I hope you like it!", "colour": null, "indent": null}];
+	window.onload = onload();
+	function onload() {
+		document.addEventListener("keydown", keyDown);
+		setupTyping(text);
+		typing(text);
+	}
+</script>
 </html>

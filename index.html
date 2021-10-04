@@ -1,68 +1,144 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="shared.css">
-<link rel="stylesheet" href="navbar.css">
-<link rel="stylesheet" href="index.css">
-<link rel="icon" type="image/png" href="assets/favicon.png"/>
 <html lang="en">
-	<head>
-		<title>&lt;evelyn&gt;</title>
-		<script src="jquery.js"></script>
-		<script src="loader.js"></script>
-		<script src="p5.min.js"></script>
-		<script src="indexsketch.js"></script>
-		<meta property="og:title" content="evelyn"/>
-		<meta property="og:type" content="website"/>
-		<meta property="og:url" content="https://evelynproto.github.io/index.html"/>
-		<meta property="og:image" content="https://evelynproto.github.io/assets/favicon.png"/>
-		<meta property="og:description" content="The home of evelyn"/>
-		<meta name="theme-color" content="#e283d9">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	</head>
-	<body>
-		<div id="loading">
-			<p id="text" class="gradient">&lt;loading&gt;</p>
+<link rel="stylesheet" href="index.css">
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+</style>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta property="og:title" content="evelyn"/>
+	<meta property="og:type" content="website"/>
+	<meta property="og:url" content="https://evelynproto.github.io/new-site-wip/index.html"/>
+	<meta property="og:image" content="https://evelynproto.github.io/assets/favicon.png"/>
+	<meta property="og:description" content="Evelyn's Home Page"/>
+	<meta name="theme-color" content="#e283d9">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>&lt;evelyn&gt;</title>
+</head>
+<body>
+	<div id="typingDiv"></div>
+	<div id="site" class="invisible">
+		<div id="projects">
+			<div id="siteTransition"></div>
+			<div id="flex-column">
+				<div id="flex-row">
+					<div id="project">
+						<img id="project-image" src="assets/Platformer.png">
+						<div id="project-header">
+							Platformer
+						</div>
+						<div id="project-description">
+							A simple platformer made in pure Python. It's a bit buggy, but it's kinda functional?
+						</div>
+						<div id="project-links">
+							<a href="https://github.com/EvelynProto/Platformer" target="_blank">Github Repo</a>
+						</div>
+					</div>
+					<div id="project">
+						<img id="project-image" src="assets/CMDPlus.png">
+						<div id="project-header">
+							CMDPlus (CMD+)
+						</div>
+						<div id="project-description">
+							A project of mine aiming to emulate the command prompt along with some extra features.
+						</div>
+						<div id="project-links">
+							<a href="https://github.com/EvelynProto/CMDPlus" target="_blank">Github Repo</a>
+						</div>
+					</div>
+					<div id="project">
+						<img id="project-image" src="assets/Platformer.png">
+						<div id="project-header">
+							EvEngine
+						</div>
+						<div id="project-description">
+							My first attempt at a simple game engine. I might rewrite this in C++ so I can have OOP features.
+						</div>
+						<div id="project-links">
+							<a href="https://github.com/EvelynProto/EvEngine" target="_blank">Github Repo</a>
+						</div>
+					</div>
+					<div id="project">
+						<img id="project-image" src="assets/CMDPlus.png">
+						<div id="project-header">
+							ModKeeper
+						</div>
+						<div id="project-description">
+							A Discord bot with as many moderation features I could think of.
+						</div>
+						<div id="project-links">
+							(No links yet)
+						</div>
+					</div>
+				</div>
+				<div id="flex-row">
+					<div id="project">
+						<img id="project-image" src="assets/favicon.png">
+						<div id="project-header">
+							EvelynProto Site
+						</div>
+						<div id="project-description">
+							This site is my second ever proper website. (My previous one was this site before I redid it completely :p)
+						</div>
+						<div id="project-links">
+							<a href="https://github.com/EvelynProto/evelynproto.github.io" target="_blank">Github Repo</a>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<section>
-			<ul class="navbar">
-				<li class="evelyn"> <div class="gradient">&lt;evelyn&gt;</div> </li>
-				<li>
-					<a href="index.html" class="active">Home</a>
-				</li>
-				<li>
-					<a href="projects.html">Projects</a>
-				</li>
-				<li>
-					<a href="contact.html">Contact</a>
-				</li>
-				<li>
-					<a href="about.html">About</a>
-				</li>
-				<li class="hamburger">
-					<a class="hamburger" onclick="openMenu()"></a>
-				</li>
-			</ul>
-			<div class="spacer"></div>
-		</section>
-		<main></main>
-		<div class="center">
-			<div class="socialColumn">
-				<a href="https://twitter.com/EvelynProto">
-					<img src="assets/Twitter.svg" alt="Twitter" style="width:100%;">
-				</a>
+		<div id="links">
+			<div id="siteTransition" class="upsideDown"></div>
+			<div id="flex-row">
+				<div id="link">
+					<a href="about.html"> About Me </a>
+				</div>
+				<div id="link">
+					<a href="contact.html"> Contact Me </a>
+				</div>
+				<div id="link">
+					<a href="oldsite/index.html"> Old Site</a>
+				</div>
 			</div>
-			<div class="socialColumn">
-				<a href="https://steamcommunity.com/id/EvelynProto/">
-					<img src="assets/Steam.svg" alt="Steam" style="width:100%;">
-				</a>
-			</div>
-			<div class="socialColumn">
-				<a href="https://github.com/EvelynProto">
-					<img src="assets/Github.svg" alt="GitHub" style="width:90%;">
-				</a>
-			</div>
-			<br><br><br><br><br><br>
-			welcome to
-			<div class="gradient">&lt;evelyn&gt;</div>
 		</div>
-	</body>
+		<div id="footer">
+			This site was made and maintained by <a href="https://github.com/EvelynProto"> EvelynProto </a>
+		</div>
+	</div>
+</body>
+<script src="typing.js"></script>
+<script>
+	var text = [{"text": "Hi! I'm Evelyn!", "colour": null, "indent": null},
+				{"text": "Welcome to my new site!", "colour": null, "indent": null},
+				{"text": "I am a programmer, and enjoy playing video games in my spare time.", "colour": null, "indent": null},
+				{"text": "I currently know how to code in:", "colour": null, "indent": null},
+				{"text": "[", "colour": null, "indent": null},
+				{"text": "Python (4 years experience),", "colour": "#3E7BAC", "indent": 1},
+				{"text": "C (8 months experience),", "colour": "#A9BACD", "indent": 1},
+				{"text": "C# (8 months experience),", "colour": "#189F20", "indent": 1},
+				{"text": "JS (2 months experience),", "colour": "#EE3C4D", "indent": 1},
+				{"text": "VueJS (1 month experience),", "colour": "#41B883", "indent": 1},
+				{"text": "HTML (3 months experience),", "colour": "#E44D26", "indent": 1},
+				{"text": "CSS (3 months experience)", "colour": "#214CE5", "indent": 1},
+				{"text": "]", "colour": null, "indent": null},
+				{"text": "I have made:", "colour": null, "indent": null},
+				{"text": "[", "colour": null, "indent": null},
+				{"text": "Discord bots,", "colour": "#5865F2", "indent": 1},
+				{"text": "A simple game engine,", "colour": "#00FF75", "indent": 1},
+				{"text": "Front-end for flyLAT,", "colour": "#41B883", "indent": 1},
+				{"text": "Basic command line software", "colour": "#0C0C0C", "indent": 1},
+				{"text": "]", "colour": null, "indent": null},
+				{"text": "I'm mostly self-taught, but school did help to start me creating software.", "colour": null, "indent": null},
+				{"text": "This site exists to act as a home page for most of my projects, and to test out my HTML/CSS/JS skills.", "colour": null, "indent": null},
+				{"text": "I'll keep this up-to-date with new stuff I make.", "colour": null, "indent": null},
+				{"text": "For more information you can look below!", "colour": null, "indent": null},
+				{"text": "Note: If you want to skip these typing animations, press enter!", "colour": null, "indent": null}];
+	window.onload = onload();
+	function onload() {
+		document.addEventListener("keydown", keyDown);
+		setupTyping(text);
+		typing(text);
+	}
+</script>
 </html>
