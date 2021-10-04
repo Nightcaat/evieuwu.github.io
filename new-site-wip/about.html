@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="about.css">
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+</style>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta property="og:title" content="evelyn"/>
+	<meta property="og:type" content="website"/>
+	<meta property="og:url" content="https://evelynproto.github.io/new-site-wip/contact.html"/>
+	<meta property="og:image" content="https://evelynproto.github.io/assets/favicon.png"/>
+	<meta property="og:description" content="Contact Evelyn"/>
+	<meta name="theme-color" content="#e283d9">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>&lt;About Evelyn&gt;</title>
+</head>
+<body>
+	<div id="typingDiv"></div>
+	<div id="site" class="invisible">
+		<div id="links">
+			<div id="siteTransition"></div>
+			<div id="flex-row">
+				<div id="link">
+					<a href="index.html"> Index </a>
+				</div>
+				<div id="link">
+					<a href="about.html"> Contact Me </a>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			This site was made and maintained by <a href="https://github.com/EvelynProto"> EvelynProto </a>
+		</div>
+	</div>
+</body>
+<script src="typing.js"></script>
+<script>
+	var text = [{"text": "Hi! I'm still Evelyn!", "colour": null, "indent": null},
+				{"text": "I'm a trans girl (she/her) and I enjoy programming and playing video games in my spare time!", "colour": null, "indent": null},
+				{"text": "If you want to know more about pronouns and other stuff <a href='https://en.pronouns.page/@EvelynProto'>click here</a>: ", "colour": null, "indent": null},
+				{"text": "I have quite a bit of experience in programming (as you can see on the index)", "colour": null, "indent": null},
+				{"text": "I've also had brief stints in other stuff like:", "colour": null, "indent": null},
+				{"text": "[", "colour": null, "indent": null},
+				{"text": "3D modelling,", "colour": "#EB7700", "indent": 1},
+				{"text": "Drawing art", "colour": null, "indent": 1},
+				{"text": "]", "colour": null, "indent": null},
+				{"text": "I'm also currently trying to teach myself machine learning because it's pretty cool.", "colour": null, "indent": null},
+				{"text": "On another note, I quite like anime and you can find what I watch on my <a href='https://myanimelist.net/profile/EvelynProto'>MAL</a> profile.", "colour": null, "indent": null},
+				{"text": "If you want to explore the rest of the site, use the links below!", "colour": null, "indent": null},
+				{"text": "I hope you like it!", "colour": null, "indent": null}];
+	window.onload = onload();
+	function onload() {
+		document.addEventListener("keydown", keyDown);
+		setupTyping(text);
+		typing(text);
+	}
+</script>
+</html>

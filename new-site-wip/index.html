@@ -11,7 +11,7 @@
 	<meta property="og:type" content="website"/>
 	<meta property="og:url" content="https://evelynproto.github.io/new-site-wip/index.html"/>
 	<meta property="og:image" content="https://evelynproto.github.io/assets/favicon.png"/>
-	<meta property="og:description" content="The home of evelyn"/>
+	<meta property="og:description" content="Evelyn's Home Page"/>
 	<meta name="theme-color" content="#e283d9">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>&lt;evelyn&gt;</title>
@@ -29,8 +29,7 @@
 							Platformer
 						</div>
 						<div id="project-description">
-							A simple platformer made in pure Python.<br>
-							It's a bit buggy, but it's sorta fun?
+							A simple platformer made in pure Python. It's a bit buggy, but it's kinda functional?
 						</div>
 						<div id="project-links">
 							<a href="https://github.com/EvelynProto/Platformer" target="_blank">Github Repo</a>
@@ -105,19 +104,20 @@
 		</div>
 	</div>
 </body>
+<script src="typing.js"></script>
 <script>
 	var text = [{"text": "Hi! I'm Evelyn!", "colour": null, "indent": null},
 				{"text": "Welcome to my new site!", "colour": null, "indent": null},
 				{"text": "I am a programmer, and enjoy playing video games in my spare time.", "colour": null, "indent": null},
 				{"text": "I currently know how to code in:", "colour": null, "indent": null},
 				{"text": "[", "colour": null, "indent": null},
-				{"text": "Python,", "colour": "#3E7BAC", "indent": 1},
-				{"text": "C,", "colour": "#A9BACD", "indent": 1},
-				{"text": "C#,", "colour": "#189F20", "indent": 1},
-				{"text": "JS,", "colour": "#EE3C4D", "indent": 1},
-				{"text": "VueJS,", "colour": "#41B883", "indent": 1},
-				{"text": "HTML,", "colour": "#E44D26", "indent": 1},
-				{"text": "CSS", "colour": "#214CE5", "indent": 1},
+				{"text": "Python (4 years experience),", "colour": "#3E7BAC", "indent": 1},
+				{"text": "C (8 months experience),", "colour": "#A9BACD", "indent": 1},
+				{"text": "C# (8 months experience),", "colour": "#189F20", "indent": 1},
+				{"text": "JS (2 months experience),", "colour": "#EE3C4D", "indent": 1},
+				{"text": "VueJS (1 month experience),", "colour": "#41B883", "indent": 1},
+				{"text": "HTML (3 months experience),", "colour": "#E44D26", "indent": 1},
+				{"text": "CSS (3 months experience)", "colour": "#214CE5", "indent": 1},
 				{"text": "]", "colour": null, "indent": null},
 				{"text": "I have made:", "colour": null, "indent": null},
 				{"text": "[", "colour": null, "indent": null},
@@ -130,83 +130,11 @@
 				{"text": "This site exists to act as a home page for most of my projects, and to test out my HTML/CSS/JS skills.", "colour": null, "indent": null},
 				{"text": "I'll keep this up-to-date with new stuff I make.", "colour": null, "indent": null},
 				{"text": "For more information you can look below!", "colour": null, "indent": null}];
-	for (var i = 0; i < text.length; i++) {
-		var t = document.createElement("div");
-		t.id = "typing";
-		t.classList.add("invisible");
-		var obj = text[i];
-		if (obj["colour"] !== null) {
-			t.style.color = obj["colour"];
-		}
-		if (obj["indent"] !== null) {
-			t.style.paddingLeft = 32 + (obj["indent"] * 64) + "px";
-		}
-		document.getElementById("typingDiv").appendChild(t);
-	}
-	var elements = document.getElementById("typingDiv").children;
-	var textInc = 0;
-	var textIndex = 0;
-	var speed = 25;
-	var currentScroll = 0;
-	var skipAnim = false;
 	window.onload = onload();
-
 	function onload() {
 		document.addEventListener("keydown", keyDown);
-		typing();
-	}
-
-	function keyDown(e) {
-		if (e.keyCode == 13) {
-			skipAnim = true;
-			document.removeEventListener("keydown", keyDown);
-		}
-	}
-
-	function doTypingAnim() {
-		if (textInc < text[textIndex]["text"].length) {
-			for (var i = 0; i < elements[textIndex].classList.length; i++) {
-				if ("invisible" === elements[textIndex].classList[i]) {
-					elements[textIndex].classList.remove("invisible");
-					break;
-				}
-			}
-			if (elements[textIndex].childNodes.length === 0) {
-				elements[textIndex].innerHTML = text[textIndex]["text"].substring(0, textInc + 1) +'<span aria-hidden="true"></span>';
-			} else {
-				var change = elements[textIndex].childNodes[0];
-				change.nodeValue = text[textIndex]["text"].substring(0, textInc + 1);
-			}	
-			textInc++;
-			window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
-			currentScroll = document.body.scrollHeight;
-		} else {
-			textInc = 0;
-			textIndex++;
-			if (textIndex >= text.length) {
-				document.getElementById("site").classList.remove("invisible");
-				setTimeout(function() {
-					window.scrollTo({ top: currentScroll - window.innerHeight + 500, behavior: 'smooth' });
-				}.bind(this), 500);
-				return;
-			}
-			elements[textIndex - 1].innerHTML = text[textIndex - 1]["text"];
-		}
-	}
-
-	function typing() {
-		if (skipAnim) {
-			while (textIndex < text.length) {
-				doTypingAnim();
-			}
-		}
-		if (textInc < text[textIndex]["text"].length) {
-			doTypingAnim();
-			setTimeout(typing, speed);
-		} else {
-			doTypingAnim();
-			setTimeout(typing, speed * 5);
-		}
+		setupTyping(text);
+		typing(text);
 	}
 </script>
 </html>
