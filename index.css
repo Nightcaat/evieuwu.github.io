@@ -81,7 +81,7 @@ div#siteTransition {
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 150px;
-	width: 101%; /* Jank hack to fix the 1px gaps on either side.*/
+	width: 110%; /* Jank hack to fix the 1px gaps on either side.*/
 	left: -10px;
 	position: relative;
 }
@@ -205,5 +205,26 @@ span {
 		background-color: #ffc857;
 		box-shadow: 5px 5px #B28C3C;
 		margin-bottom: 32px;
+	}
+	a {
+		color: #6930c3;
+		text-decoration: none;
+		transition-duration: 0.5s;
+	}
+	
+	a:visited {
+		color: #6930c3;
+	}
+	
+	a:hover {
+		color: #72efdd;
+		text-decoration: none;
+		transition-duration: 0.25s;
+	}
+	
+	a:active {
+		color: #72efdd;
+		text-decoration: none;
+		transition-duration: 0.25s;
 	}
 }
