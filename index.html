@@ -19,7 +19,7 @@
 <body>
 	<div id="typingDiv"></div>
 	<div id="site" class="invisible">
-		<div id="projects">
+		<div id="projects" class="pc">
 			<div id="siteTransition"></div>
 			<div id="flex-column">
 				<div id="flex-row">
@@ -47,6 +47,77 @@
 							<a href="https://github.com/EvelynProto/CMDPlus" target="_blank">Github Repo</a>
 						</div>
 					</div>
+					<div id="project">
+						<img id="project-image" src="assets/Platformer.png">
+						<div id="project-header">
+							EvEngine
+						</div>
+						<div id="project-description">
+							My first attempt at a simple game engine. I might rewrite this in C++ so I can have OOP features.
+						</div>
+						<div id="project-links">
+							<a href="https://github.com/EvelynProto/EvEngine" target="_blank">Github Repo</a>
+						</div>
+					</div>
+					<div id="project">
+						<img id="project-image" src="assets/CMDPlus.png">
+						<div id="project-header">
+							ModKeeper
+						</div>
+						<div id="project-description">
+							A Discord bot with as many moderation features I could think of.
+						</div>
+						<div id="project-links">
+							(No links yet)
+						</div>
+					</div>
+				</div>
+				<div id="flex-row">
+					<div id="project">
+						<img id="project-image" src="assets/favicon.png">
+						<div id="project-header">
+							EvelynProto Site
+						</div>
+						<div id="project-description">
+							This site is my second ever proper website. (My previous one was this site before I redid it completely :p)
+						</div>
+						<div id="project-links">
+							<a href="https://github.com/EvelynProto/evelynproto.github.io" target="_blank">Github Repo</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="projects" class="invisible mobile">
+			<div id="siteTransition"></div>
+			<div id="flex-column">
+				<div id="flex-row">
+					<div id="project">
+						<img id="project-image" src="assets/Platformer.png">
+						<div id="project-header">
+							Platformer
+						</div>
+						<div id="project-description">
+							A simple platformer made in pure Python. It's a bit buggy, but it's kinda functional?
+						</div>
+						<div id="project-links">
+							<a href="https://github.com/EvelynProto/Platformer" target="_blank">Github Repo</a>
+						</div>
+					</div>
+					<div id="project">
+						<img id="project-image" src="assets/CMDPlus.png">
+						<div id="project-header">
+							CMDPlus (CMD+)
+						</div>
+						<div id="project-description">
+							A project of mine aiming to emulate the command prompt along with some extra features.
+						</div>
+						<div id="project-links">
+							<a href="https://github.com/EvelynProto/CMDPlus" target="_blank">Github Repo</a>
+						</div>
+					</div>
+				</div>
+				<div id="flex-row">
 					<div id="project">
 						<img id="project-image" src="assets/Platformer.png">
 						<div id="project-header">
@@ -136,6 +207,18 @@
 				{"text": "Note: If you want to skip these typing animations, press enter!", "colour": null, "indent": null}];
 	window.onload = onload();
 	function onload() {
+		const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+		const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+		if (vw <= 800) {
+			elements = document.getElementsByClassName("mobile");
+			for (var i = 0; i < elements.length; i++) {
+				elements[i].classList.remove("invisible");
+			}
+			elements = document.getElementsByClassName("pc");
+			for (var i = 0; i < elements.length; i++) {
+				elements[i].classList.add("invisible");
+			}
+		}
 		document.addEventListener("keydown", keyDown);
 		setupTyping(text);
 		typing(text);

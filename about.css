@@ -113,3 +113,26 @@ span {
 	from, to { border-color: #ffc857; }
 	50% { border-color: transparent }
 }
+
+@media (max-width: 800px) {
+	div #typing {
+		padding-top: 8px;
+		font-size: 24px;
+		font-family: 'Anonymous Pro', monospace;
+		padding-left: 32px;
+		padding-bottom: 4px;
+		margin-right: 32px;
+	}
+	div#link {
+		background: #FFC857;
+		box-shadow: 5px 5px #B28C3C;
+		margin: 10px;
+		color: #7400b8;
+		border-radius: 10% / 30%;
+		font-size: 18px;
+		width: 150px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+	}
+}
