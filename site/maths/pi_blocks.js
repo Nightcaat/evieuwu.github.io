@@ -82,6 +82,9 @@ function draw() {
 		if (block1.hitWall()) {
 			block1.vel = -block1.vel;
 			count++;
+			if (block1.vel > 0 && block2.vel > 0 && block2.vel > block1.vel) {
+				createDiv("<h1>Will not collide again.</h1>");
+			}
 		}
 
 		block1.update();

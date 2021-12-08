@@ -78,12 +78,25 @@ div#project div#project-links {
 
 div#siteTransition {
 	background-image: url("assets/wave.svg");
-	background-repeat: no-repeat;
+	background-repeat: repeat;
 	background-size: cover;
 	height: 150px;
-	width: 110%; /* Jank hack to fix the 1px gaps on either side.*/
-	left: -10px;
+	width: 120%; /* Jank hack to fix the 1px gaps on either side.*/
+	left: -30px;
 	position: relative;
+	animation: sliding 2s infinite;
+}
+
+@keyframes sliding {
+	0% {
+		left: -30px;
+	}
+	50% {
+		left: -10px;
+	}
+	100% {
+		left: -30px;
+	}
 }
 
 div.upsideDown {
@@ -206,6 +219,7 @@ span {
 		box-shadow: 5px 5px #B28C3C;
 		margin-bottom: 32px;
 	}
+
 	a {
 		color: #6930c3;
 		text-decoration: none;
