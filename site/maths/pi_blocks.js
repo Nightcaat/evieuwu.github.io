@@ -2,7 +2,7 @@ var block1;
 var block2;
 var count = 0;
 var digits = 1;
-var timeSteps = 10 ** digits;
+var timeSteps = 8 ** digits;
 var go = false;
 
 function Box() {
@@ -43,7 +43,7 @@ function setup() {
 	digitsSlider = createSlider(1, 6, 1, 1);
 	digits = digitsSlider.value();
 	digitsDiv = createDiv("<h4>Calculating Pi to " + digits + " digits.</h4>");
-	frameRate(30);
+	frameRate(60);
 	block1 = new Box();
 	block1.vel = 0;
 	block2 = new Box();
@@ -60,7 +60,7 @@ function draw() {
 	if (digitsSlider.value() !== digits) {
 		digits = digitsSlider.value();
 		block2.mass = pow(100, digits - 1);
-		timeSteps = 10 ** digits;
+		timeSteps = 8 ** digits;
 		block2.vel = -2 / timeSteps;
 		digitsDiv.html("<h4>Calculating Pi to " + digits + " digits.</h4>");
 	}
@@ -73,7 +73,7 @@ function draw() {
 			let v2 = block2.bounce(block1);
 			block1.vel = v1;
 			block2.vel = v2;
-			if (v1 > 0 && v2 > 0 && v2 > v1) {
+			if (v1 >= 0 && v2 > 0 && v2 > v1) {
 				createDiv("<h1>Will not collide again.</h1>");
 			}
 			count++;
@@ -82,7 +82,7 @@ function draw() {
 		if (block1.hitWall()) {
 			block1.vel = -block1.vel;
 			count++;
-			if (block1.vel > 0 && block2.vel > 0 && block2.vel > block1.vel) {
+			if (block1.vel >= 0 && block2.vel > 0 && block2.vel > block1.vel) {
 				createDiv("<h1>Will not collide again.</h1>");
 			}
 		}
