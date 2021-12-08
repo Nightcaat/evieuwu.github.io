@@ -81,21 +81,21 @@ div#siteTransition {
 	background-repeat: repeat;
 	background-size: cover;
 	height: 150px;
-	width: 120%; /* Jank hack to fix the 1px gaps on either side.*/
+	width: 105%; /* Jank hack to fix the 1px gaps on either side.*/
 	left: -30px;
 	position: relative;
-	animation: sliding 2s infinite;
+	animation: sliding 5s infinite ease-in-out;
 }
 
 @keyframes sliding {
 	0% {
-		left: -30px;
+		left: -5%;
 	}
 	50% {
-		left: -10px;
+		left: -1%;
 	}
 	100% {
-		left: -30px;
+		left: -5%;
 	}
 }
 
