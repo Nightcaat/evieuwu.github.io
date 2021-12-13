@@ -190,7 +190,6 @@
 				{"text": "[", "colour": null, "indent": null},
 				{"text": "Python (4 years experience),", "colour": "#3E7BAC", "indent": 1},
 				{"text": "C (8 months experience),", "colour": "#A9BACD", "indent": 1},
-				{"text": "C# (8 months experience),", "colour": "#189F20", "indent": 1},
 				{"text": "JS (2 months experience),", "colour": "#EE3C4D", "indent": 1},
 				{"text": "VueJS (1 month experience),", "colour": "#41B883", "indent": 1},
 				{"text": "HTML (3 months experience),", "colour": "#E44D26", "indent": 1},
@@ -207,7 +206,7 @@
 				{"text": "This site exists to act as a home page for most of my projects, and to test out my HTML/CSS/JS skills.", "colour": null, "indent": null},
 				{"text": "I'll keep this up-to-date with new stuff I make.", "colour": null, "indent": null},
 				{"text": "For more information you can look below!", "colour": null, "indent": null},
-				{"text": "Note: If you want to skip these typing animations, press enter!", "colour": null, "indent": null}];
+				{"text": "Note: If you want to skip these typing animations, press enter (or tap the screen on mobile)!", "colour": null, "indent": null}];
 	window.onload = onload();
 	function onload() {
 		const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
@@ -223,6 +222,7 @@
 			}
 		}
 		document.addEventListener("keydown", keyDown);
+		document.addEventListener("click", click);
 		setupTyping(text);
 		typing(text);
 	}

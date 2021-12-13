@@ -12,6 +12,11 @@ function keyDown(e) {
 	}
 }
 
+function click(e) {
+	skipAnim = true;
+	document.removeEventListener("click", click);
+}
+
 function doTypingAnim(text) {
 	if (textInc < text[textIndex]["text"].length) {
 		for (var i = 0; i < elements[textIndex].classList.length; i++) {
@@ -65,6 +70,10 @@ function typing(text) {
 		while (textIndex < text.length) {
 			doTypingAnim(text);
 		}
+		return;
+	}
+	if (textIndex >= text.length) {
+		return;
 	}
 	if (textInc < text[textIndex]["text"].length) {
 		doTypingAnim(text);
