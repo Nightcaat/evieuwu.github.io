@@ -48,7 +48,13 @@ function draw() {
 		textSize(100);
 		textAlign(CENTER, CENTER);
 		stroke(255);
-		text(whoWon + " wins!", 300, 300);
+		if (whoWon === "O" && ai) {
+			text("AI wins!", 300, 300);
+		} else if (whoWon === "X" && ai) {
+			text("You win!", 300, 300);
+		} else {
+			text(whoWon + " wins!", 300, 300);
+		}
 		prevWinColour++;
 		if (prevWinColour > 255) {
 			prevWinColour = 0;
@@ -227,7 +233,7 @@ function getMove() {
 		if (ttt[1][1] === "X" && ttt[2][2] === "X" && ttt[0][0] === null) {
 			return [0, 0];
 		}
-		if ((ttt[0][0] === "X" && ttt[2][2] === "X") || (ttt[0][2] === "X" && ttt[2][0] === "X") && ttt[1][1] === null) {
+		if (((ttt[0][0] === "X" && ttt[2][2] === "X") || (ttt[0][2] === "X" && ttt[2][0] === "X")) && ttt[1][1] === null) {
 			return [1, 1];
 		}
 		if (ttt[0][2] === "X" && ttt[1][1] === "X" && ttt[2][0] === null) {
