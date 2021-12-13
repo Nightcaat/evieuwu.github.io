@@ -24,6 +24,7 @@ div#site {
 
 div#flex-row {
 	display: flex;
+	flex-wrap: wrap;
 	width: 100%;
 	flex-direction: row;
 	justify-content: space-around;
@@ -43,7 +44,9 @@ div#project {
 	border-radius: 10%;
 	background-color: #ffc857;
 	box-shadow: 5px 5px #B28C3C;
-	margin-bottom: 32px;
+	margin: 16px;
+	margin-left: 32px;
+	margin-right: 32px;
 }
 
 div#project img#project-image {
