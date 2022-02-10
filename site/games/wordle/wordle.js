@@ -9,6 +9,20 @@ var won = false;
 var lost = false;
 var prevGuesses = [0, 0, 0, 0, 0, 0, 0];
 
+function resetScores() {
+	prevGuesses = [0, 0, 0, 0, 0, 0, 0];
+	localStorage.setItem("ev_wordle_guesses", JSON.stringify(prevGuesses));
+}
+
+function resetGame() {
+	selected_word = guess_words[Math.floor(Math.random() * guess_words.length)];
+	guesses = [];
+	guesses_colour = [];
+	current_guess = "";
+	won = false;
+	lost = false;
+}
+
 function setup() {
 	createCanvas(1200, 800);
 	background(200);
