@@ -41,11 +41,11 @@ div#flex-column {
 }
 
 div#project {
-	width: 250px;
-	height: 250px;
-	border-radius: 10%;
+	width: 300px;
+	height: 300px;
+	border-radius: 5%;
 	background-color: #ffc857;
-	box-shadow: 5px 5px #B28C3C;
+	box-shadow: 4px 4px #B28C3C;
 	margin: 16px;
 	margin-left: 32px;
 	margin-right: 32px;
@@ -120,7 +120,7 @@ div#links, div#footer {
 
 div#link {
 	background: #FFC857;
-	box-shadow: 5px 5px #B28C3C;
+	box-shadow: 3px 3px #B28C3C;
 	margin: 10px;
 	color: #7400b8;
 	border-radius: 10% / 30%;
