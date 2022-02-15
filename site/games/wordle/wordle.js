@@ -125,6 +125,16 @@ function keyPressed() {
 			won = true;
 			prevGuesses[guesses.length - 1]++;
 			localStorage.setItem("ev_wordle_guesses", JSON.stringify(prevGuesses));
+			current_guess = "";
+			return;
+		}
+		letters = {};
+		for (var i = 0; i < 5; i++) {
+			if (letters[selected_word[i]]) {
+				letters[selected_word[i]]["total"] += 1;
+			} else {
+				letters[selected_word[i]] = {"total": 1, "green": 0, "yellow": 0, "current_yellows": 0};
+			}
 		}
 		finalArr = [];
 		for (var i = 0; i < 5; i++) {
@@ -132,11 +142,29 @@ function keyPressed() {
 			if (indexes.indexOf(-1) != -1) {
 				finalArr.push("wrong");
 			} else if (indexes.indexOf(i) != -1) {
+				letters[current_guess[i]]["green"] += 1;
 				finalArr.push("green");
 			} else {
+				letters[current_guess[i]]["yellow"] += 1;
 				finalArr.push("yellow");
 			}
 		}
+
+		for (var i = 0; i < 5; i++) {
+			if (finalArr[i] === "green" || finalArr[i] === "wrong") {
+				continue;
+			}	
+			if (letters[current_guess[i]]["green"] == letters[current_guess[i]]["total"]) {
+				finalArr[i] = "wrong";
+				continue;
+			}
+			if (letters[current_guess[i]]["total"] <= letters[current_guess[i]]["current_yellows"]) {
+				finalArr[i] = "wrong";
+				continue;
+			}
+			letters[current_guess[i]]["current_yellows"] += 1;
+		}
+
 		guesses_colour.push(finalArr);
 		current_guess = "";
 		if (guesses.length == 6 && !won) {
