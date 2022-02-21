@@ -168,16 +168,13 @@
 					<a href="about.html"> About Me </a>
 				</div>
 				<div id="link">
-					<a href="oldsite/index.html"> Old Site</a>
-				</div>
-				<div id="link">
 					<a href="site/index.html"> Site Contents </a>
 				</div>
 			</div>
 		</div>
-		<div id="footer">
+		<footer id="footer">
 			This site was made and maintained by <a href="https://github.com/EvieUwU"> EvieUwU </a>
-		</div>
+		</footer>
 	</div>
 </body>
 <script src="typing.js"></script>
@@ -194,23 +191,6 @@
 				{"text": "Before you add me on any platform, message me to say that you're from my site.", "colour": null, "indent": null},
 				{"text": "I've been getting a lot of spam from bots so I might just block you otherwise.", "colour": null, "indent": null},
 				{"text": "Also, you'll get the fastest response on Discord, since I'm most active on there.", "colour": null, "indent": null},];
-	window.onload = onload();
-	function onload() {
-		const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-		const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-		if (vw <= 800) {
-			elements = document.getElementsByClassName("mobile");
-			for (var i = 0; i < elements.length; i++) {
-				elements[i].classList.remove("invisible");
-			}
-			elements = document.getElementsByClassName("pc");
-			for (var i = 0; i < elements.length; i++) {
-				elements[i].classList.add("invisible");
-			}
-		}
-		document.addEventListener("keydown", keyDown);
-		setupTyping(text);
-		typing(text);
-	}
+	window.onload = text_onload(text);
 </script>
 </html>

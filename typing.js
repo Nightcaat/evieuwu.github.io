@@ -5,6 +5,13 @@ var speed = 25;
 var currentScroll = 0;
 var skipAnim = false;
 
+function text_onload(text) {
+	document.addEventListener("keydown", keyDown);
+	document.addEventListener("click", click);
+	setupTyping(text);
+	typing(text);
+}
+
 function keyDown(e) {
 	if (e.keyCode == 13) {
 		skipAnim = true;

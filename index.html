@@ -97,9 +97,9 @@
 				</div>
 			</div>
 		</div>
-		<div id="footer">
+		<footer id="footer">
 			This site was made and maintained by <a href="https://github.com/EvieUwU"> EvieUwU </a>
-		</div>
+		</footer>
 	</div>
 </body>
 <script src="typing.js"></script>
@@ -128,12 +128,6 @@
 				{"text": "I'll keep this up-to-date with new stuff I make.", "colour": null, "indent": null},
 				{"text": "For more information you can look below!", "colour": null, "indent": null},
 				{"text": "Note: If you want to skip these typing animations, press enter (or tap the screen on mobile)!", "colour": null, "indent": null}];
-	window.onload = onload();
-	function onload() {
-		document.addEventListener("keydown", keyDown);
-		document.addEventListener("click", click);
-		setupTyping(text);
-		typing(text);
-	}
+	window.onload = text_onload(text);
 </script>
 </html>

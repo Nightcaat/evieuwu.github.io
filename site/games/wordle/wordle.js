@@ -8,6 +8,11 @@ var current_guess = "";
 var won = false;
 var lost = false;
 var prevGuesses = [0, 0, 0, 0, 0, 0, 0];
+var squares = {
+	"green": "🟩",
+	"yellow": "🟨",
+	"wrong": "⬛",
+};
 
 function resetScores() {
 	prevGuesses = [0, 0, 0, 0, 0, 0, 0];
@@ -113,6 +118,8 @@ function draw() {
 function keyPressed() {
 	if (keyCode == 13) { // Enter/Return
 		if (current_guess.length !== 5) {
+			createPopup("Please enter all 5 letters!");
+			current_guess = "";
 			return;
 		}
 		if (words.indexOf(current_guess) == -1) {
@@ -171,6 +178,7 @@ function keyPressed() {
 			lost = true;
 			prevGuesses[6]++;
 			localStorage.setItem("ev_wordle_guesses", JSON.stringify(prevGuesses));
+			createPopup(`The word was ${selected_word}`);
 		}
 		return;
 	}
@@ -196,4 +204,21 @@ function getAllIndexes(arr, val) {
 		indexes.push(-1);
 	}
 	return indexes;
+}
+
+function copyGame() {
+	var status = lost ? "X" : guesses.length;
+	var to_copy = `>> ${selected_word} << (${status}/6)\n`;
+	for (var i = 0; i < guesses_colour.length; i++) {
+		var final = "";
+		for (var j = 0; j < 5; j++) {
+			final += squares[guesses_colour[i][j]];
+		}
+		to_copy += `${guesses[i]}: ${final}\n`;
+	}
+	navigator.clipboard.writeText(to_copy).then(function() {
+		createPopup("Game copied to clipboard");
+	}, function() {
+		createPopup("Failed to copy game to clipboard");
+	});
 }

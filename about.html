@@ -26,16 +26,13 @@
 					<a href="contact.html"> Contact Me </a>
 				</div>
 				<div id="link">
-					<a href="oldsite/index.html"> Old Site</a>
-				</div>
-				<div id="link">
 					<a href="site/index.html"> Site Contents </a>
 				</div>
 			</div>
 		</div>
-		<div id="footer">
+		<footer id="footer">
 			This site was made and maintained by <a href="https://github.com/EvieUwU"> EvieUwU </a>
-		</div>
+		</footer>
 	</div>
 </body>
 <script src="typing.js"></script>
@@ -53,15 +50,10 @@
 				{"text": "On another note, I quite like anime and you can find what I watch on my <a href='https://myanimelist.net/profile/EvelynProto'>MAL</a> profile.", "colour": null, "indent": null},
 				{"text": "If you want to explore the rest of the site, use the links below!", "colour": null, "indent": null},
 				{"text": "I hope you like it!", "colour": null, "indent": null}];
-	window.onload = onload();
-	function onload() {
-		document.addEventListener("keydown", keyDown);
-		setupTyping(text);
-		typing(text);
-	}
+	window.onload = text_onload(text);
 </script>
 <style>
-div#links, div#footer {
+div#links, footer#footer {
 	background-color:#177e89;
 	padding-bottom: 0px;
 	margin-bottom: 0px;

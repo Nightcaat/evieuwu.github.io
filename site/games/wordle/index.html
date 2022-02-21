@@ -11,17 +11,36 @@
 			<a href="../index.html">&lt; Back</a>
 			<br style="margin-bottom:16px;">
 		</div>
+		<div id="popups">
+			
+		</div>
 		<main id="main"></main>
 		<button type="button" onclick="resetGame()">Reset</button>
-		<button type="button" onclick="resetScores()" style="margin-top:8px;">Reset Scores</button>
-		<div id="footer">
+		<button type="button" onclick="copyGame()" style="margin-top:8px;">Copy Game</button>
+		<footer id="footer">
 			This site was made and maintained by <a href="https://github.com/EvieUwU"> EvieUwU </a>
-		</div>
+		</footer>
 	</body>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
 	<script src="words.js"></script>
 	<script src="wordle.js"></script>
+	<script>
+		function createPopup(text) {
+			el = document.createElement("div");
+			el.className = "popup fadeIn";
+			el.innerText = text;
+			document.getElementById("popups").appendChild(el);
+			setTimeout(() => {
+				el.className = "popup";
+				setTimeout(() => {
+					el.className = "popup fadeOut";
+					setTimeout(() => {
+						document.getElementById("popups").removeChild(el);
+					}, 250);
+				}, 2000);
+			}, 250);
+		}
+	</script>
 	<style>
 		body, html {
 			margin: 0;
@@ -36,6 +55,36 @@
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
+		}
+		#popups {
+			position: absolute;
+			width: auto;
+			height: auto;
+			top: 10vh;
+		}
+		#popups div {
+			background-color: rgba(69, 0, 97, 0.75);
+			border-radius: 16px;
+			padding: 8px;
+			transform: translateX(-50%);
+			position: absolute;
+			width: 200px;
+			height: auto;
+			text-align: center;
+		}
+		.fadeOut {
+			animation: 0.25s ease-out 0s 1 forwards fadeOut;
+		}
+		.fadeIn {
+			animation: 0.25s ease-in 0s 1 reverse fadeOut;
+		}
+		@keyframes fadeOut {
+			0% {
+				top: 0px;
+			}
+			100% {
+				top: -200px;
+			}
 		}
 	</style>
 </html>

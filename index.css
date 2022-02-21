@@ -43,7 +43,7 @@ div#flex-column {
 div#project {
 	width: 300px;
 	height: 300px;
-	border-radius: 5%;
+	border-radius: 16px;
 	background-color: #ffc857;
 	box-shadow: 4px 4px #B28C3C;
 	margin: 16px;
@@ -108,7 +108,7 @@ div.upsideDown {
 	transform: rotate(180deg);
 }
 
-div#links, div#footer {
+div#links, footer#footer {
 	background-color: #084C61;
 }
 
@@ -153,7 +153,7 @@ a:active {
 	text-decoration: none;
 }
 
-div#footer {
+footer {
 	color: #94d2bd;
 	font-size: 14px;
 	margin-bottom: 8px;
@@ -174,76 +174,34 @@ span {
 		padding-top: 8px;
 		font-size: 24px;
 		font-family: 'Anonymous Pro', monospace;
-		padding-left: 32px;
 		padding-bottom: 4px;
-		margin-right: 32px;
 	}
 	div#link {
-		background: #FFC857;
 		box-shadow: 5px 5px #B28C3C;
-		margin: 10px;
-		color: #7400b8;
-		border-radius: 10% / 30%;
 		font-size: 18px;
-		width: 150px;
-		height: 50px;
-		line-height: 50px;
-		text-align: center;
 	}
 	div#project img#project-image {
-		position: relative;
 		top: 4px;
-		border-radius: 10%;
 		margin-bottom: 4px;
 		height: 32px;
 	}
 	div#project div#project-header {
 		font-size: 18px;
 		font-family: 'Anonymous Pro', monospace;
-		text-align: center;
-		border-bottom: 2px solid #B28C3C;
 	}
 	div#project div#project-description {
 		font-size: 14px;
 		font-family: 'Anonymous Pro', monospace;
-		text-align: center;
 		margin-top: 4px;
-		border-bottom: 2px solid #B28C3C;
 	}
 	div#project div#project-links {
 		font-size: 14px;
 		font-family: 'Anonymous Pro', monospace;
-		text-align: center;
 		margin-top: 4px;
 	}
 	div#project {
-		width: 185px;
-		height: 185px;
-		border-radius: 10%;
-		background-color: #ffc857;
-		box-shadow: 5px 5px #B28C3C;
-		margin-bottom: 32px;
-	}
-
-	a {
-		color: #6930c3;
-		text-decoration: none;
-		transition-duration: 0.5s;
-	}
-	
-	a:visited {
-		color: #6930c3;
-	}
-	
-	a:hover {
-		color: #72efdd;
-		text-decoration: none;
-		transition-duration: 0.25s;
-	}
-	
-	a:active {
-		color: #72efdd;
-		text-decoration: none;
-		transition-duration: 0.25s;
+		width: 200px;
+		height: auto;
+		min-height: 200px;
 	}
 }
