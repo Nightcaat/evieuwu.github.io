@@ -1,8 +1,8 @@
-var snake = [[2, 5]];
 var direction = "none";
 var apple = [6, 5];
 var w = 20;
 var h = 20;
+var snake = [[2, 5]];
 var queued = [];
 let slider;
 let squareSizeSlider;
@@ -19,9 +19,21 @@ function setup() {
 	slider.parent(speedSpan);
 	speedLabel = createSpan("Speed");
 	speedLabel.parent(speedSpan);
+	sizeSpan = createSpan();
+	squareSizeSlider = createSlider(5, 40, 20);
+	squareSizeSlider.parent(sizeSpan);
+	speedLabel = createSpan("Size");
+	speedLabel.parent(sizeSpan);
 }
 
 function draw() {
+	if (squareSizeSlider.value() !== w) {
+		w = squareSizeSlider.value();
+		h = squareSizeSlider.value();
+		squareSize = 800 / w;
+		snake = [[Math.floor(w / 2), Math.floor(h / 2)]];
+		apple = [Math.floor(3 * w / 4), Math.floor(h / 2)];
+	}
 	fill(255);
 	rect(0, 0, 800, 800);
 	drawGrid();
