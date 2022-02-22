@@ -54,7 +54,7 @@ function drawGrid() {
 			light = !light;
 			rect(x * squareSize, y * squareSize, squareSize, squareSize);
 		}
-		light = !light;
+		if (w % 2 == 0) { light = !light; };
 	}
 }
 
