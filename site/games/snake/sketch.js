@@ -1,8 +1,8 @@
 var direction = "none";
-var apple = [6, 5];
 var w = 20;
 var h = 20;
-var snake = [[2, 5]];
+var apple = [Math.floor(3 * w / 4), Math.floor(h / 2)];
+var snake = [[Math.floor(w / 2), Math.floor(h / 2)]];
 var queued = [];
 let slider;
 let squareSizeSlider;
