@@ -25,6 +25,12 @@
 			</div>
 		</div>
 		<hr>
+		<h3>mah buttone</h3>
+		<div>
+			add it to your site to become epic<br>
+			<button id="eviebutton" onclick="location.href='https:\/\/evieuwu.github.io'">evie !!</button><br>
+			<a onclick="copy_code()">Copy code!!!!</a>
+		</div>
 		<p>
 			<a href="../index.html">Back to Home</a>
 		</p>
@@ -37,7 +43,7 @@
 			font-family: sans-serif;
 			font-size: 24px;
 		}
-		h1, h2, p, div {
+		h1, h2, h3, p, div {
 			text-align: center;
 		}
 		div#cols {
@@ -46,5 +52,30 @@
 			justify-content: center;
 			align-items: center;
 		}
+		button#eviebutton {
+		background-color: #5bcefa;
+		border: none;
+		color: white;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		transition-duration: 1s;
+		width: 128px;
+		height: 32px;
+		transform: rotate(0deg);
+		cursor: pointer;
+		}
+		button#eviebutton:hover {
+			background-color: #ceb5ff;
+			transform: rotate(1800deg);
+		}
 	</style>
+	<script>
+		function copy_code() {
+			var copyText = '<button id="eviebutton" onclick="location.href=\'https:\/\/evieuwu.github.io\'">evie !!</button>\n<style>button#eviebutton {\nbackground-color: #5bcefa;\nborder: none;\ncolor: white;\ntext-align: center;\ntext-decoration: none;\ndisplay: inline-block;\nfont-size: 16px;\ntransition-duration: 1s;\nwidth: 128px;\nheight: 32px;\ntransform: rotate(0deg);\ncursor: pointer;\n}\nbutton#eviebutton:hover {\n	background-color: #ceb5ff;\n	transform: rotate(1800deg);\n}</style>';
+			navigator.clipboard.writeText(copyText);
+			alert("Copied to clipboard!");
+		}
+	</script>
 </html>

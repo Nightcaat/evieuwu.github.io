@@ -146,6 +146,7 @@ a:hover {
 	color: #72efdd;
 	text-decoration: none;
 	transition-duration: 0.25s;
+	cursor: pointer;
 }
 
 a:active {
