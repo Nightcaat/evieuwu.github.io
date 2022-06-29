@@ -13,7 +13,7 @@ html, body {
 }
 
 div.main {
-	min-height: 90vh;
+	min-height: 1080px;
 }
 
 a:any-link {

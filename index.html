@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<link rel="stylesheet" href="main.css">
+	<link rel="icon" type="image/png" href="assets/favicon.png">
 	<meta charset="UTF-8">
 	<meta property="og:title" content="EvieOwO"/>
 	<meta property="og:type" content="website"/>
@@ -39,20 +40,24 @@
 			</div>
 			<div id="other">
 				<div id="about">
-					Hi! I'm Evie, a (kinda bad) software developer and furry.
+					Hi! I'm Evie, a (kinda bad) software developer and furry. This is where I'll post updates about projects, or just random stuff :p<br>
 				</div>
 				<div id="recents">
 					<div>
 						<div id="top">
-							Top of recent
+							Working on Lucky Rollers
 						</div>
-						Contents
+						<text>
+							I mean, I've been working on it for a while, this is mostly just to show that I can have multiple of these thingys. Oh! And also they expand with more text so thats cool too :3
+						</text>
 					</div>
 					<div>
 						<div id="top">
-							Second test
+							New Site Layout!
 						</div>
-						Test
+						<text>
+							I've worked on this for about... 4 hours? I'm not too sure, but I think it looks quite decent.
+						</text>
 					</div>
 				</div>
 			</div>
@@ -87,6 +92,11 @@ div#logo {
 	width: 100vw;
 	height: 25vh;
 }
+
+div#about {
+	font-size: 24px;
+}
+
 div#rest {
 	display: flex;
 	flex-direction: column;
@@ -114,6 +124,7 @@ div#recents > div {
 	border-radius: 16px;
 	background-color: #585659;
 	margin-bottom: 16px;
+	box-shadow: 2px 2px 5px;
 }
 div#recents > div > div#top {
 	width: 100%;
@@ -121,7 +132,12 @@ div#recents > div > div#top {
 	border-radius: 15px 15px 0px 0px;
 	background-color: #677365;
 	font-size: 28px;
-	margin-bottom: 8px;
+	padding-bottom: 2px;
+	padding-top: 2px;
+	margin-bottom: 4px;
+}
+div#recents > div > text {
+	padding-bottom: 16px;
 }
 </style>
 <script src="animatelogo.js"></script>
