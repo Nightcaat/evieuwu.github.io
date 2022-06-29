@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="index.css">
-<link rel="stylesheet" href="animations.css">
-<link rel="stylesheet" href="nav.css">
 <head>
+	<link rel="stylesheet" href="main.css">
 	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta property="og:title" content="FoxCore"/>
 	<meta property="og:type" content="website"/>
 	<meta property="og:url" content="https://evieuwu.github.io/index.html"/>
@@ -15,55 +12,77 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>&lt;FoxCore&gt;</title>
 </head>
-<!--
-	Colours:
-	ffa8b5
-	461e5c
-	ffad03
--->
 <body>
 	<div class="nav">
-		<a id="intro" href="">
+		<a id="intro" href=""></a>
+		<a href="">
+			<span class="material-icons-outlined">home</span>
+			Home
 		</a>
 	</div>
 	
-	<div id="main">
-		HELOO YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE	
+	<div class="main">
+		<div id="logo"></div>
+		<!-- TODO: ADD LOGO VARIATIONS -->
+		<div id="rest">
+			<div id="about">
+				<h1>About</h1>
+				Hi! I'm Evie, a (kinda bad) software developer and furry.
+			</div>
+			<div id="recents">
+				<h1>Recent Stuff</h1>
+				<div>Hello</div>
+				<div>Test</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<span>I'm Evie! I'm a (kinda bad) software developer and furry. I'll put stuff I make here, and also just random ramblings.</span>
+		<span class="links">
+			<a href="https://github.com/EvieUwU">
+				<span class="material-icons-outlined">code</span>
+				GitHub
+			</a>
+			<a href="https://twitter.com/EvieUwO">
+				<span class="material-icons-outlined">chat_bubble_outline</span>
+				Twitter
+			</a>
+			<a href="mailto:evelynproto@duck.com?subject=Site Enquiry">
+				<span class="material-icons-outlined">email</span>
+				Email
+			</a>
+		</span>
+		<span>
+			<a href="site/index.html">
+				Secrets :3
+			</a>
+		</span>
 	</div>
 </body>
-<script>
-	function animatelogo() {
-		const introDiv = document.getElementById("intro");
-		const introText = "FoxCore";
-		const random = Math.floor(Math.random() * 3);
-		var className;
-		if (random != 2) {
-			className = "introanimatedown";
-		} else {
-			className = "introanimateright";
-		}
-		for (var i = 0; i < introText.length; i++) {
-			var child = document.createElement("span");
-			child.classList.add(className);
-			if (random == 0) {
-				child.style.animationDelay = `${i * 100}ms`;
-			} else if (random == 1) {
-				child.style.animationDelay = `${(introText.length - i) * 100}ms`;
-			} else if (random == 2) {
-				child.style.animationDelay = `${(introText.length - i) * 100}ms`;
-			}
-			child.innerText = introText.charAt(i);
-			introDiv.appendChild(child);
-		}
-		setTimeout((div, text) => {
-			while (div.children.length != 0) {
-				div.removeChild(introDiv.firstElementChild);
-			}
-			var child = document.createElement("span");
-			child.innerText = text;
-			div.appendChild(child);
-		}, 20000, introDiv, introText);
-	}
-	window.onload = animatelogo();
-</script>
+<style>
+div#logo {
+	width: 100vw;
+	height: 25vh;
+}
+div#rest {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+}
+div#rest > div {
+	min-width: 25vw;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+div#rest > div#recents > div {
+	width: 20vw;
+	border-radius: 16px;
+}
+</style>
+<script src="animatelogo.js"></script>
 </html>

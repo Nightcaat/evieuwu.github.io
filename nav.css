@@ -3,8 +3,17 @@ div.nav {
 	align-items: center;
 	justify-content: start;
 
-	height: min(10vh, auto);
+	height: auto;
 	width: 100vw;
 
 	background-color: #463f3a;
+}
+
+div.nav > a {
+	font-size: 20px;
+}
+
+span.material-icons-outlined {
+	padding-right: 8px;
+	padding-left: 8px;
 }
