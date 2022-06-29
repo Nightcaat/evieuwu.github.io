@@ -28,7 +28,7 @@ a#intro > span.introanimatedown {
 }
 
 a#intro > span.introanimateright {
-	left: -10vw;
+	left: -125%;
 
 	animation-name: introanimateright;
 	animation-duration: 1s;
@@ -46,7 +46,7 @@ a#intro > span.introanimateright {
 
 @keyframes introanimateright {
 	from {
-		left: -10vw;
+		left: -125%;
 	}
 	to {
 		left: 0;

@@ -3,21 +3,29 @@
 <head>
 	<link rel="stylesheet" href="main.css">
 	<meta charset="UTF-8">
-	<meta property="og:title" content="FoxCore"/>
+	<meta property="og:title" content="EvieOwO"/>
 	<meta property="og:type" content="website"/>
 	<meta property="og:url" content="https://evieuwu.github.io/index.html"/>
 	<meta property="og:image" content="https://evieuwu.github.io/assets/favicon.png"/>
-	<meta property="og:description" content="FoxCore"/>
+	<meta property="og:description" content="EvieOwO"/>
 	<meta name="theme-color" content="#ffa8b5">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>&lt;FoxCore&gt;</title>
+	<title>&lt;evie&gt;</title>
 </head>
 <body>
 	<div class="nav">
-		<a id="intro" href=""></a>
-		<a href="">
+		<a id="intro" href="index.html"></a>
+		<a>
 			<span class="material-icons-outlined">home</span>
-			Home
+			<div>Home</div>
+		</a>
+		<a>
+			<span class="material-icons-outlined">info</span>
+			<div>About</div>
+		</a>
+		<a>
+			<span class="material-icons-outlined">dashboard</span>
+			<div>Projects</div>
 		</a>
 	</div>
 	
@@ -25,14 +33,28 @@
 		<div id="logo"></div>
 		<!-- TODO: ADD LOGO VARIATIONS -->
 		<div id="rest">
-			<div id="about">
+			<div id="titles">
 				<h1>About</h1>
-				Hi! I'm Evie, a (kinda bad) software developer and furry.
-			</div>
-			<div id="recents">
 				<h1>Recent Stuff</h1>
-				<div>Hello</div>
-				<div>Test</div>
+			</div>
+			<div id="other">
+				<div id="about">
+					Hi! I'm Evie, a (kinda bad) software developer and furry.
+				</div>
+				<div id="recents">
+					<div>
+						<div id="top">
+							Top of recent
+						</div>
+						Contents
+					</div>
+					<div>
+						<div id="top">
+							Second test
+						</div>
+						Test
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -67,22 +89,41 @@ div#logo {
 }
 div#rest {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
 }
 div#rest > div {
-	min-width: 25vw;
+	width: 100vw;
 	text-align: center;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: start;
 }
-div#rest > div#recents > div {
-	width: 20vw;
+
+div#rest > div#titles > h1 {
+	width: 40vw;
+}
+div#rest > div#other > div {
+	width: 40vw;
+}
+
+div#recents > div {
+	min-height: 10vh;
 	border-radius: 16px;
+	background-color: #585659;
+	margin-bottom: 16px;
+}
+div#recents > div > div#top {
+	width: 100%;
+	min-height: 3vh;
+	border-radius: 15px 15px 0px 0px;
+	background-color: #677365;
+	font-size: 28px;
+	margin-bottom: 8px;
 }
 </style>
 <script src="animatelogo.js"></script>
+<script src="nav.js"></script>
 </html>

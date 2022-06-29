@@ -1,62 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="index.css">
 <head>
+	<link rel="stylesheet" href="main.css">
 	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta property="og:title" content="evie"/>
+	<meta property="og:title" content="EvieOwO"/>
 	<meta property="og:type" content="website"/>
-	<meta property="og:url" content="https://evieuwu.github.io/contact.html"/>
+	<meta property="og:url" content="https://evieuwu.github.io/index.html"/>
 	<meta property="og:image" content="https://evieuwu.github.io/assets/favicon.png"/>
-	<meta property="og:description" content="Contact Evie"/>
-	<meta name="theme-color" content="#e283d9">
+	<meta property="og:description" content="EvieOwO"/>
+	<meta name="theme-color" content="#ffa8b5">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>&lt;About Evie&gt;</title>
+	<title>&lt;evie&gt;</title>
 </head>
 <body>
-	<div id="typingDiv"></div>
-	<div id="site" class="invisible">
-		<div id="links">
-			<div id="siteTransition"></div>
-			<div id="flex-row">
-				<div id="link">
-					<a href="index.html"> Index </a>
-				</div>
-				<div id="link">
-					<a href="contact.html"> Contact Me </a>
-				</div>
-				<div id="link">
-					<a href="site/index.html"> Site Contents </a>
+	<div class="nav">
+		<a id="intro" href="index.html"></a>
+		<a>
+			<span class="material-icons-outlined">home</span>
+			<div>Home</div>
+		</a>
+		<a>
+			<span class="material-icons-outlined">info</span>
+			<div>About</div>
+		</a>
+		<a>
+			<span class="material-icons-outlined">dashboard</span>
+			<div>Projects</div>
+		</a>
+	</div>
+	
+	<div class="main">
+		<div id="rest">
+			<div id="titles">
+				<h1>About Me</h1>
+			</div>
+			<div id="other">
+				<div id="about">
+					Hi! I'm Evie, a (kinda bad) software developer and furry.
 				</div>
 			</div>
 		</div>
-		<footer id="footer">
-			This site was made and maintained by <a href="https://github.com/EvieUwU"> EvieUwU </a>
-		</footer>
+	</div>
+
+	<div class="footer">
+		<span>I'm Evie! I'm a (kinda bad) software developer and furry. I'll put stuff I make here, and also just random ramblings.</span>
+		<span class="links">
+			<a href="https://github.com/EvieUwU">
+				<span class="material-icons-outlined">code</span>
+				GitHub
+			</a>
+			<a href="https://twitter.com/EvieUwO">
+				<span class="material-icons-outlined">chat_bubble_outline</span>
+				Twitter
+			</a>
+			<a href="mailto:evelynproto@duck.com?subject=Site Enquiry">
+				<span class="material-icons-outlined">email</span>
+				Email
+			</a>
+		</span>
+		<span>
+			<a href="site/index.html">
+				Secrets :3
+			</a>
+		</span>
 	</div>
 </body>
-<script src="typing.js"></script>
-<script>
-	var text = [{"text": "Hi! I'm still Evie!", "colour": null, "indent": null},
-				{"text": "I'm a trans girl (she/her) and I enjoy programming and playing video games in my spare time!", "colour": null, "indent": null},
-				{"text": "If you want to know more about pronouns and other stuff <a href='https://en.pronouns.page/@EvieUwU'>click here</a>", "colour": null, "indent": null},
-				{"text": "I have quite a bit of experience in programming (as you can see on the index)", "colour": null, "indent": null},
-				{"text": "I've also had brief stints in other stuff like:", "colour": null, "indent": null},
-				{"text": "[", "colour": null, "indent": null},
-				{"text": "3D modelling,", "colour": "#EB7700", "indent": 1},
-				{"text": "Drawing art", "colour": null, "indent": 1},
-				{"text": "]", "colour": null, "indent": null},
-				{"text": "I'm also currently trying to teach myself machine learning because it's pretty cool.", "colour": null, "indent": null},
-				{"text": "On another note, I quite like anime and you can find what I watch on my <a href='https://myanimelist.net/profile/EvelynProto'>MAL</a> profile.", "colour": null, "indent": null},
-				{"text": "If you want to explore the rest of the site, use the links below!", "colour": null, "indent": null},
-				{"text": "I hope you like it!", "colour": null, "indent": null}];
-	window.onload = text_onload(text);
-</script>
 <style>
-div#links, footer#footer {
-	background-color:#177e89;
-	padding-bottom: 0px;
-	margin-bottom: 0px;
+div#rest {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+div#rest > div {
+	width: 100vw;
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: start;
+}
+
+div#rest > div#titles > h1 {
+	width: 40vw;
+}
+div#rest > div#other > div {
+	width: 40vw;
 }
 </style>
+<script src="animatelogo.js"></script>
+<script src="nav.js"></script>
 </html>

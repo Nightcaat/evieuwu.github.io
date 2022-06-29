@@ -1,6 +1,6 @@
 function animatelogo() {
 	const introDiv = document.getElementById("intro");
-	const introText = "FoxCore";
+	const introText = "<evie>";
 	const random = Math.floor(Math.random() * 3);
 	var className;
 	if (random != 2) {
@@ -19,6 +19,9 @@ function animatelogo() {
 			child.style.animationDelay = `${(introText.length - i) * 100}ms`;
 		}
 		child.innerText = introText.charAt(i);
+		if (introText.charAt(i) === " ") {
+			child.innerText = "\u00A0";
+		}
 		introDiv.appendChild(child);
 	}
 	setTimeout((div, text) => {
@@ -28,7 +31,7 @@ function animatelogo() {
 		var child = document.createElement("span");
 		child.innerText = text;
 		div.appendChild(child);
-	}, 2000, introDiv, introText);
+	}, 1000 + introText.length * 100, introDiv, introText);
 }
 
 window.onload = animatelogo();

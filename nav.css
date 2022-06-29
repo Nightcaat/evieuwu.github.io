@@ -7,10 +7,12 @@ div.nav {
 	width: 100vw;
 
 	background-color: #463f3a;
+	cursor: pointer;
 }
 
 div.nav > a {
 	font-size: 20px;
+	padding-right: 16px;
 }
 
 span.material-icons-outlined {
