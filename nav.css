@@ -1,0 +1,10 @@
+div.nav {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+
+	height: min(10vh, auto);
+	width: 100vw;
+
+	background-color: #463f3a;
+}

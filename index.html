@@ -1,133 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="animations.css">
+<link rel="stylesheet" href="nav.css">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta property="og:title" content="evie"/>
+	<meta property="og:title" content="FoxCore"/>
 	<meta property="og:type" content="website"/>
 	<meta property="og:url" content="https://evieuwu.github.io/index.html"/>
 	<meta property="og:image" content="https://evieuwu.github.io/assets/favicon.png"/>
-	<meta property="og:description" content="Evie's Home Page"/>
-	<meta name="theme-color" content="#e283d9">
+	<meta property="og:description" content="FoxCore"/>
+	<meta name="theme-color" content="#ffa8b5">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>&lt;evie&gt;</title>
+	<title>&lt;FoxCore&gt;</title>
 </head>
+<!--
+	Colours:
+	ffa8b5
+	461e5c
+	ffad03
+-->
 <body>
-	<div id="typingDiv"></div>
-	<div id="site" class="invisible">
-		<div id="projects" class="pc">
-			<div id="siteTransition"></div>
-			<div id="flex-column">
-				<div id="flex-row">
-					<div id="project">
-						<img id="project-image" src="assets/Platformer.png">
-						<div id="project-header">
-							Platformer
-						</div>
-						<div id="project-description">
-							A simple platformer made in pure Python. It's a bit buggy, but it's kinda functional?
-						</div>
-						<div id="project-links">
-							<a href="https://github.com/EvieUwU/Platformer" target="_blank">Github Repo</a>
-						</div>
-					</div>
-					<div id="project">
-						<img id="project-image" src="assets/CMDPlus.png">
-						<div id="project-header">
-							CMDPlus (CMD+)
-						</div>
-						<div id="project-description">
-							A project of mine aiming to emulate the command prompt along with some extra features.
-						</div>
-						<div id="project-links">
-							<a href="https://github.com/EvieUwU/CMDPlus" target="_blank">Github Repo</a>
-						</div>
-					</div>
-					<div id="project">
-						<img id="project-image" src="assets/Platformer.png">
-						<div id="project-header">
-							EvEngine
-						</div>
-						<div id="project-description">
-							My first attempt at a simple game engine. I might rewrite this in C++ so I can have OOP features.
-						</div>
-						<div id="project-links">
-							<a href="https://github.com/EvieUwU/EvEngine" target="_blank">Github Repo</a>
-						</div>
-					</div>
-					<div id="project">
-						<img id="project-image" src="assets/favicon.png">
-						<div id="project-header">
-							EvieUwU Site
-						</div>
-						<div id="project-description">
-							This site is my second ever proper website. (My previous one was this site before I redid it completely :p)
-						</div>
-						<div id="project-links">
-							<a href="https://github.com/EvieUwU/evieuwu.github.io" target="_blank">Github Repo</a>
-						</div>
-					</div>
-					<div id="project">
-						<img id="project-image" src="assets/TSEELogo.png">
-						<div id="project-header">
-							TSEE
-						</div>
-						<div id="project-description">
-							I'm still working on this at the moment. It's a simple-ish game engine made in pure C, but it's still a work in progress.
-						</div>
-						<div id="project-links">
-							<a href="https://github.com/EvieUwU/TSEE" target="_blank">Github Repo</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="links">
-			<div id="siteTransition" class="upsideDown" style="animation-delay:-2.5s"></div>
-			<div id="flex-row">
-				<div id="link">
-					<a href="about.html"> About Me </a>
-				</div>
-				<div id="link">
-					<a href="contact.html"> Contact Me </a>
-				</div>
-				<div id="link">
-					<a href="site/index.html"> Site Contents </a>
-				</div>
-			</div>
-		</div>
-		<footer id="footer">
-			This site was made and maintained by <a href="https://github.com/EvieUwU"> EvieUwU </a>
-		</footer>
+	<div class="nav">
+		<a id="intro" href="">
+		</a>
+	</div>
+	
+	<div id="main">
+		HELOO YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE	
 	</div>
 </body>
-<script src="typing.js"></script>
 <script>
-	var text = [{"text": "Hi! I'm Evie!", "colour": null, "indent": null},
-				{"text": "Welcome to my site!", "colour": null, "indent": null},
-				{"text": "I am a programmer, and enjoy playing video games in my spare time.", "colour": null, "indent": null},
-				{"text": "I currently know how to code in:", "colour": null, "indent": null},
-				{"text": "[", "colour": null, "indent": null},
-				{"text": "Python (4.5 years experience),", "colour": "#3E7BAC", "indent": 1},
-				{"text": "C (9 months experience),", "colour": "#A9BACD", "indent": 1},
-				{"text": "JS (4 months experience),", "colour": "#EE3C4D", "indent": 1},
-				{"text": "VueJS (2 months experience),", "colour": "#41B883", "indent": 1},
-				{"text": "HTML (4 months experience),", "colour": "#E44D26", "indent": 1},
-				{"text": "CSS (4 months experience)", "colour": "#214CE5", "indent": 1},
-				{"text": "]", "colour": null, "indent": null},
-				{"text": "I have made:", "colour": null, "indent": null},
-				{"text": "[", "colour": null, "indent": null},
-				{"text": "Discord bots,", "colour": "#5865F2", "indent": 1},
-				{"text": "A C game engine,", "colour": "#00FF75", "indent": 1},
-				{"text": "Front-end for flyLAT,", "colour": "#41B883", "indent": 1},
-				{"text": "Basic command line software", "colour": "#0C0C0C", "indent": 1},
-				{"text": "]", "colour": null, "indent": null},
-				{"text": "I'm mostly self-taught, but school did help to start me creating software.", "colour": null, "indent": null},
-				{"text": "This site exists to act as a home page for most of my projects, and to test out my HTML/CSS/JS skills.", "colour": null, "indent": null},
-				{"text": "I'll keep this up-to-date with new stuff I make.", "colour": null, "indent": null},
-				{"text": "For more information you can look below!", "colour": null, "indent": null},
-				{"text": "Note: If you want to skip these typing animations, press enter (or tap the screen on mobile)!", "colour": null, "indent": null}];
-	window.onload = text_onload(text);
+	function animatelogo() {
+		const introDiv = document.getElementById("intro");
+		const introText = "FoxCore";
+		const random = Math.floor(Math.random() * 3);
+		var className;
+		if (random != 2) {
+			className = "introanimatedown";
+		} else {
+			className = "introanimateright";
+		}
+		for (var i = 0; i < introText.length; i++) {
+			var child = document.createElement("span");
+			child.classList.add(className);
+			if (random == 0) {
+				child.style.animationDelay = `${i * 100}ms`;
+			} else if (random == 1) {
+				child.style.animationDelay = `${(introText.length - i) * 100}ms`;
+			} else if (random == 2) {
+				child.style.animationDelay = `${(introText.length - i) * 100}ms`;
+			}
+			child.innerText = introText.charAt(i);
+			introDiv.appendChild(child);
+		}
+		setTimeout((div, text) => {
+			while (div.children.length != 0) {
+				div.removeChild(introDiv.firstElementChild);
+			}
+			var child = document.createElement("span");
+			child.innerText = text;
+			div.appendChild(child);
+		}, 20000, introDiv, introText);
+	}
+	window.onload = animatelogo();
 </script>
 </html>
