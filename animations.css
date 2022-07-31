@@ -1,0 +1,54 @@
+a#intro {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+
+	padding: 8px;
+	border-right: 2px dotted;
+}
+
+a#intro:any-link {
+	text-decoration: none;
+	color: inherit;
+}
+
+a#intro > span {
+	position: relative;
+	font-size: 32px;
+}
+
+a#intro > span.introanimatedown {
+	top: -50px;
+
+	animation-name: introanimatedown;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+a#intro > span.introanimateright {
+	left: -125%;
+
+	animation-name: introanimateright;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes introanimatedown {
+	from {
+		top: -50px;
+	}
+	to {
+		top: 0;
+	}
+}
+
+@keyframes introanimateright {
+	from {
+		left: -125%;
+	}
+	to {
+		left: 0;
+	}
+}
