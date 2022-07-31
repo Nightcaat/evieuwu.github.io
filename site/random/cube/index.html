@@ -1,54 +1,63 @@
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Coob</title>
-		<link rel="stylesheet" href="../../../index.css">
-		<link rel="stylesheet" href="../../site.css">
-		<link rel="stylesheet" href="cube.css">
-	</head>
-	<body>
-		<div>
-			<a href="../index.html">&lt; Back</a>
-			<br style="margin-bottom:16px;">
-		</div>
-		<p></p>
-		<div>
-			<div class="wrap" style="height:250px;width:500px;">
-				<div class="cube">
-					<div class="front">Front</div>
-					<div class="back">Back</div>
-					<div class="top">Top</div>
-					<div class="bottom">Bottom</div>
-					<div class="left">Left</div>
-					<div class="right">Right</div>
-				</div>
-			</div>
-			<div class="wrap" style="height:250px;width:500px;">
-				<div class="cube" style="animation-direction:reverse">
-					<div class="front">Front</div>
-					<div class="back">Back</div>
-					<div class="top">Top</div>
-					<div class="bottom">Bottom</div>
-					<div class="left">Left</div>
-					<div class="right">Right</div>
-				</div>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Coob</title>
+	<link rel="stylesheet" href="../../../main.css">
+	<link rel="stylesheet" href="../../site.css">
+	<link rel="stylesheet" href="cube.css">
+</head>
+<body>
+	<div class="nav">
+		<a id="intro" href="/"></a>
+		<a href="../index.html" style="padding-left: 8px">
+			&lt; Back
+		</a>
+	</div>
+	<div class="main" style="align-items: center">
+		<div class="wrap" style="height:250px;width:500px;">
+			<div class="cube">
+				<div class="front">Front</div>
+				<div class="back">Back</div>
+				<div class="top">Top</div>
+				<div class="bottom">Bottom</div>
+				<div class="left">Left</div>
+				<div class="right">Right</div>
 			</div>
 		</div>
-		<div id="footer">
-			This site was made and maintained by <a href="https://github.com/EvieUwU"> EvieUwU </a>
+		<div class="wrap" style="height:250px;width:500px;">
+			<div class="cube" style="animation-direction:reverse">
+				<div class="front">Front</div>
+				<div class="back">Back</div>
+				<div class="top">Top</div>
+				<div class="bottom">Bottom</div>
+				<div class="left">Left</div>
+				<div class="right">Right</div>
+			</div>
 		</div>
-	</body>
-	<style>
-		body, html {
-			margin: 0;
-			padding: 0;
-		}
-		body {
-			height: 750px;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-		}
-	</style>
+	</div>
+	<div class="footer">
+		<span>I'm Evie! I'm a (kinda bad) software developer and furry. I'll put stuff I make here, and also just random ramblings.</span>
+		<span class="links">
+			<a href="https://github.com/EvieUwU">
+				<span class="material-icons-outlined">code</span>
+				GitHub
+			</a>
+			<a href="https://twitter.com/EvieUwO">
+				<span class="material-icons-outlined">chat_bubble_outline</span>
+				Twitter
+			</a>
+		</span>
+		<span>
+			<a href="site/index.html">
+				Secrets :3
+			</a>
+		</span>
+	</div>
+</body>
+<style>
+	div.wrap {
+		padding-top: 32px;
+	}
+</style>
+<script src="../../../animatelogo.js"></script>
 </html>

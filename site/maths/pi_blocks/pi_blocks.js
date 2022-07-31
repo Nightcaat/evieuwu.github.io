@@ -40,9 +40,9 @@ function Box() {
 function setup() {
 	createCanvas(800, 400);
 	background(200);
-	digitsSlider = createSlider(1, 6, 1, 1);
+	digitsSlider = select("#numDigits");
 	digits = digitsSlider.value();
-	digitsDiv = createDiv("<h4>Calculating Pi to " + digits + " digits.</h4>");
+	digitsDiv = select("#digitsDisplay");
 	frameRate(60);
 	block1 = new Box();
 	block1.vel = 0;
@@ -52,7 +52,7 @@ function setup() {
 	block2.size = 150;
 	block2.pos.y = 400 - block2.size;
 	block2.pos.x = 350;
-	newDiv = createDiv("<h2>0 Collisions<h2>");
+	newDiv = select("#numCols");
 }
 
 function draw() {
@@ -62,7 +62,19 @@ function draw() {
 		block2.mass = pow(100, digits - 1);
 		timeSteps = 8 ** digits;
 		block2.vel = -2 / timeSteps;
-		digitsDiv.html("<h4>Calculating Pi to " + digits + " digits.</h4>");
+		digitsDiv.html("Calculating Pi to " + digits + " digits.");
+		if (go) {
+			go = false;
+			block1 = new Box();
+			block1.vel = 0;
+			block2 = new Box();
+			block2.vel = -2 / timeSteps;
+			block2.mass = pow(100, digits - 1);
+			block2.size = 150;
+			block2.pos.y = 400 - block2.size;
+			block2.pos.x = 350;
+			count = 0;
+		}
 	}
 	if (!go) {
 		return;
@@ -74,7 +86,7 @@ function draw() {
 			block1.vel = v1;
 			block2.vel = v2;
 			if (v1 >= 0 && v2 > 0 && v2 > v1) {
-				createDiv("<h1>Will not collide again.</h1>");
+				select("#noCol").html("<h1>Will not collide again.</h1>");
 			}
 			count++;
 		}
@@ -83,14 +95,14 @@ function draw() {
 			block1.vel = -block1.vel;
 			count++;
 			if (block1.vel >= 0 && block2.vel > 0 && block2.vel > block1.vel) {
-				createDiv("<h1>Will not collide again.</h1>");
+				select("#noCol").html("<h1>Will not collide again.</h1>");
 			}
 		}
 
 		block1.update();
 		block2.update();
 	}
-	newDiv.html("<h2>" + count + " Collisions<h2>");
+	newDiv.html(`${count} Collisions`);
 	block1.draw();
 	block2.draw();
 }

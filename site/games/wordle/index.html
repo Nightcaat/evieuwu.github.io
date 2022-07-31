@@ -1,90 +1,110 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Evie Wordle</title>
-		<link rel="stylesheet" href="../../../index.css">
-		<link rel="stylesheet" href="../../site.css">
-	</head>
-	<body>
-		<div>
-			<a href="../index.html">&lt; Back</a>
-			<br style="margin-bottom:16px;">
-		</div>
-		<div id="popups">
-			
-		</div>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Evie Wordle</title>
+	<link rel="stylesheet" href="../../../main.css">
+	<link rel="stylesheet" href="../../site.css">
+</head>
+<body>
+	<div class="nav">
+		<a id="intro" href="/"></a>
+		<a href="../index.html" style="padding-left: 8px">
+			&lt; Back
+		</a>
+	</div>
+	<div id="popups">
+		
+	</div>
+	<div class="main">
 		<main id="main"></main>
 		<button type="button" onclick="resetGame()">Reset</button>
 		<button type="button" onclick="copyGame()" style="margin-top:8px;">Copy Game</button>
-		<footer id="footer">
-			This site was made and maintained by <a href="https://github.com/EvieUwU"> EvieUwU </a>
-		</footer>
-	</body>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
-	<script src="words.js"></script>
-	<script src="wordle.js"></script>
-	<script>
-		function createPopup(text) {
-			el = document.createElement("div");
-			el.className = "popup fadeIn";
-			el.innerText = text;
-			document.getElementById("popups").appendChild(el);
+	</div>
+	<div class="footer">
+		<span>I'm Evie! I'm a (kinda bad) software developer and furry. I'll put stuff I make here, and also just random ramblings.</span>
+		<span class="links">
+			<a href="https://github.com/EvieUwU">
+				<span class="material-icons-outlined">code</span>
+				GitHub
+			</a>
+			<a href="https://twitter.com/EvieUwO">
+				<span class="material-icons-outlined">chat_bubble_outline</span>
+				Twitter
+			</a>
+		</span>
+		<span>
+			<a href="site/index.html">
+				Secrets :3
+			</a>
+		</span>
+	</div>
+</body>
+<script src="../../../animatelogo.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+<script src="words.js"></script>
+<script src="wordle.js"></script>
+<script>
+	function createPopup(text) {
+		el = document.createElement("div");
+		el.className = "popup fadeIn";
+		el.innerText = text;
+		document.getElementById("popups").appendChild(el);
+		setTimeout(() => {
+			el.className = "popup";
 			setTimeout(() => {
-				el.className = "popup";
+				el.className = "popup fadeOut";
 				setTimeout(() => {
-					el.className = "popup fadeOut";
-					setTimeout(() => {
-						document.getElementById("popups").removeChild(el);
-					}, 250);
-				}, 2000);
-			}, 250);
+					document.getElementById("popups").removeChild(el);
+				}, 250);
+			}, 2000);
+		}, 250);
+	}
+</script>
+<style>
+	body, html {
+		margin: 0;
+		padding: 0;
+	}
+	main {
+		width: auto;
+		height: auto;
+	}
+	body {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	#popups {
+		position: absolute;
+		width: auto;
+		height: auto;
+		top: 10vh;
+	}
+	#popups div {
+		background-color: rgba(69, 0, 97, 0.75);
+		border-radius: 16px;
+		padding: 8px;
+		transform: translateX(-50%);
+		position: absolute;
+		width: 200px;
+		height: auto;
+		text-align: center;
+	}
+	.fadeOut {
+		animation: 0.25s ease-out 0s 1 forwards fadeOut;
+	}
+	.fadeIn {
+		animation: 0.25s ease-in 0s 1 reverse fadeOut;
+	}
+	@keyframes fadeOut {
+		0% {
+			top: 0px;
 		}
-	</script>
-	<style>
-		body, html {
-			margin: 0;
-			padding: 0;
+		100% {
+			top: -200px;
 		}
-		main {
-			width: auto;
-			height: auto;
-		}
-		body {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-		}
-		#popups {
-			position: absolute;
-			width: auto;
-			height: auto;
-			top: 10vh;
-		}
-		#popups div {
-			background-color: rgba(69, 0, 97, 0.75);
-			border-radius: 16px;
-			padding: 8px;
-			transform: translateX(-50%);
-			position: absolute;
-			width: 200px;
-			height: auto;
-			text-align: center;
-		}
-		.fadeOut {
-			animation: 0.25s ease-out 0s 1 forwards fadeOut;
-		}
-		.fadeIn {
-			animation: 0.25s ease-in 0s 1 reverse fadeOut;
-		}
-		@keyframes fadeOut {
-			0% {
-				top: 0px;
-			}
-			100% {
-				top: -200px;
-			}
-		}
-	</style>
+	}
+</style>
 </html>

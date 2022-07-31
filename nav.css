@@ -3,7 +3,7 @@ div.nav {
 	align-items: center;
 	justify-content: start;
 
-	height: auto;
+	height: 64px;
 	width: 100vw;
 
 	background-color: #463f3a;

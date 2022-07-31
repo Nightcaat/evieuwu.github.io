@@ -4,7 +4,7 @@ div.footer {
 	padding-right: 15vw;
 
 	width: 70vw;
-	min-height: 10vh;
+	height: 128px;
 
 	display: flex;
 	flex-direction: row;
@@ -12,6 +12,9 @@ div.footer {
 	align-items: center;
 
 	font-size: 16px;
+	padding-bottom: 0;
+	padding-top: 0;
+	margin: 0;
 }
 
 div.footer > span {

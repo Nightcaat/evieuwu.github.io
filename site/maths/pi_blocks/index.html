@@ -1,43 +1,67 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Calculating Pi</title>
-		<link rel="stylesheet" href="../../../index.css">
-		<link rel="stylesheet" href="../../site.css">
-	</head>
-	<body>
-		<div>
-			<a href="../index.html">&lt; Back</a>
-			<br style="margin-bottom:16px;">
-		</div>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Calculating Pi</title>
+	<link rel="stylesheet" href="../../../main.css">
+	<link rel="stylesheet" href="../../site.css">
+</head>
+<body>
+	<div class="nav">
+		<a id="intro" href="/"></a>
+		<a href="../index.html" style="padding-left: 8px">
+			&lt; Back
+		</a>
+	</div>
+	<div class="main">
 		<main id="main"></main>
+		<input type="range" min="1" max="6" value="3" id="numDigits"></input>
+		<div id="digitsDisplay">Calculating Pi to 3 Digits.</div>
+		<div id="numCols">0 Collisions</div>
+		<div id="noCol"></div>
 		<button type="button" onclick="start()">Start Calculation</button>
-		<footer id="footer">
-			This site was made and maintained by <a href="https://github.com/EvieUwU"> EvieUwU </a>
-		</footer>
-	</body>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
-	<script src="pi_blocks.js"></script>
-	<script>
-		function start() {
-			go = true;
-		}
-	</script>
-	<style>
-		body, html {
-			margin: 0;
-			padding: 0;
-		}
-		main {
-			width: 800px;
-			height: 400px;
-		}
-		body {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-		}
-	</style>
+	</div>
+	<div class="footer">
+		<span>I'm Evie! I'm a (kinda bad) software developer and furry. I'll put stuff I make here, and also just random ramblings.</span>
+		<span class="links">
+			<a href="https://github.com/EvieUwU">
+				<span class="material-icons-outlined">code</span>
+				GitHub
+			</a>
+			<a href="https://twitter.com/EvieUwO">
+				<span class="material-icons-outlined">chat_bubble_outline</span>
+				Twitter
+			</a>
+		</span>
+		<span>
+			<a href="site/index.html">
+				Secrets :3
+			</a>
+		</span>
+	</div>
+</body>
+<script src="../../../animatelogo.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+<script src="pi_blocks.js"></script>
+<script>
+	function start() {
+		go = true;
+	}
+</script>
+<style>
+	body, html {
+		margin: 0;
+		padding: 0;
+	}
+	main {
+		width: 800px;
+		height: 400px;
+	}
+	body {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+</style>
 </html>

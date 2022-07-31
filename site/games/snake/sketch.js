@@ -15,16 +15,8 @@ var win = false;
 
 function setup() {
 	createCanvas(800, 800);
-	speedSpan = createSpan();
-	slider = createSlider(0, 575, 250);
-	slider.parent(speedSpan);
-	speedLabel = createSpan("Speed");
-	speedLabel.parent(speedSpan);
-	sizeSpan = createSpan();
-	squareSizeSlider = createSlider(3, 40, 20);
-	squareSizeSlider.parent(sizeSpan);
-	speedLabel = createSpan("Size");
-	speedLabel.parent(sizeSpan);
+	slider = select("#speed");
+	squareSizeSlider = select("#size");
 }
 
 function draw() {
