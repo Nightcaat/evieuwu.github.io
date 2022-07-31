@@ -31,33 +31,16 @@
 	</div>
 	
 	<div class="main">
-		<div id="logo"></div>
+		<div id="logo">&lt;evie&gt;</div>
 		<!-- TODO: ADD LOGO VARIATIONS -->
 		<div id="rest">
 			<div id="titles">
-				<h1>About</h1>
-				<h1>Recent Stuff</h1>
+				<h1>About Me :3</h1>
 			</div>
 			<div id="other">
 				<div id="about">
-					Hi! I'm Evie, a (kinda bad) software developer and furry. This is where I'll post updates about projects, or just random stuff :p<br>
-				</div>
-				<div id="recents">
-					<div>
-						<div id="top">
-							Working on Lucky Rollers
-						</div>
-						<text>
-							I mean, I've been working on it for a while, this is mostly just to show that I can have multiple of these thingys. Oh! And also they expand with more text so thats cool too :3
-						</text>
-					</div>
-					<div>
-						<div id="top">
-							New Site Layout!
-						</div>
-						<text>
-							I've worked on this for about... 4 hours? I'm not too sure, but I think it looks quite decent.
-						</text>
+					Hi! I'm Evie, a (kinda bad) British software developer and furry. This is where I'll post updates about projects, or just random stuff :p<br>
+					<div id="aboutTable">
 					</div>
 				</div>
 			</div>
@@ -89,7 +72,11 @@
 <style>
 div#logo {
 	width: 100vw;
-	height: 25vh;
+	height: 128px;
+	text-align: center;
+	font-size: 64px;
+	padding-top: 64px;
+	padding-bottom: 64px;
 }
 
 div#about {
@@ -117,28 +104,56 @@ div#rest > div#titles > h1 {
 div#rest > div#other > div {
 	width: 40vw;
 }
-
-div#recents > div {
-	min-height: 10vh;
-	border-radius: 16px;
-	background-color: #585659;
-	margin-bottom: 16px;
-	box-shadow: 2px 2px 5px;
-}
-div#recents > div > div#top {
-	width: 100%;
-	min-height: 3vh;
-	border-radius: 15px 15px 0px 0px;
-	background-color: #677365;
-	font-size: 28px;
-	padding-bottom: 2px;
-	padding-top: 2px;
-	margin-bottom: 4px;
-}
-div#recents > div > text {
-	padding-bottom: 16px;
-}
 </style>
+<script>
+	const logoDiv = document.getElementById("logo");
+	const chars = logoDiv.innerText.split("");
+	logoDiv.innerText = "";
+	for (var i = 0; i < chars.length; i++) {
+		var newSpan = document.createElement("span");
+		newSpan.innerText = chars[i];
+		logoDiv.appendChild(newSpan);
+		newSpan.style.position = "relative";
+	}
+
+	var time_since = 0;
+
+	/** @param div {HTMLElement} @param animNum {int} */
+	function doAnimation(animNum, div) {
+		var children = div.children;
+		switch (animNum) {
+			case 1:
+				for (var i = 0; i < children.length; i++) {
+					children[i].style.bottom = `${Math.sin(time_since * 1.5 + i / 2) * 30}px`;
+				}
+				break;
+			case 2:
+				for (var i = 0; i < children.length; i++) {
+					children[i].style.top = `${Math.sin(time_since * 1.5 + i / 2) * 30}px`;
+				}
+				break;
+			case 3:
+				for (var i = 0; i < children.length; i++) {
+					children[i].style.left = `${Math.sin(time_since * 1.5 + i / 2) * 20}px`;
+				}
+				break;
+			case 4:
+				for (var i = 0; i < children.length; i++) {
+					var x = 32 * Math.cos(2 * Math.PI * (i + time_since * 0.5));
+					var y = 32 * Math.sin(2 * Math.PI * (i + time_since * 0.5));
+					children[i].style.left = `${x}px`;
+					children[i].style.top = `${y}px`;
+				}
+				break;
+			default:
+				break;
+		}
+		time_since += 0.05;
+	}
+
+	setInterval(doAnimation, 50, Math.ceil(Math.random() * 4), logoDiv);
+
+</script>
 <script src="animatelogo.js"></script>
 <script src="nav.js"></script>
 </html>

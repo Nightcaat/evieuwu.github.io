@@ -34,4 +34,4 @@ function animatelogo() {
 	}, 1000 + introText.length * 100, introDiv, introText);
 }
 
-window.onload = animatelogo();
+animatelogo();
