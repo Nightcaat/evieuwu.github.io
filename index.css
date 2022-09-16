@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+html, body {
+	background-color: #084c61;
+	color: #ffc857;
+	padding: 0px;
+	margin: 0px;
+	overflow-x: hidden;
+}
+
+div #typing {
+	padding-top: 32px;
+	font-size: 64px;
+	font-family: 'Anonymous Pro', monospace;
+	padding-left: 32px;
+	padding-bottom: 16px;
+	margin-right: 32px;
+}
+
+div#site {
+	background-color: #177e89;
+	color: #db3a34;
+	width: 100%;
+	text-align: center;
+}
+
+div#flex-row {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+
+div#flex-column {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+div#project {
+	width: 300px;
+	height: 300px;
+	border-radius: 16px;
+	background-color: #ffc857;
+	box-shadow: 4px 4px #B28C3C;
+	margin: 16px;
+	margin-left: 32px;
+	margin-right: 32px;
+}
+
+div#project img#project-image {
+	position: relative;
+	top: 8px;
+	border-radius: 10%;
+	margin-bottom: 8px;
+	height: 64px;
+}
+
+div#project div#project-header {
+	font-size: 24px;
+	font-family: 'Anonymous Pro', monospace;
+	text-align: center;
+	border-bottom: 2px solid #B28C3C;
+}
+
+div#project div#project-description {
+	font-size: 16px;
+	font-family: 'Anonymous Pro', monospace;
+	text-align: center;
+	margin-top: 8px;
+	border-bottom: 2px solid #B28C3C;
+}
+
+div#project div#project-links {
+	font-size: 16px;
+	font-family: 'Anonymous Pro', monospace;
+	text-align: center;
+	margin-top: 8px;
+}
+
+div#siteTransition {
+	background-image: url("assets/wave.svg");
+	background-repeat: repeat;
+	background-size: cover;
+	height: 150px;
+	width: 105%; /* Jank hack to fix the 1px gaps on either side.*/
+	left: -30px;
+	position: relative;
+	animation: sliding 5s infinite ease-in-out;
+}
+
+@keyframes sliding {
+	0% {
+		left: -5%;
+	}
+	50% {
+		left: -1%;
+	}
+	100% {
+		left: -5%;
+	}
+}
+
+div.upsideDown {
+	transform: rotate(180deg);
+}
+
+div#links, footer#footer {
+	background-color: #084C61;
+}
+
+.invisible, .invisible * {
+	display: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+div#link {
+	background: #FFC857;
+	box-shadow: 3px 3px #B28C3C;
+	margin: 10px;
+	color: #7400b8;
+	border-radius: 10% / 30%;
+	font-size: 24px;
+	width: 150px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+}
+
+a:link {
+	color: #6930c3;
+	text-decoration: none;
+	transition-duration: 0.5s;
+}
+
+a:visited {
+	color: #6930c3;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #72efdd;
+	text-decoration: none;
+	transition-duration: 0.25s;
+	cursor: pointer;
+}
+
+a:active {
+	color: #72efdd;
+	text-decoration: none;
+}
+
+footer {
+	color: #94d2bd;
+	font-size: 14px;
+	margin-bottom: 8px;
+	text-align: center;
+}
+
+span {
+	animation: blinkCursor 0.5s step-end infinite;
+	border-right: .15em solid #ffc857;
+}
+
+@keyframes blinkCursor {
+	from, to { border-color: #ffc857; }
+	50% { border-color: transparent }
+}
+
+@media (max-width: 800px) {
+	div #typing {
+		padding-top: 8px;
+		font-size: 24px;
+		font-family: 'Anonymous Pro', monospace;
+		padding-bottom: 4px;
+	}
+	div#link {
+		box-shadow: 5px 5px #B28C3C;
+		font-size: 18px;
+	}
+	div#project img#project-image {
+		top: 4px;
+		margin-bottom: 4px;
+		height: 32px;
+	}
+	div#project div#project-header {
+		font-size: 18px;
+		font-family: 'Anonymous Pro', monospace;
+	}
+	div#project div#project-description {
+		font-size: 14px;
+		font-family: 'Anonymous Pro', monospace;
+		margin-top: 4px;
+	}
+	div#project div#project-links {
+		font-size: 14px;
+		font-family: 'Anonymous Pro', monospace;
+		margin-top: 4px;
+	}
+	div#project {
+		width: 200px;
+		height: auto;
+		min-height: 200px;
+	}
+}

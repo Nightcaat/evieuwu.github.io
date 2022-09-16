@@ -1,53 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Evie's Site's Contents</title>
-	<link rel="stylesheet" href="../main.css">
-	<link rel="stylesheet" href="site.css">
-</head>
-<body>
-	<div class="nav">
-		<a id="intro" href="/"></a>
-		<a href="">
-			<span class="material-icons-outlined">home</span>
-			Home
-		</a>
-	</div>
-	<div class="main">
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Evie's Site's Contents</title>
+		<link rel="stylesheet" href="../index.css">
+		<link rel="stylesheet" href="site.css">
+	</head>
+	<body>
 		<h1>Site Contents</h1>
-		<div>
+		<p>
 			Hello and welcome to the hidden area of my site!<br>
 			Here you can find all the contents of my site, including:<br>
-			<hr>
+			<br>
 			<a href="maths/index.html">Maths Simulations</a><br>
 			<a href="games/index.html">Games</a><br>
 			<a href="random/index.html">Random</a>
+		</p>
+		<hr>
+		<h2>frens :3</h2>
+		<div id="cols">
+			<div>
+				<a href="https://flyfisher.neocities.org"><img src="https://flyfisher.neocities.org/sylviebutton.png" width="120" height="68" alt="sylviasite!"></a><br>
+				<div>sylvia :O</div>
+			</div>
 		</div>
 		<hr>
+		<h3>mah buttone</h3>
 		<div>
-			<a href="../index.html">Back to Home</a>
+			add it to your site to become epic<br>
+			<button id="eviebutton" onclick="location.href='https:\/\/evieuwu.github.io'">evie !!</button><br>
+			<a onclick="copy_code()">Copy code!!!!</a>
 		</div>
-	</div>
-	<div class="footer">
-		<span>I'm Evie! I'm a (kinda bad) software developer and furry. I'll put stuff I make here, and also just random ramblings.</span>
-		<span class="links">
-			<a href="https://github.com/EvieUwU">
-				<span class="material-icons-outlined">code</span>
-				GitHub
-			</a>
-			<a href="https://twitter.com/EvieUwO">
-				<span class="material-icons-outlined">chat_bubble_outline</span>
-				Twitter
-			</a>
-		</span>
-		<span>
-			<a href="site/index.html">
-				Secrets :3
-			</a>
-		</span>
-	</div>
-</body>
-<script src="../animatelogo.js"></script>
-<script src="../nav.js"></script>
+		<hr>
+		<p>
+			<a href="../index.html">Back to Home</a>
+		</p>
+		<footer id="footer">
+			This site was made and maintained by <a href="https://github.com/EvieUwU"> EvieUwU </a>
+		</footer>
+	</body>
+	<style>
+		body {
+			font-family: sans-serif;
+			font-size: 24px;
+		}
+		h1, h2, h3, p, div {
+			text-align: center;
+		}
+		div#cols {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		button#eviebutton {
+		background-color: #5bcefa;
+		border: none;
+		color: white;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		transition-duration: 1s;
+		width: 128px;
+		height: 32px;
+		transform: rotate(0deg);
+		cursor: pointer;
+		}
+		button#eviebutton:hover {
+			background-color: #ceb5ff;
+			transform: rotate(1800deg);
+		}
+	</style>
+	<script>
+		function copy_code() {
+			var copyText = '<button id="eviebutton" onclick="location.href=\'https:\/\/evieuwu.github.io\'">evie !!</button>\n<style>button#eviebutton {\nbackground-color: #5bcefa;\nborder: none;\ncolor: white;\ntext-align: center;\ntext-decoration: none;\ndisplay: inline-block;\nfont-size: 16px;\ntransition-duration: 1s;\nwidth: 128px;\nheight: 32px;\ntransform: rotate(0deg);\ncursor: pointer;\n}\nbutton#eviebutton:hover {\n	background-color: #ceb5ff;\n	transform: rotate(1800deg);\n}</style>';
+			navigator.clipboard.writeText(copyText);
+			alert("Copied to clipboard!");
+		}
+	</script>
 </html>

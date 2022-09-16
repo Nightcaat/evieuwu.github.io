@@ -1,18 +1,25 @@
-div.main {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	min-height: calc(100vh - 128px - 64px);
+a {
+	color: #b5e48c;
 }
 
-div {
-	text-align: center;
+a:link {
+	color: #b5e48c;
+	text-decoration: none;
+	transition-duration: 0.5s;
 }
 
-hr {
-	width: 60vw;
+a:visited {
+	color: #b5e48c;
+	text-decoration: none;
 }
 
-div a {
-	justify-content: center;
+a:hover {
+	color: #72efdd;
+	text-decoration: none;
+	transition-duration: 0.25s;
+}
+
+a:active {
+	color: #72efdd;
+	text-decoration: none;
 }

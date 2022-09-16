@@ -15,8 +15,16 @@ var win = false;
 
 function setup() {
 	createCanvas(800, 800);
-	slider = select("#speed");
-	squareSizeSlider = select("#size");
+	speedSpan = createSpan();
+	slider = createSlider(100, 500, 400);
+	slider.parent(speedSpan);
+	speedLabel = createSpan("Speed");
+	speedLabel.parent(speedSpan);
+	sizeSpan = createSpan();
+	squareSizeSlider = createSlider(3, 40, 20);
+	squareSizeSlider.parent(sizeSpan);
+	speedLabel = createSpan("Size");
+	speedLabel.parent(sizeSpan);
 }
 
 function draw() {
@@ -197,7 +205,7 @@ function moveSnake() {
 		}
 		snake.push([...pos]);
 	}
-	var speed = 600 - slider.value();
+	var speed = slider.value();
 	clearInterval(snakeInt);
 	snakeInt = setInterval(moveSnake, speed);
 }
