@@ -1,1 +1,3 @@
-# Moved to new repo to change the url lol
+# my cool portfolio site
+
+[go look at it](https://evieuwu.github.io)
