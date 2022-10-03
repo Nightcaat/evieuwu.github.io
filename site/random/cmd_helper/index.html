@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="/index.css">
 	<link rel="stylesheet" href="../../site.css">
 </head>
-<body>
+<body style="justify-content: space-evenly;">
 	<div>
 		<a href="../index.html">&lt; Back</a>
 		<br style="margin-bottom:16px;">
@@ -16,12 +16,12 @@
 	<p></p>
 	<div>
 		<label for="os"></label>
-		<select name="os" id="osSelection">
+		<select name="os" id="osSelection" onchange="changeos();">
 			<option value="nix">Linux</option>
-			<option value="win" disabled>Windows Command Prompt</option>
-			<option value="winps" disabled>Windows Powershell</option>
+			<option value="win">Windows Command Prompt - Coming Soon</option>
+			<option value="winps" disabled>Windows Powershell - Coming Soon</option>
 		</select>
-		
+
 	</div>
 	<div id="footer">
 		This site was made and maintained by <a href="https://github.com/EvieUwU"> EvieUwU </a>
@@ -41,6 +41,9 @@ body {
 }
 </style>
 <script>
-
+var os = "nix";
+function changeos() {
+	os = document.querySelector("select#osSelection").value;
+}
 </script>
 </html>
