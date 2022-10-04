@@ -1,0 +1,17 @@
+div#output {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+div#sections {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+div#sections > div {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
