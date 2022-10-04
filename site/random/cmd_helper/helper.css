@@ -1,17 +1,143 @@
+body {
+	min-width: 100vw;
+	min-height: 100vh;
+	background-color: #111;
+	color: #aaa;
+	display: grid;
+	grid-template: "head head"
+	"output output"
+	"output output"
+	"side select"
+	"side select"
+	"side select"
+	"side select"
+	"side select"
+	"side select"
+	"footer footer";
+	grid-template-columns: 15% auto;
+	gap: 8px;
+}
+
+div#header {
+	grid-area: head;
+	font-size: 28px;
+	font-weight: 800;
+	width: calc(100% - 32px);
+	height: calc(100% - 32px);
+	border-radius: 16px;
+	margin: 16px;
+	border: #333 solid 2px;
+	box-shadow: 0px 0px 16px #222;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+div#header > div#back > a {
+	height: 100%;
+	color: #555;
+}
+div#header > div#osSelect > select {
+	background-color: #555;
+	color: #fff;
+	padding: 0 8px;
+	font-size: 24px;
+	border-radius: 16px;
+	border: unset;
+}
+
 div#output {
+	grid-area: output;
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
+	width: calc(100% - 32px);
+	border-radius: 50%;
+	height: 100%;
+	margin: 0 16px;
+}
+div#output > div#outputCmd {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: calc(100% - 16px - 4px);
+	height: calc(100% - 16px - 4px);
+	padding: 8px;
+	border-radius: 16px;
+	background-color: #161616;
+	border: #222 solid 2px;
+}
+div#output > span {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 16px;
+	z-index: 1;
+}
+div#output > button {
+	width: min-content;
+	border-radius: 8px;
+	border: #222 solid 2px;
+	background-color: #111;
+	transition-duration: 250ms;
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 16px;
+	padding: 16px;
+	z-index: 1;
+}
+div#output > button:hover {
+	box-shadow: 0px 0px 8px #555;
 }
 
 div#sections {
+	grid-area: select;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
 }
-
 div#sections > div {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
+}
+
+div#footer {
+	grid-area: footer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+div#outputSections {
+	grid-area: side;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	text-align: center;
+	border-radius: 16px;
+	border: #333 solid 2px;
+	box-shadow: 0px 0px 16px #222;
+}
+div#outputSections > div#instructions {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+div#outputSections > div#instructions > div#instruction {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	width: calc(90% - 16px - 4px);
+	border-radius: 16px;
+	border: #333 solid 2px;
+	padding: 8px;
+	line-height: 100%;
+	margin-top: 8px;
 }

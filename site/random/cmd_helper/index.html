@@ -4,64 +4,54 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>*nix Command Helper</title>
-	<link rel="stylesheet" href="/index.css">
+	<title>Command-Line Helper</title>
 	<link rel="stylesheet" href="../../site.css">
 	<link rel="stylesheet" href="helper.css">
 </head>
-<body style="justify-content: space-evenly;">
-	<div>
-		<a href="../index.html">&lt; Back</a>
-		<br style="margin-bottom:16px;">
-	</div>
-	<p></p>
-	<div>
-		<div id="output">
-			Output:
-			<textarea disabled id="outputCmd"></textarea>
-			<button onclick="copyOutput();">Copy Command</button>
+<body>
+	<div id="header">
+		<div id="back">
+			<a href="../index.html">&lt; Back</a>
+		</div>
+		Command-Line Helper
+		<div id="osSelect">
 			<label for="os">Operating System</label>
 			<select name="os" id="osSelection" onchange="changeos();">
 				<option value="nix">Linux</option>
-				<option value="win" disabled>Windows Command Prompt - Coming Soon</option>
-				<option value="winps" disabled>Windows Powershell - Coming Soon</option>
+				<option value="win" disabled>Windows Command Prompt</option>
+				<option value="winps" disabled>Windows Powershell</option>
 			</select>
 		</div>
-		<div id="sections">
-			<div id="user">
-				<h1> User Commands </h1>
-				<div>
-					<label for="username">Username</label>
-					<input id="username" onkeyup="textInputChanged(this);">
-				</div>
-				<div>
-					<label for="createUser">Create User</label>
-					<input type="checkbox" id="createUser">
-				</div>
-				<div>
-					<label for="deleteUser">Delete User</label>
-					<input type="checkbox" id="deleteUser">
-					<label for="deleteHome">Delete Home?</label>
-					<input type="checkbox" id="deleteHome">
-				</div>
-			</div>
+	</div>
+	<div id="output">
+		<div id="outputCmd">Output: No Output</div>
+		<button onclick="copyOutput();">Copy</button>
+	</div>
+	<div id="outputSections">
+		<div id="head">
+			<h2>Current Instructions:</h2>
+		</div>
+		<div id="instructions">
+
+		</div>
+	</div>
+	<div id="sections">
+		<div id="user">
+			<h1>User Commands</h1>
+			<button id="createUser">Create User</button>
+			<button id="deleteUser">Delete User</button>
 		</div>
 	</div>
 	<div id="footer">
-		This site was made and maintained by <a href="https://github.com/EvieUwU"> EvieUwU </a>
+		<span>
+			This site was made and maintained by <a href="https://github.com/EvieUwU"> EvieUwU </a>
+		</span>
 	</div>
 </body>
 <style>
 body, html {
 	margin: 0;
 	padding: 0;
-}
-body {
-	height: 750px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 }
 </style>
 <script>
@@ -70,26 +60,50 @@ function changeos() {
 	os = document.querySelector("select#osSelection").value;
 }
 function copyOutput() {
-	navigator.clipboard.writeText(output.value);
+	navigator.clipboard.writeText(output.innerText.replace("Output: ", ""));
+}
+function setOutput(setTo) {
+	output.innerText = `Output: ${setTo}`;
+}
+function generateOutput() {
+	const children = instructions.children;
+	var out = children[0].value;
+	for (var i = 1; i < children.length; i++) {
+		const node = children[i];
+		out += ` && ${node.value}`;
+	}
+	setOutput(out);
+}
+function addInstruction(inst, command) {
+	const instruction = document.createElement("div");
+	instruction.id = "instruction";
+	instruction.value = inst;
+	const txt = document.createElement("span");
+	txt.id = "instText";
+	txt.innerText = command;
+	instruction.appendChild(txt);
+	const del = document.createElement("button");
+	del.id = "deleteButton";
+	del.innerText = "Delete";
+	del.onclick = function(){deleteInstruction(del);}
+	instruction.appendChild(del);
+	instructions.appendChild(instruction);
+	generateOutput();
+}
+function deleteInstruction(inst) {
+	inst.parentElement.removeChild(inst);
+	generateOutput();
 }
 const data = {
-	"createUser": "usermod -m $[username]",
-	"deleteUser": "usermod ${-r:deleteHome} $[username]"
+	"createUser": "usermod -m $[Username to create]",
+	"deleteUser": "userdel ${-r:Delete Home?:bool} $[Username to delete]"
 }
 const requiredVarRepl = /\$\[(.+?)\]/g;
 const switchRepl = /\${(.+?)}/g;
-const output = document.querySelector("textarea#outputCmd");
-function checkboxSelected(checkbox) {
-	if (!checkbox.checked) {
-		output.value = "";
-		return;
-	}
-	inputs.forEach((value) => {
-		if (value != checkbox) {
-			value.checked = false;
-		}
-	});
-	const cmd = checkbox.id;
+const output = document.querySelector("div#outputCmd");
+const instructions = document.querySelector("div#instructions");
+function buttonPressed(button) {
+	const cmd = button.id;
 	if (!(cmd in data)) {
 		alert("Unknown command selected.");
 		return;
@@ -99,54 +113,35 @@ function checkboxSelected(checkbox) {
 	var final = baseline;
 	for (const i in toReplace) {
 		const value = toReplace[i];
-		var toLookUp = value[1];
-		var node = document.querySelector(`input#${toLookUp}`);
-		if (node === null) {
-			alert(`Couldn't find ${toLookUp}`);
-			return;
-		}
-		var val = node.value;
-		final = final.replace(value[0], val);
+		var ppt = value[1];
+		var ans = prompt(ppt);
+		final = final.replace(value[0], ans);
 	}
 	toReplace = [...baseline.matchAll(switchRepl)];
 	for (const i in toReplace) {
 		const value = toReplace[i];
 		var all = value[1];
-		var toLookUp = all.split(":")[1];
+		var ppt = all.split(":")[1];
 		var toAdd = all.split(":")[0];
-		var node = document.querySelector(`input[type=checkbox]#${toLookUp}`);
-		if (node === null) {
-			alert(`Couldn't find ${toLookUp}`);
-			return;
-		}
-		var val = node.value;
-		if (val) {
-			final = final.replace(value[0], toAdd);
+		var type = all.split(":")[2];
+		if (type === "bool") {
+			var ans = prompt(`${ppt} (Y/N)`).toUpperCase();
+			if (ans) {
+				final = final.replace(value[0], toAdd);
+			} else {
+				final = final.replace(value[0], "");
+			}
 		} else {
-			final = final.replace(value[0], "");
+			if (val) {
+				final = final.replace(value[0], toAdd);
+			} else {
+				final = final.replace(value[0], "");
+			}
 		}
 	}
-	output.value = final;
+	addInstruction(final, button.innerText);
 }
-function textInputChanged(input) {
-	inputs.forEach((value) => {
-		if (value.checked) {
-			checkboxSelected(value);
-		}
-	});
-}
-var inputs = document.querySelectorAll("input");
-var checkboxes = [];
-var textInputs = [];
-inputs.forEach((value) => {
-	if (value.type === "checkbox") {
-		checkboxes.push(value)
-	} else if (value.type === "text") {
-		textInputs.push(value);
-	}
-});
-
-checkboxes.forEach((value) => value.onchange = function(){checkboxSelected(value)})
-textInputs.forEach((value) => value.onchange = function(){textInputChanged(value)})
+var buttons = document.querySelectorAll("div#sections > div > button");
+buttons.forEach((value) => value.onclick = function(){buttonPressed(value)});
 </script>
 </html>
