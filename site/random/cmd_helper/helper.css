@@ -15,16 +15,27 @@ body {
 	"side select"
 	"footer footer";
 	grid-template-columns: 25vw 75vw;
-	grid-template-rows: auto;
-	gap: 8px;
+	grid-template-rows: 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh;
+}
+
+button {
+	width: min-content;
+	border-radius: 8px;
+	border: #222 solid 2px;
+	background-color: #111;
+	transition-duration: 250ms;
+	color: #fff;
+	padding: 8px;
+}
+button:hover {
+	box-shadow: 0px 0px 8px #555;
 }
 
 div#header {
 	grid-area: head;
 	font-size: 28px;
 	font-weight: 800;
-	width: calc(100% - 32px);
-	height: 10vh;
+	width: calc(100vw - 32px);
 	border-radius: 16px;
 	margin: 16px;
 	border: #333 solid 2px;
@@ -53,9 +64,8 @@ div#output {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	width: calc(100% - 32px);
+	width: calc(100vw - 32px);
 	border-radius: 50%;
-	height: 20vh;
 	margin: 0 16px;
 }
 div#output > div#outputCmd {
@@ -77,18 +87,10 @@ div#output > span {
 	z-index: 1;
 }
 div#output > button {
-	width: min-content;
-	border-radius: 8px;
-	border: #222 solid 2px;
-	background-color: #111;
-	transition-duration: 250ms;
-	color: #fff;
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
 	right: 16px;
-	padding: 16px;
-	z-index: 1;
 }
 div#output > button:hover {
 	box-shadow: 0px 0px 8px #555;
@@ -99,12 +101,20 @@ div#sections {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
-	height: 60vh;
 }
 div#sections > div {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
+	height: calc(100% - 32px - 4px);
+	border: #333 solid 2px;
+	border-radius: 16px;
+	margin: 8px;
+	padding: 8px;
+	box-shadow: 0px 0px 16px #222;
+}
+div#sections > div > button {
+	width: unset;
 }
 
 div#footer {
@@ -112,7 +122,6 @@ div#footer {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 10vh;
 }
 
 div#outputSections {
@@ -125,9 +134,9 @@ div#outputSections {
 	border-radius: 16px;
 	border: #333 solid 2px;
 	box-shadow: 0px 0px 16px #222;
-	height: 60vh;
-	width: 100%;
+	width: calc(100% - 32px - 4px);
 	margin: 16px;
+	overflow: hidden;
 }
 div#outputSections > div#instructions {
 	width: 100%;
@@ -135,6 +144,7 @@ div#outputSections > div#instructions {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	overflow: scroll;
 }
 div#outputSections > div#instructions > div#instruction {
 	display: flex;
@@ -146,4 +156,9 @@ div#outputSections > div#instructions > div#instruction {
 	padding: 8px;
 	line-height: 100%;
 	margin-top: 8px;
+}
+div#outputSections > div#instructions > div#instruction > span {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }

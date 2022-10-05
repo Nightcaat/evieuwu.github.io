@@ -56,6 +56,19 @@ body, html {
 var os = "nix";
 function changeos() {
 	os = document.querySelector("select#osSelection").value;
+	switch (os) {
+		case "nix":
+			data = nix_data;
+			break;
+		case "win":
+			data = win_data;
+			break;
+		case "winps":
+			data = winps_data;
+			break;
+		default:
+			break;
+	}
 }
 function copyOutput() {
 	navigator.clipboard.writeText(output.innerText.replace("Output: ", ""));
@@ -96,10 +109,11 @@ function deleteInstruction(button) {
 	button.parentElement.parentElement.removeChild(button.parentElement);
 	generateOutput();
 }
-const data = {
+const nix_data = {
 	"createUser": "usermod -m $[Username to create]",
 	"deleteUser": "userdel ${-r:Delete Home?:bool} $[Username to delete]"
 }
+var data = nix_data;
 const requiredVarRepl = /\$\[(.+?)\]/g;
 const switchRepl = /\${(.+?)}/g;
 const output = document.querySelector("div#outputCmd");
@@ -117,6 +131,10 @@ function buttonPressed(button) {
 		const value = toReplace[i];
 		var ppt = value[1];
 		var ans = prompt(ppt);
+		if (ans === null || ans === "") {
+			alert("Cancelled.");
+			return;
+		}
 		final = final.replace(value[0], ans);
 	}
 	toReplace = [...baseline.matchAll(switchRepl)];
@@ -128,6 +146,10 @@ function buttonPressed(button) {
 		var type = all.split(":")[2];
 		if (type === "bool") {
 			var ans = prompt(`${ppt} (Y/N)`).toUpperCase();
+			if (ans === null || ans === "") {
+				alert("Cancelled.");
+				return;
+			}
 			if (ans === "Y" || ans === "YES") {
 				final = final.replace(value[0], toAdd);
 			} else {
