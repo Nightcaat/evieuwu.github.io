@@ -90,8 +90,8 @@ function addInstruction(inst, command) {
 	instructions.appendChild(instruction);
 	generateOutput();
 }
-function deleteInstruction(inst) {
-	inst.parentElement.removeChild(inst);
+function deleteInstruction(button) {
+	button.parentElement.parentElement.removeChild(button.parentElement);
 	generateOutput();
 }
 const data = {
