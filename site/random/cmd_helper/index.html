@@ -28,9 +28,7 @@
 		<button onclick="copyOutput();">Copy</button>
 	</div>
 	<div id="outputSections">
-		<div id="head">
-			<h2>Current Instructions:</h2>
-		</div>
+		<h2>Current Instructions:</h2>
 		<div id="instructions">
 
 		</div>
@@ -126,7 +124,7 @@ function buttonPressed(button) {
 		var type = all.split(":")[2];
 		if (type === "bool") {
 			var ans = prompt(`${ppt} (Y/N)`).toUpperCase();
-			if (ans) {
+			if (ans === "Y" || ans === "YES") {
 				final = final.replace(value[0], toAdd);
 			} else {
 				final = final.replace(value[0], "");
