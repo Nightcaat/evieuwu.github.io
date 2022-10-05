@@ -67,12 +67,16 @@ function setOutput(setTo) {
 }
 function generateOutput() {
 	const children = instructions.children;
-	var out = children[0].value;
-	for (var i = 1; i < children.length; i++) {
-		const node = children[i];
-		out += ` && ${node.value}`;
+	if (children.length !== 0) {
+		var out = children[0].value;
+		for (var i = 1; i < children.length; i++) {
+			const node = children[i];
+			out += ` && ${node.value}`;
+		}
+		setOutput(out);
+	} else {
+		setOutput("No Output");
 	}
-	setOutput(out);
 }
 function addInstruction(inst, command) {
 	const instruction = document.createElement("div");
