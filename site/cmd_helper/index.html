@@ -116,10 +116,10 @@ function deleteInstruction(button) {
 	generateOutput();
 }
 const nix_data = {
-	"createUser": "usermod -m $[Username To Create]",
-	"deleteUser": "userdel ${-r:Delete Home?:bool} $[Username To Delete]",
-	"createGroup": "groupadd $[Group To Create]",
-	"deleteGroup": "groupdel $[Group To Delete]"
+	"createUser": "sudo useradd -m $[Username To Create]",
+	"deleteUser": "sudo userdel ${-r:Delete Home?:bool} $[Username To Delete]",
+	"createGroup": "sudo groupadd $[Group To Create]",
+	"deleteGroup": "sudo groupdel $[Group To Delete]"
 }
 var data = nix_data;
 const requiredVarRepl = /\$\[(.+?)\]/g;
