@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Command-Line Helper</title>
-	<link rel="stylesheet" href="../../site.css">
+	<link rel="stylesheet" href="../site.css">
 	<link rel="stylesheet" href="helper.css">
 </head>
 <body>
@@ -38,6 +38,12 @@
 			<h1>User Commands</h1>
 			<button id="createUser">Create User</button>
 			<button id="deleteUser">Delete User</button>
+		</div>
+		<div id="user">
+			<h1>Group Commands</h1>
+			<button id="createGroup">Create Group</button>
+			<button id="deleteGroup">Delete Group</button>
+			<button id="addUserToGroup">Delete Group</button>
 		</div>
 	</div>
 	<div id="footer">
@@ -110,8 +116,10 @@ function deleteInstruction(button) {
 	generateOutput();
 }
 const nix_data = {
-	"createUser": "usermod -m $[Username to create]",
-	"deleteUser": "userdel ${-r:Delete Home?:bool} $[Username to delete]"
+	"createUser": "usermod -m $[Username To Create]",
+	"deleteUser": "userdel ${-r:Delete Home?:bool} $[Username To Delete]",
+	"createGroup": "groupadd $[Group To Create]",
+	"deleteGroup": "groupdel $[Group To Delete]"
 }
 var data = nix_data;
 const requiredVarRepl = /\$\[(.+?)\]/g;
