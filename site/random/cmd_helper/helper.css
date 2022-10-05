@@ -14,7 +14,7 @@ body {
 	"side select"
 	"side select"
 	"footer footer";
-	grid-template-columns: 15% auto;
+	grid-template-columns: 25vw 75vw;
 	gap: 8px;
 }
 
@@ -122,6 +122,7 @@ div#outputSections {
 	border-radius: 16px;
 	border: #333 solid 2px;
 	box-shadow: 0px 0px 16px #222;
+	margin: 16px;
 }
 div#outputSections > div#instructions {
 	width: 100%;
