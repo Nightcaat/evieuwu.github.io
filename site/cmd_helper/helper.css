@@ -112,9 +112,17 @@ div#sections > div {
 	margin: 8px;
 	padding: 8px;
 	box-shadow: 0px 0px 16px #222;
+	flex-grow: 1;
+	text-align: center;
 }
 div#sections > div > button {
 	width: unset;
+}
+div#sections > div > button:disabled {
+	background-color: #777;
+	border: #222 solid 2px;
+	box-shadow: 0px 0px 10px #222;
+	color: #000;
 }
 
 div#footer {

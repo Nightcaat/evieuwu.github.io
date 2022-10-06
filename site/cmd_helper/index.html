@@ -17,9 +17,9 @@
 		<div id="osSelect">
 			<label for="os">Operating System</label>
 			<select name="os" id="osSelection" onchange="changeos();">
-				<option value="nix">Linux</option>
-				<option value="win" disabled>Windows Command Prompt</option>
-				<option value="winps" disabled>Windows Powershell</option>
+				<option value="nix" selected>Linux</option>
+				<option value="win">Windows Command Prompt</option>
+				<option value="winps">Windows Powershell</option>
 			</select>
 		</div>
 	</div>
@@ -29,21 +29,36 @@
 	</div>
 	<div id="outputSections">
 		<h2>Current Instructions:</h2>
-		<div id="instructions">
-
-		</div>
+		<div id="instructions"></div>
 	</div>
 	<div id="sections">
-		<div id="user">
+		<div>
+			<h1>Package Management</h1>
+			<button id="updateSystem">Update System</button>
+			<button id="upgradePackages">Upgrade Packages</button>
+			<button id="installPackage">Install Package</button>
+			<button id="removePackage">Remove Package</button>
+		</div>
+		<div>
 			<h1>User Commands</h1>
 			<button id="createUser">Create User</button>
 			<button id="deleteUser">Delete User</button>
+			<button id="listUsers">List Users</button>
+			<button id="viewUserInformation">View User Information</button>
 		</div>
-		<div id="user">
+		<div>
 			<h1>Group Commands</h1>
 			<button id="createGroup">Create Group</button>
 			<button id="deleteGroup">Delete Group</button>
-			<button id="addUserToGroup">Delete Group</button>
+			<button id="addUserToGroup">Add User to Group</button>
+			<button id="deleteUserFromGroup">Delete User from Group</button>
+		</div>
+		<div>
+			<h1>File Commands</h1>
+			<button id="listDir">List Directory</button>
+			<button id="createFile">Create File</button>
+			<button id="deleteFile">Delete File</button>
+			<button id="changeFilePermissions">Change File Permissions</button>
 		</div>
 	</div>
 	<div id="footer">
@@ -59,7 +74,8 @@ body, html {
 }
 </style>
 <script>
-var os = "nix";
+const buttons = document.querySelectorAll("div#sections > div > button");
+var os = document.querySelector("select#osSelection").value = "nix";
 function changeos() {
 	os = document.querySelector("select#osSelection").value;
 	switch (os) {
@@ -75,6 +91,13 @@ function changeos() {
 		default:
 			break;
 	}
+	buttons.forEach((value) => {
+		if (!Object.keys(data).includes(value.id)) {
+			value.disabled = true;
+		} else {
+			value.disabled = false;
+		}
+	});
 }
 function copyOutput() {
 	navigator.clipboard.writeText(output.innerText.replace("Output: ", ""));
@@ -115,25 +138,61 @@ function deleteInstruction(button) {
 	button.parentElement.parentElement.removeChild(button.parentElement);
 	generateOutput();
 }
+// ${switch:Prompt:Type}
+// $[Prompt]
 const nix_data = {
 	"createUser": "sudo useradd -m $[Username To Create]",
 	"deleteUser": "sudo userdel ${-r:Delete Home?:bool} $[Username To Delete]",
+	"listUsers": "cat /etc/passwd",
 	"createGroup": "sudo groupadd $[Group To Create]",
-	"deleteGroup": "sudo groupdel $[Group To Delete]"
+	"deleteGroup": "sudo groupdel $[Group To Delete]",
+	"addUserToGroup": "sudo usermod -a -G $[Username To Add] $[Group To Add To]",
+	"deleteUserFromGroup": "sudo deluser $[Username] $[Group Name]",
+	"updateSystem": "sudo apt update",
+	"upgradePackages": "sudo apt upgrade",
+	"installPackage": "sudo apt install $[Package Name]",
+	"removePackage": "sudo apt remove $[Package Name]",
+	"listDir": "ls ${-a:View Hidden Files:bool} ${-l:Long Listing Format:bool} ${-h:Human Readable File Sizes:bool}",
+	"createFile": "${sudo :Sudo Permissions Required?:bool}touch $[Filename]",
+	"deleteFile": "${sudo :Sudo Permissions Required?:bool}rm ${-r:Recursive Removal (Delete entire folder):bool} ${-f:Force?:bool} $[Filename]",
+	"changeFilePermissions": "${sudo :Sudo Permissions Required?:bool}chmod $[Permission Modification] $[Filename]"
 }
+const win_data = {
+	"createUser": "net user $[Username] $[Password] /add",
+	"deleteUser": "net user $[Username] /delete",
+	"listUsers": "net user",
+	"viewUserInformation": "net user $[Username]",
+	"createGroup": "net localgroup $[Group Name] /add",
+	"deleteGroup": "net localgroup $[Group Name] /delete",
+	"addUserToGroup": "net localgroup $[Group Name] $[Username] /add",
+	"deleteUserFromGroup": "net localgroup $[Group Name] $[Username] /delete",
+	"listDir": "dir ${/ah:View Hidden Files:bool}",
+	"createFile": "copy con $[Filename]",
+	"deleteFile": "del $[Filename]"
+}
+const winps_data = {}
 var data = nix_data;
-const requiredVarRepl = /\$\[(.+?)\]/g;
-const switchRepl = /\${(.+?)}/g;
+
+buttons.forEach((value) => {
+	if (!Object.keys(data).includes(value.id)) {
+		value.disabled = true;
+	} else {
+		value.disabled = false;
+	}
+});
+
+const requiredVarRegex = /\$\[(.+?)\]/g;
+const switchRegex = /\${(.+?)}/g;
 const output = document.querySelector("div#outputCmd");
 const instructions = document.querySelector("div#instructions");
 function buttonPressed(button) {
 	const cmd = button.id;
 	if (!(cmd in data)) {
-		alert("Unknown command selected.");
+		alert("Command not implemented.");
 		return;
 	}
 	const baseline = data[cmd];
-	var toReplace = [...baseline.matchAll(requiredVarRepl)];
+	var toReplace = [...baseline.matchAll(requiredVarRegex)];
 	var final = baseline;
 	for (const i in toReplace) {
 		const value = toReplace[i];
@@ -145,7 +204,7 @@ function buttonPressed(button) {
 		}
 		final = final.replace(value[0], ans);
 	}
-	toReplace = [...baseline.matchAll(switchRepl)];
+	toReplace = [...baseline.matchAll(switchRegex)];
 	for (const i in toReplace) {
 		const value = toReplace[i];
 		var all = value[1];
@@ -154,18 +213,15 @@ function buttonPressed(button) {
 		var type = all.split(":")[2];
 		if (type === "bool") {
 			var ans = prompt(`${ppt} (Y/N)`).toUpperCase();
-			if (ans === null || ans === "") {
-				alert("Cancelled.");
-				return;
-			}
 			if (ans === "Y" || ans === "YES") {
 				final = final.replace(value[0], toAdd);
 			} else {
 				final = final.replace(value[0], "");
 			}
-		} else {
+		} else if (type === "str") {
+			var ans = prompt(`${ppt}`).toUpperCase();
 			if (val) {
-				final = final.replace(value[0], toAdd);
+				final = final.replace(value[0], ans);
 			} else {
 				final = final.replace(value[0], "");
 			}
@@ -173,7 +229,6 @@ function buttonPressed(button) {
 	}
 	addInstruction(final, button.innerText);
 }
-var buttons = document.querySelectorAll("div#sections > div > button");
 buttons.forEach((value) => value.onclick = function(){buttonPressed(value)});
 </script>
 </html>
