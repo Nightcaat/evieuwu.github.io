@@ -17,7 +17,8 @@
 		<div id="osSelect">
 			<label for="os">Operating System</label>
 			<select name="os" id="osSelection" onchange="changeos();">
-				<option value="nix" selected>Linux</option>
+				<option value="ubuntu" selected>Ubuntu</option>
+				<option value="fedora">Fedora/DNF Package Manager</option>
 				<option value="win">Windows Command Prompt</option>
 				<option value="winps">Windows Powershell</option>
 			</select>
@@ -75,12 +76,15 @@ body, html {
 </style>
 <script>
 const buttons = document.querySelectorAll("div#sections > div > button");
-var os = document.querySelector("select#osSelection").value = "nix";
+var os = document.querySelector("select#osSelection").value = "ubuntu";
 function changeos() {
 	os = document.querySelector("select#osSelection").value;
 	switch (os) {
-		case "nix":
-			data = nix_data;
+		case "ubuntu":
+			data = ubuntu_data;
+			break;
+		case "fedora":
+			dara = fedora_data;
 			break;
 		case "win":
 			data = win_data;
@@ -140,7 +144,7 @@ function deleteInstruction(button) {
 }
 // ${switch:Prompt:Type}
 // $[Prompt]
-const nix_data = {
+const ubuntu_data = {
 	"createUser": "sudo useradd -m $[Username To Create]",
 	"deleteUser": "sudo userdel ${-r:Delete Home?:bool} $[Username To Delete]",
 	"listUsers": "cat /etc/passwd",
@@ -152,6 +156,23 @@ const nix_data = {
 	"upgradePackages": "sudo apt upgrade",
 	"installPackage": "sudo apt install $[Package Name]",
 	"removePackage": "sudo apt remove $[Package Name]",
+	"listDir": "ls ${-a:View Hidden Files:bool} ${-l:Long Listing Format:bool} ${-h:Human Readable File Sizes:bool}",
+	"createFile": "${sudo :Sudo Permissions Required?:bool}touch $[Filename]",
+	"deleteFile": "${sudo :Sudo Permissions Required?:bool}rm ${-r:Recursive Removal (Delete entire folder):bool} ${-f:Force?:bool} $[Filename]",
+	"changeFilePermissions": "${sudo :Sudo Permissions Required?:bool}chmod $[Permission Modification] $[Filename]"
+}
+const fedora_data = {
+	"createUser": "sudo useradd -m $[Username To Create]",
+	"deleteUser": "sudo userdel ${-r:Delete Home?:bool} $[Username To Delete]",
+	"listUsers": "cat /etc/passwd",
+	"createGroup": "sudo groupadd $[Group To Create]",
+	"deleteGroup": "sudo groupdel $[Group To Delete]",
+	"addUserToGroup": "sudo usermod -a -G $[Username To Add] $[Group To Add To]",
+	"deleteUserFromGroup": "sudo deluser $[Username] $[Group Name]",
+	"updateSystem": "sudo dnf upgrade",
+	"upgradePackages": "sudo dnf upgrade",
+	"installPackage": "sudo dnf install $[Package Name]",
+	"removePackage": "sudo dnf remove $[Package Name]",
 	"listDir": "ls ${-a:View Hidden Files:bool} ${-l:Long Listing Format:bool} ${-h:Human Readable File Sizes:bool}",
 	"createFile": "${sudo :Sudo Permissions Required?:bool}touch $[Filename]",
 	"deleteFile": "${sudo :Sudo Permissions Required?:bool}rm ${-r:Recursive Removal (Delete entire folder):bool} ${-f:Force?:bool} $[Filename]",
@@ -171,7 +192,7 @@ const win_data = {
 	"deleteFile": "del $[Filename]"
 }
 const winps_data = {}
-var data = nix_data;
+var data = ubuntu_data;
 
 buttons.forEach((value) => {
 	if (!Object.keys(data).includes(value.id)) {
