@@ -20,7 +20,6 @@
 				<option value="ubuntu" selected>Ubuntu</option>
 				<option value="fedora">Fedora/DNF Package Manager</option>
 				<option value="win">Windows Command Prompt</option>
-				<option value="winps">Windows Powershell</option>
 			</select>
 		</div>
 	</div>
@@ -88,9 +87,6 @@ function changeos() {
 			break;
 		case "win":
 			data = win_data;
-			break;
-		case "winps":
-			data = winps_data;
 			break;
 		default:
 			break;
@@ -191,7 +187,6 @@ const win_data = {
 	"createFile": "copy con $[Filename]",
 	"deleteFile": "del $[Filename]"
 }
-const winps_data = {}
 var data = ubuntu_data;
 
 buttons.forEach((value) => {
