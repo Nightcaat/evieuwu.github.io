@@ -33,7 +33,7 @@ function doTypingAnim(text) {
 			}
 		}
 		if (elements[textIndex].childNodes.length === 0) {
-			elements[textIndex].innerHTML = text[textIndex]["text"].substring(0, textInc + 1) +'<span aria-hidden="true"></span>';
+			elements[textIndex].innerHTML = text[textIndex]["text"].substring(0, textInc + 1) +'<span aria-hidden="true" class="blinking"></span>';
 		} else {
 			var change = elements[textIndex].childNodes[0];
 			change.nodeValue = text[textIndex]["text"].substring(0, textInc + 1);

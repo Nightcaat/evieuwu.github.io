@@ -1,5 +1,5 @@
 body {
-	min-width: 100vw;
+	min-width: 100%;
 	min-height: 100vh;
 	background-color: #111;
 	color: #aaa;
@@ -35,7 +35,7 @@ div#header {
 	grid-area: head;
 	font-size: 28px;
 	font-weight: 800;
-	width: calc(100vw - 32px);
+	width: calc(100% - 32px);
 	border-radius: 16px;
 	margin: 16px;
 	border: #333 solid 2px;
@@ -64,7 +64,7 @@ div#output {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	width: calc(100vw - 32px);
+	width: calc(100% - 32px);
 	border-radius: 50%;
 	margin: 0 16px;
 }

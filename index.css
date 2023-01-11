@@ -6,6 +6,7 @@ html, body {
 	padding: 0px;
 	margin: 0px;
 	overflow-x: hidden;
+	min-height: 100vh;
 }
 
 div #typing {
@@ -72,6 +73,8 @@ div#project div#project-description {
 	text-align: center;
 	margin-top: 8px;
 	border-bottom: 2px solid #B28C3C;
+	padding-left: 4px;
+	padding-right: 4px;
 }
 
 div#project div#project-links {
@@ -157,11 +160,12 @@ a:active {
 footer {
 	color: #94d2bd;
 	font-size: 14px;
-	margin-bottom: 8px;
+	padding-bottom: 8px;
+	padding-top: 8px;
 	text-align: center;
 }
 
-span {
+span.blinking {
 	animation: blinkCursor 0.5s step-end infinite;
 	border-right: .15em solid #ffc857;
 }

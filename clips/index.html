@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:title" content="evie"/>
+	<meta property="og:type" content="website"/>
+	<meta property="og:url" content="https://evieuwu.duckdns.org/index.html"/>
+	<meta property="og:image" content="https://evieuwu.duckdns.org/assets/favicon.png"/>
+	<meta property="og:description" content="Evie's Clip Zone"/>
+	<meta name="theme-color" content="#e283d9">
+	<title>Evie's Clip Zone</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
+	<link rel="stylesheet" href="/index.css">
+	<link rel="stylesheet" href="clips.css">
+</head>
+<script src="/ensureLocal.js"></script>
+<body>
+	<div id="head">
+		<span id="title">
+			Evie's Gaming Clip Zone
+		</span>
+		<span id="num-clips">
+			Number of Clips: 0
+		</span>
+		<span id="filter">
+			<label for="filter">Filter Clips</label>
+			<select id="filter" onchange="changedFilter(this.value);get_dir_items();"></select>
+		</span>
+	</div>
+	<div id="clips">
+		Loading...
+	</div>
+	<div id="footer">
+	</div>
+</body>
+<script>
+var dir_items = [];
+var games = [];
+var filter = "all";
+const dir_items_element = document.querySelector("div#clips");
+const num_items_element = document.querySelector("span#num-clips");
+const filter_items_element = document.querySelector("select#filter");
+function get_dir_items() {
+	fetch(`get_clips.php`).then((data) => {
+		try {
+			var dat = data.json();
+			return dat;
+		} catch (error) {
+			return {"status": "error", "msg": data.text()};
+		}
+	}).then((data) => {
+		if (data["status"] === "error") {
+			error_directory(data["msg"]);
+		} else {
+			dir_items = data["files"];
+			games = data["games"];
+			show_dir_items();
+		}
+	});
+}
+
+function changedFilter(new_f) {
+	filter = new_f;
+}
+
+function error_directory(error_msg) {
+	dir_items_element.innerHTML = "";
+	var elem = document.createElement("div");
+	elem.id = "no-dir";
+	elem.innerHTML = `An error occurred...\t\tError: ${error_msg}`;
+	dir_items_element.appendChild(elem);
+}
+
+function show_dir_items() {
+	dir_items_element.innerHTML = "";
+	if (dir_items.length === 0) {
+		var elem = document.createElement("div");
+		elem.id = "no-dir";
+		elem.innerHTML = `No clips :(`;
+		dir_items_element.appendChild(elem);
+		return;
+	}
+
+	filter_items_element.innerHTML = "";
+	var filt = document.createElement("option");
+	filt.value = "all";
+	filt.innerText = "All";
+	filter_items_element.appendChild(filt);
+	for (const idx in games) {
+		const item = games[idx];
+		var filt = document.createElement("option");
+		filt.value = item;
+		filt.innerText = item;
+		if (item === filter) {
+			filt.selected = true;
+		}
+		filter_items_element.appendChild(filt);
+	}
+
+	var clips = 0;
+
+	for (const key in dir_items) {
+		if (Object.hasOwnProperty.call(dir_items, key)) {
+			const element = dir_items[key];
+			if (filter !== "all") {
+				if (element["game"] !== filter) {
+					continue;
+				}
+			}
+			clips++;
+			console.log(element);
+			var elem = document.createElement("div");
+			elem.id = "clip";
+			elem.classList.add("clip");
+			var href = document.createElement("a");
+			href.href = `view_clip.php?file=${element['name']}`;
+			var thumb = document.createElement("img");
+			thumb.src = `links/${element['name']}.jpg`;
+			href.appendChild(thumb);
+			elem.appendChild(href);
+			var div = document.createElement("div");
+			div.id = "actions";
+			var text = document.createElement("span");
+			text.innerText = element["readname"];
+			text.id = "label";
+			div.appendChild(text);
+			text = document.createElement("span");
+			text.innerText = element["game"];
+			text.id = "label";
+			div.appendChild(text);
+			var down = document.createElement("button");
+			down.innerText = "Download";
+			down.onclick = () => {
+				window.location = `download_file.php?file=${element['name']}`;
+			};
+			div.append(down);
+			var down = document.createElement("button");
+			down.innerText = "Share";
+			down.onclick = () => {
+				navigator.clipboard.writeText(`https://evieuwu.duckdns.org/clips/view_clip.php?file=${element['name']}`);
+				alert("Copied sharing url!");
+			};
+			div.append(down);
+			elem.append(div);
+			dir_items_element.appendChild(elem);
+		}
+	}
+	num_items_element.innerText = `Number of Clips: ${clips}`;
+}
+get_dir_items();
+</script>
+</html>

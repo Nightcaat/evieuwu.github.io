@@ -1,7 +1,5 @@
-# my cool portfolio site
+# evieuwu
 
-[go look at it](https://evieuwu.github.io)
+My really cool portfolio website!
 
-## IMPORTANT NOTICE
-
-This repo will stop being updated (for now), because I'm now putting more advanced stuff on my site with PHP, I don't want the source code of that getting out, as it has secret variables and stuff which someone could use to break my website and poor raspberry pi :((
+[go look at it](https://evieuwu.duckdns.org)

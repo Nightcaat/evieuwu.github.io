@@ -2,6 +2,12 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<meta property="og:title" content="evie"/>
+		<meta property="og:type" content="website"/>
+		<meta property="og:url" content="https://evieuwu.duckdns.org/index.html"/>
+		<meta property="og:image" content="https://evieuwu.duckdns.org/assets/favicon.png"/>
+		<meta property="og:description" content="Evie's Site"/>
+		<meta name="theme-color" content="#e283d9">
 		<title>Evie's Site's Contents</title>
 		<link rel="stylesheet" href="/index.css">
 		<link rel="stylesheet" href="site.css">
@@ -29,7 +35,7 @@
 		<h3>mah buttone</h3>
 		<div>
 			add it to your site to become epic<br>
-			<button id="eviebutton" onclick="location.href='https:\/\/evieuwu.github.io'">evie !!</button><br>
+			<button id="eviebutton" onclick="location.href='https:\/\/evieuwu.duckdns.org'">evie !!</button><br>
 			<a onclick="copy_code()">Copy code!!!!</a>
 		</div>
 		<hr>
@@ -76,7 +82,7 @@
 	<script src="/ensureLocal.js"></script>
 	<script>
 		function copy_code() {
-			var copyText = '<button id="eviebutton" onclick="location.href=\'https:\/\/evieuwu.github.io\'">evie !!</button>\n<style>button#eviebutton {\nbackground-color: #5bcefa;\nborder: none;\ncolor: white;\ntext-align: center;\ntext-decoration: none;\ndisplay: inline-block;\nfont-size: 16px;\ntransition-duration: 1s;\nwidth: 128px;\nheight: 32px;\ntransform: rotate(0deg);\ncursor: pointer;\n}\nbutton#eviebutton:hover {\n	background-color: #ceb5ff;\n	transform: rotate(1800deg);\n}</style>';
+			var copyText = '<button id="eviebutton" onclick="location.href=\'https:\/\/evieuwu.duckdns.org\'">evie !!</button>\n<style>button#eviebutton {\nbackground-color: #5bcefa;\nborder: none;\ncolor: white;\ntext-align: center;\ntext-decoration: none;\ndisplay: inline-block;\nfont-size: 16px;\ntransition-duration: 1s;\nwidth: 128px;\nheight: 32px;\ntransform: rotate(0deg);\ncursor: pointer;\n}\nbutton#eviebutton:hover {\n	background-color: #ceb5ff;\n	transform: rotate(1800deg);\n}</style>';
 			navigator.clipboard.writeText(copyText);
 			alert("Copied to clipboard!");
 		}
