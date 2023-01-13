@@ -1,213 +1,213 @@
-@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("palette.css");
+@import url("nav.css");
+@import url("body.css");
+@import url("fonts.css");
 
-html, body {
-	background-color: #084c61;
-	color: #ffc857;
-	padding: 0px;
+html {
 	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	height: 100vh;
+
+	background-color: var(--bg-colour);
+	color: var(--text-colour);
+	font-family: 'Sofia Sans', sans-serif;
+
+	display: grid;
+	grid-template-columns: 15% 85%;
+	grid-template-rows: 72px auto;
+	margin: 0px;
+	padding: 0px;
 	overflow-x: hidden;
-	min-height: 100vh;
 }
 
-div #typing {
-	padding-top: 32px;
-	font-size: 64px;
-	font-family: 'Anonymous Pro', monospace;
-	padding-left: 32px;
-	padding-bottom: 16px;
-	margin-right: 32px;
-}
+div#head {
+	grid-column-start: 1;
+	grid-column-end: 3;
 
-div#site {
-	background-color: #177e89;
-	color: #db3a34;
 	width: 100%;
+	font-size: 42px;
+	padding: 4px 0px;
 	text-align: center;
-}
+	background-color: var(--sidebar-colour);
+	box-shadow: 0px 0px 3px var(--sidebar-colour);
 
-div#flex-row {
 	display: flex;
-	flex-wrap: wrap;
-	width: 100%;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-}
-
-div#flex-column {
-	display: flex;
-	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
 }
 
-div#project {
-	width: 300px;
-	height: 300px;
-	border-radius: 16px;
-	background-color: #ffc857;
-	box-shadow: 4px 4px #B28C3C;
-	margin: 16px;
-	margin-left: 32px;
-	margin-right: 32px;
-}
-
-div#project img#project-image {
+span.headanimate1 {
+	animation-name: updown;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	animation-timing-function: cubic-bezier(0.17, 0.84, 0.28, 1.32);
 	position: relative;
-	top: 8px;
-	border-radius: 10%;
-	margin-bottom: 8px;
-	height: 64px;
 }
 
-div#project div#project-header {
-	font-size: 24px;
-	font-family: 'Anonymous Pro', monospace;
-	text-align: center;
-	border-bottom: 2px solid #B28C3C;
-}
-
-div#project div#project-description {
-	font-size: 16px;
-	font-family: 'Anonymous Pro', monospace;
-	text-align: center;
-	margin-top: 8px;
-	border-bottom: 2px solid #B28C3C;
-	padding-left: 4px;
-	padding-right: 4px;
-}
-
-div#project div#project-links {
-	font-size: 16px;
-	font-family: 'Anonymous Pro', monospace;
-	text-align: center;
-	margin-top: 8px;
-}
-
-div#siteTransition {
-	background-image: url("assets/wave.svg");
-	background-repeat: repeat;
-	background-size: cover;
-	height: 150px;
-	width: 105%; /* Jank hack to fix the 1px gaps on either side.*/
-	left: -30px;
+span.headanimate2 {
+	animation-name: sideside;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: cubic-bezier(0.17, 0.84, 0.28, 1.32);
 	position: relative;
-	animation: sliding 5s infinite ease-in-out;
 }
 
-@keyframes sliding {
-	0% {
-		left: -5%;
-	}
-	50% {
-		left: -1%;
-	}
-	100% {
-		left: -5%;
-	}
+span.headanimate3 {
+	animation-name: circle;
+	animation-duration: 3.5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: cubic-bezier(0.17, 0.84, 0.28, 1.32);
+	position: relative;
 }
 
-div.upsideDown {
-	transform: rotate(180deg);
+span.headanimate4 {
+	animation-name: wave;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+	position: relative;
 }
 
-div#links, footer#footer {
-	background-color: #084C61;
-}
-
-.invisible, .invisible * {
+div#head span#menu {
 	display: none;
-	padding: 0px;
-	margin: 0px;
 }
 
-div#link {
-	background: #FFC857;
-	box-shadow: 3px 3px #B28C3C;
-	margin: 10px;
-	color: #7400b8;
-	border-radius: 10% / 30%;
-	font-size: 18px;
-	min-width: 150px;
-	min-height: 50px;
-	line-height: 50px;
-	text-align: center;
+div#projects hr {
+	width: 90%;
 }
 
-a:link {
-	color: #6930c3;
+div#projects div#flex {
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+div#projects div#grid {
+	display: grid;
+	grid-template-columns: 15% 15% 50% 20%;
+	row-gap: 16px;
+	column-gap: 4px;
+	width: calc(100% - 16px - 12px);
+	justify-items: center;
+}
+
+div#projects div#flex {
+	flex-direction: column;
+}
+
+div#projects div#grid img {
+	width: 64px;
+}
+
+a {
+	color: var(--link-colour);
 	text-decoration: none;
-	transition-duration: 0.5s;
-}
-
-a:visited {
-	color: #6930c3;
-	text-decoration: none;
+	transition-duration: 250ms;
 }
 
 a:hover {
-	color: #72efdd;
-	text-decoration: none;
-	transition-duration: 0.25s;
-	cursor: pointer;
+	text-shadow: 0px 0px 5px;
 }
 
-a:active {
-	color: #72efdd;
-	text-decoration: none;
+a:visited {
+	color: var(--link-colour);
 }
 
-footer {
-	color: #94d2bd;
-	font-size: 14px;
-	padding-bottom: 8px;
-	padding-top: 8px;
-	text-align: center;
+@keyframes updown {
+	0% {
+		top: 0px;
+	}
+	25% {
+		top: -16px;
+	}
+	50% {
+		top: 0px;
+	}
+	75% {
+		top: 16px;
+	}
+	100% {
+		top: 0px;
+	}
 }
 
-span.blinking {
-	animation: blinkCursor 0.5s step-end infinite;
-	border-right: .15em solid #ffc857;
+@keyframes sideside {
+	0% {
+		left: 0px;
+	}
+	25% {
+		left: -8px;
+	}
+	50% {
+		left: 0px;
+	}
+	75% {
+		left: 8px;
+	}
+	100% {
+		left: 0px;
+	}
 }
 
-@keyframes blinkCursor {
-	from, to { border-color: #ffc857; }
-	50% { border-color: transparent }
+@keyframes circle {
+	0% {
+		top: 0px;
+		left: -8px;
+	}
+	25% {
+		top: -8px;
+		left: 0px;
+	}
+	50% {
+		left: 8px;
+		top: 0px;
+	}
+	75% {
+		top: 8px;
+		left: 0px;
+	}
+	100% {
+		left: -8px;
+		top: 0px;
+	}
 }
 
-@media (max-width: 800px) {
-	div #typing {
-		padding-top: 8px;
-		font-size: 24px;
-		font-family: 'Anonymous Pro', monospace;
-		padding-bottom: 4px;
+@keyframes wave {
+	0% {
+		top: 0px;
 	}
-	div#link {
-		box-shadow: 5px 5px #B28C3C;
-		font-size: 18px;
+	25% {
+		top: -8px;
 	}
-	div#project img#project-image {
-		top: 4px;
-		margin-bottom: 4px;
-		height: 32px;
+	75% {
+		top: 8px;
 	}
-	div#project div#project-header {
-		font-size: 18px;
-		font-family: 'Anonymous Pro', monospace;
+	100% {
+		top: 0px;
 	}
-	div#project div#project-description {
-		font-size: 14px;
-		font-family: 'Anonymous Pro', monospace;
-		margin-top: 4px;
+}
+
+@media screen and (max-width: 1080px) {
+	div#head {
+		font-size: 32px;
 	}
-	div#project div#project-links {
-		font-size: 14px;
-		font-family: 'Anonymous Pro', monospace;
-		margin-top: 4px;
+	div#head span#menu {
+		display: inline;
+		font-size: 32px;
+		cursor: pointer;
+		position: absolute;
+		left: 4px;
+		top: 20px;
+		transition-duration: 300ms;
 	}
-	div#project {
-		width: 200px;
-		height: auto;
-		min-height: 200px;
+
+	div#head span#menu.clicked {
+		text-shadow: 0px 0px 5px;
 	}
+}
+
+div#expand {
+	flex-grow: 1;
 }

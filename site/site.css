@@ -1,25 +1,17 @@
-a {
-	color: #b5e48c;
+@import url("../index.css");
+
+body {
+	display: unset;
+	flex-direction: column;
+	justify-content: start;
+	align-items: center;
 }
 
-a:link {
-	color: #b5e48c;
-	text-decoration: none;
-	transition-duration: 0.5s;
+hr {
+	flex-grow: 1;
 }
 
-a:visited {
-	color: #b5e48c;
-	text-decoration: none;
-}
-
-a:hover {
-	color: #72efdd;
-	text-decoration: none;
-	transition-duration: 0.25s;
-}
-
-a:active {
-	color: #72efdd;
-	text-decoration: none;
+footer {
+	display: flex;
+	justify-content: center;
 }
