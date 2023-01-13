@@ -26,7 +26,7 @@ div#clip {
 	padding: 8px;
 	border-radius: 16px;
 	margin: 4px;
-	background-color: #084c61;
+	background-color: var(--bg-colour);
 }
 
 button {
