@@ -1,5 +1,5 @@
 body {
-	display: flex;
+	display: flex !important;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-evenly;
@@ -18,9 +18,8 @@ div#container {
 	justify-items: center;
 	width: 100%;
 	grid-template-columns: 50% 50%;
-	background-color: #177e89;
+	background-color: var(--sidebar-colour);
 	border-radius: 8px;
-	border: #cdb4db 2px solid;
 	font-size: 18px;
 	text-align: center;
 }
@@ -30,7 +29,8 @@ div#container button {
 }
 
 video#clip {
-	max-height: 50vh;
+	width: 90%;
+	margin-top: 5%;
 	grid-column-start: 1;
 	grid-column-end: 3;
 }

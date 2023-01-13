@@ -26,7 +26,7 @@
 		</span>
 		<span id="filter">
 			<label for="filter">Filter Clips</label>
-			<select id="filter" onchange="changedFilter(this.value);get_dir_items();"></select>
+			<select id="filter" onchange="changedFilter(this.value);"></select>
 		</span>
 	</div>
 	<div id="clips">
@@ -61,6 +61,14 @@ function get_dir_items() {
 
 function changedFilter(new_f) {
 	filter = new_f;
+	dir_items_element.childNodes.forEach((elem) => {
+		if (filter !== "all" && elem.getAttribute("game") !== filter) {
+			elem.classList.add("hidden");
+		} else {
+			elem.classList.remove("hidden");
+		}
+	})
+
 }
 
 function error_directory(error_msg) {
@@ -72,7 +80,10 @@ function error_directory(error_msg) {
 }
 
 function show_dir_items() {
-	dir_items_element.innerHTML = "";
+	while (dir_items_element.firstChild) {
+		dir_items_element.removeChild(dir_items_element.firstChild);
+	}
+
 	if (dir_items.length === 0) {
 		var elem = document.createElement("div");
 		elem.id = "no-dir";
@@ -110,6 +121,7 @@ function show_dir_items() {
 			clips++;
 			console.log(element);
 			var elem = document.createElement("div");
+			elem.setAttribute("game", element["game"]);
 			elem.id = "clip";
 			elem.classList.add("clip");
 			var href = document.createElement("a");
