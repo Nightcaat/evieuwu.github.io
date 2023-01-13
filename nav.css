@@ -1,0 +1,75 @@
+div#nav {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: start;
+
+	border-top: 2px var(--bg-colour) solid;
+
+	background-color: var(--sidebar-colour);
+	box-shadow: 0px 0px 3px var(--sidebar-colour);
+}
+
+div#nav button, div#nav a {
+	background-color: var(--button-colour);
+	color: var(--button-text-colour);
+
+	text-align: left;
+	font-size: 24px;
+	font-family: inherit;
+
+	transition-duration: 300ms;
+
+	border-radius: 8px;
+	border: unset;
+
+	padding: 8px;
+	margin: 4px;
+
+	cursor: pointer;
+}
+
+div#nav button:first-child {
+	margin-top: 8px;
+}
+
+div#nav a > button {
+	padding: 0;
+	margin: 0;
+	border-radius: 0;
+	background-color: transparent;
+}
+
+div#nav button.selected, div#nav button:hover, div#nav a:hover {
+	background-color: var(--button-selected-colour);
+	box-shadow: 0px 0px 4px var(--button-selected-colour);
+}
+
+div#nav span {
+	font-size: 32px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+div#nav span#nav {
+	width: 100%;
+}
+
+@media screen and (max-width: 1080px) {
+	div#nav {
+		position: absolute;
+		width: max-content;
+		padding: 8px;
+		z-index: 1;
+		left: -50%;
+		top: 72px;
+		border-radius: 0 0 16px 0;
+	}
+	div#nav span {
+		font-size: 20px;
+	}
+
+	div#nav.expanded {
+		left: 0%;
+	}
+}

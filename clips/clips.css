@@ -1,7 +1,6 @@
 div#head {
 	width: calc(100% - 16px - 4px - 8px);
-	background-color: #177e89;
-	border: #cdb4db 2px solid;
+	background-color: var(--sidebar-colour);
 	border-radius: 8px;
 	padding: 8px;
 	margin: 4px;
@@ -15,11 +14,12 @@ div#clips {
 	grid-template-columns: 30% 30% 30%;
 	column-gap: 5%;
 	width: calc(100% - 16px - 8px - 4px);
-	background-color: #177e89;
-	border: #cdb4db 2px solid;
+	background-color: var(--sidebar-colour);
 	border-radius: 8px;
 	padding: 8px;
 	margin: 4px;
+	grid-column-start: 1;
+	grid-column-end: 3;
 }
 
 div#clip {

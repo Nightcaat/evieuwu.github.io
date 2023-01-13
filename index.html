@@ -1,174 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="index.css">
-<script src="/ensureLocal.js"></script>
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta property="og:title" content="evie"/>
-	<meta property="og:type" content="website"/>
-	<meta property="og:url" content="https://evieuwu.duckdns.org/index.html"/>
-	<meta property="og:image" content="https://evieuwu.duckdns.org/assets/favicon.png"/>
-	<meta property="og:description" content="Evie's Home Page"/>
-	<meta name="theme-color" content="#e283d9">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>&lt;evie&gt;</title>
+	<title>EvieUwO</title>
+	<link rel="stylesheet" href="index.css">
 </head>
 <body>
-	<div id="typingDiv"></div>
-	<div id="site" class="invisible">
-		<div id="projects" class="pc">
-			<div id="siteTransition"></div>
-			<div id="flex-column">
-				<div id="flex-row">
-					<div id="project">
-						<img id="project-image" src="assets/Platformer.png">
-						<div id="project-header">
-							Platformer
-						</div>
-						<div id="project-description">
-							A simple platformer made in pure Python. It's a bit buggy, but it's kinda functional?
-						</div>
-						<div id="project-links">
-							<a href="https://github.com/EvieUwU/Platformer" target="_blank">Github Repo</a>
-						</div>
+	<div id="head">
+		<span class="material-symbols-rounded" id="menu">
+			menu
+		</span>
+		<span>
+			&lt;EvieUwO&gt;
+		</span>
+	</div>
+	<div id="nav">
+		<button id="home" class="selected">
+			<span class="material-symbols-rounded">
+				home
+			</span>
+			<span>Home</span>
+		</button>
+		<button id="aboutme">
+			<span class="material-symbols-rounded">
+				person
+			</span>
+			<span>About Me</span>
+		</button>
+		<button id="projects">
+			<span class="material-symbols-rounded">
+				code
+			</span>
+			<span>Projects</span>
+		</button>
+		<button id="clips" onclick="location='clips/index.html';">
+			<span class="material-symbols-rounded">
+				movie
+			</span>
+			<span>Clip Zone</span>
+		</button>
+		<button id="site" onclick="location='site/index.html';">
+			<span class="material-symbols-rounded">
+				link
+			</span>
+			<span>Site Contents</span>
+		</button>
+	</div>
+	<div id="body">
+		<div id="home">
+			<div id="title">
+				Hi! I'm Evie!
+			</div>
+			<div id="grid">
+				<div id="flexcol">
+					<div id="title">
+						About Me
 					</div>
-					<div id="project">
-						<img id="project-image" src="assets/CMDPlus.png">
-						<div id="project-header">
-							CMDPlus (CMD+)
-						</div>
-						<div id="project-description">
-							A project of mine aiming to emulate the command prompt along with some extra features.
-						</div>
-						<div id="project-links">
-							<a href="https://github.com/EvieUwU/CMDPlus" target="_blank">Github Repo</a>
-						</div>
+					<div id="content">
+						<span>I'm a programmer, and I enjoy playing video games and programming in my spare time.</span>
+						<span>I'm mostly self-taught, because I want to be able to make what I want to make, so I teach myself whatever I need.</span>
+						<span>This site pretty much exists as a portfolio and to showcase what I've made.</span>
+						<span>I'll try to keep it up-to-date with stuff I'm doing aswell, but I may forget (a lot)</span>
 					</div>
-					<div id="project">
-						<img id="project-image" src="assets/Platformer.png">
-						<div id="project-header">
-							EvEngine
+				</div>
+				<div id="flexcol">
+						<div id="title">
+							Experience
 						</div>
-						<div id="project-description">
-							My first attempt at a simple game engine. I might rewrite this in C++ so I can have OOP features.
+						<div id="content">
+							<span>I know and have experience in a few languages:</span>
+							<span>[</span>
+							<span indent=1>Python,</span>
+							<span indent=1>C,</span>
+							<span indent=1>JavaScript: [</span>
+							<span indent=2>Pure JavaScript,</span>
+							<span indent=2>VueJS (with Vuetify),</span>
+							<span indent=1>],</span>
+							<span indent=1>HTML,</span>
+							<span indent=1>CSS,</span>
+							<span indent=1>PHP</span>
+							<span>]</span>
 						</div>
-						<div id="project-links">
-							<a href="https://github.com/EvieUwU/EvEngine" target="_blank">Github Repo</a>
+						<div id="title">
+							Stuff I've Made
 						</div>
-					</div>
-					<div id="project">
-						<img id="project-image" src="assets/favicon.png">
-						<div id="project-header">
-							Evie's Site
+						<div id="content">
+							<span>I have made:</span>
+							<span>[</span>
+							<span indent=1>Discord Bots,</span>
+							<span indent=1>A C "game engine",</span>
+							<span indent=1>Front-End UI for FlyLAT,</span>
+							<span indent=1>Basic Command-Line Software,</span>
+							<span indent=1>A Rhythm Game Leaderboard</span>
+							<span>]</span>
+							<span>If you want to see more of what I've made, click on the Projects button!</span>
 						</div>
-						<div id="project-description">
-							This site is my second ever proper website. (My previous one was this site before I redid it completely :p)
-						</div>
-						<div id="project-links">
-							<a href="https://github.com/EvieUwU/evieuwu.github.io" target="_blank">Github Repo</a>
-						</div>
-					</div>
-					<div id="project">
-						<img id="project-image" src="assets/TSEELogo.png">
-						<div id="project-header">
-							TSEE
-						</div>
-						<div id="project-description">
-							I'm still working on this at the moment. It's a simple-ish game engine made in pure C, but it's still a work in progress.
-						</div>
-						<div id="project-links">
-							<a href="https://github.com/EvieUwU/TSEE" target="_blank">Github Repo</a>
-						</div>
-					</div>
-					<div id="project">
-						<img id="project-image" src="assets/rhythmboard.png">
-						<div id="project-header">
-							RhythmBoard
-						</div>
-						<div id="project-description">
-							RhythmBoard is a global leaderboard for any and all rhythm games. It's still very much a work in progress at the moment, but hopefully I will have a proof of concept working soon to show to the world!
-						</div>
-						<div id="project-links">
-							<a href="https://rhythmboard.duckdns.org" target="_blank">Visit</a>
-						</div>
-					</div>
-					<div id="project">
-						<img id="project-image" src="assets/CMDPlus.png">
-						<div id="project-header">
-							Command-Line Helper
-						</div>
-						<div id="project-description">
-							CMD-Helper is a small project of mine, which creates a long single command which can be executed in one go, allowing for easy system administration.
-						</div>
-						<div id="project-links">
-							<a href="https://evieuwu.duckdns.org/site/cmd_helper/index.html" target="_blank">Visit</a><br>
-							<a href="https://github.com/EvieUwU/evieuwu.github.io/tree/main/site/cmd_helper">View Source</a>
-						</div>
-					</div>
-					<div id="project">
-						<img id="project-image" src="assets/favicon.png">
-						<div id="project-header">
-							Evie's Clip Zone
-						</div>
-						<div id="project-description">
-							This is a place where I can upload clips of myself playing games, and share them with the world. I made this just so I don't have to pay for Discord Nitro for a larger upload limit.
-						</div>
-						<div id="project-links">
-							<a href="https://evieuwu.duckdns.org/clips/index.html" target="_blank">Visit</a><br>
-							<a href="https://github.com/EvieUwU/evieuwu.github.io/tree/main/clips">View Source</a>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
-		<div id="links">
-			<div id="siteTransition" class="upsideDown" style="animation-delay:-2.5s"></div>
-			<div id="flex-row">
-				<div id="link">
-					<a href="about.html"> About Me </a>
+		<div id="aboutme" class="hidden">
+			<div id="title">
+				About Me
+			</div>
+			<div id="flexcol">
+				<span>Hi! I'm still Evie!</span>
+				<span>I'm a trans girl (she/her) and I enjoy programming and playing video games in my spare time.</span>
+				<span>If you want to know more about pronouns and other stuff, <a href="https://en.pronouns.page/@EvieUwU">click here</a></span>
+				<span>I have quite a bit of experience programming, but I've also tried to get good at other stuff:</span>
+				<span>[</span>
+				<span indent=1>3D Modelling,</span>
+				<span indent=1>Making Art</span>
+				<span>]</span>
+				<span>On another note, I quite like anime and you can find out what I watch and like on my <a href="https://myanimelist.net/profile/EvelynProto">MAL</a> profile</span>
+				<span>If you want to contact me for any reason, please send me a DM over on <a href="https://twitter.com/EvieUwO">Twitter</a></span>
+				<span>Please feel free to explore the rest of my site</span>
+				<span>I hope you like it!</span>
+			</div>
+		</div>
+		<div id="projects" class="hidden">
+			<div id="grid">
+				<img src="assets/Platformer.png" alt="EvEngine">
+				<span>EvEngine</span>
+				<span>EvEngine was my first attempt at a game engine. It's pretty bad in my opinion, and I've now replaced it with TSEE</span>
+				<div id="flex">
+					<a href="https://github.com/EvieUwU/EvEngine" target="_blank">Github Repo</a>
 				</div>
-				<div id="link">
-					<a href="contact.html"> Contact Me </a>
+				<img src="assets/TSEELogo.png" alt="TSEE">
+				<span>TSEE</span>
+				<span>TSEE is my second attempt at a game engine. Still made in C, and it's barely functioning at the moment. Physics is hard -w-</span>
+				<div id="flex">
+					<a href="https://github.com/EvieUwU/TSEE" target="_blank">Github Repo</a>
 				</div>
-				<div id="link">
-					<a href="site/index.html"> Site Contents </a>
+				<img src="assets/favicon.png" alt="evieuwu Site">
+				<span>My Site</span>
+				<span>Wow! This is the third time I've rewritten this site from scratch. I think what I have now is pretty good, so I'll probably keep it for a while</span>
+				<div id="flex">
+					<a href="https://github.com/EvieUwU/evieuwu.github.io" target="_blank">Github Repo</a>
+				</div>
+				<img src="assets/rhythmboard.png" alt="RhythmBoard">
+				<span>RhythmBoard</span>
+				<span>RhythmBoard is a global leaderboard for any and all kinds of rhythm games. At the moment, it's almost ready for release, but the most time consuming part is collecting all of the required data for games</span>
+				<div id="flex">
+					<a href="https://rhythmboard.duckdns.org" target="_blank">Visit</a>
+				</div>
+				<img src="assets/favicon.png" alt="Clip Zone">
+				<span>Evie's Clip Zone</span>
+				<span>This is the place where I upload epic gamer moments! I literally only made this so I don't have to follow Discord's file size limit.</span>
+				<div id="flex">
+					<a href="https://evieuwu.duckdns.org/clips/index.html">Visit</a>
+					<a href="https://github.com/EvieUwU/evieuwu.github.io/tree/main/clips">View Source</a>
 				</div>
 			</div>
 		</div>
-		<footer id="footer">
-			This site was made and maintained by <a href="https://github.com/EvieUwU"> EvieUwU </a>
-		</footer>
 	</div>
 </body>
-<script src="typing.js"></script>
+<script src="ensureLocal.js"></script>
 <script>
-	var text = [{"text": "Hi! I'm Evie!", "colour": null, "indent": null},
-				{"text": "Welcome to my site!", "colour": null, "indent": null},
-				{"text": "I am a programmer, and enjoy playing video games in my spare time.", "colour": null, "indent": null},
-				{"text": "I currently know how to code in:", "colour": null, "indent": null},
-				{"text": "[", "colour": null, "indent": null},
-				{"text": "Python (5 years experience),", "colour": "#3E7BAC", "indent": 1},
-				{"text": "C (10 months experience),", "colour": "#A9BACD", "indent": 1},
-				{"text": "JS (7 months experience),", "colour": "#EE3C4D", "indent": 1},
-				{"text": "VueJS + Vuetify (2 months experience),", "colour": "#41B883", "indent": 1},
-				{"text": "HTML (7 months experience),", "colour": "#E44D26", "indent": 1},
-				{"text": "CSS (6 months experience),", "colour": "#214CE5", "indent": 1},
-				{"text": "PHP (2 months experience)", "colour": "#7E93D1", "indent": 1},
-				{"text": "]", "colour": null, "indent": null},
-				{"text": "I have made:", "colour": null, "indent": null},
-				{"text": "[", "colour": null, "indent": null},
-				{"text": "Discord bots,", "colour": "#5865F2", "indent": 1},
-				{"text": "A C \"game engine\",", "colour": "#00FF75", "indent": 1},
-				{"text": "Front-end for flyLAT,", "colour": "#41B883", "indent": 1},
-				{"text": "Basic command line software,", "colour": "#0C0C0C", "indent": 1},
-				{"text": "Rhythm game leaderboard", "colour": "#C60079", "indent": 1},
-				{"text": "]", "colour": null, "indent": null},
-				{"text": "I'm mostly self-taught, and a lot of the software I've made has all been made in my spare time.", "colour": null, "indent": null},
-				{"text": "This site exists as a portfolio pretty much.", "colour": null, "indent": null},
-				{"text": "I'll try keep this up-to-date(-ish) with new stuff I make.", "colour": null, "indent": null},
-				{"text": "For more information you can look below!", "colour": null, "indent": null},
-				{"text": "Note: If you want to skip these typing animations, press enter (or tap the screen on mobile)", "colour": null, "indent": null}];
-	window.onload = text_onload(text);
+function randint(min, max) {
+	return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+// Setup animation
+const namespan = document.querySelector("div#head > span:not(#menu)");
+const text = namespan.innerText;
+namespan.innerText = "";
+var crazy = false;
+const hanmbger = document.querySelector("span#menu");
+const nav = document.querySelector("div#nav");
+const navexptime = 200;
+hanmbger.addEventListener("click", () => {
+	hanmbger.classList.toggle("clicked");
+	if (!nav.classList.contains("expanded")) {
+		nav.animate([{ left: "-50%" }, { left: "0%" }], {
+			duration: navexptime,
+			easing: "ease-out"
+		});
+		setTimeout(() => {
+			nav.classList.add("expanded");
+		}, navexptime);
+	} else {
+		nav.animate([{ left: "0%" }, { left: "-50%" }], {
+			duration: navexptime,
+			easing: "ease-out"
+		});
+		setTimeout(() => {
+			nav.classList.remove("expanded");
+		}, navexptime);
+	}
+});
+const rand = randint(1, 4);
+for (var i = 0; i < text.length; i++) {
+	const span = document.createElement("span");
+	span.innerText = text[i];
+	if (crazy) {
+		span.classList.add(`headanimate${randint(1, 4)}`);
+		span.style.color = `rgb(${randint(0, 255)},${randint(0, 255)},${randint(0, 255)})`;
+		span.setAttribute("original", span.innerText);
+	} else {
+		span.classList.add(`headanimate${rand}`);
+	}
+	span.style.animationDelay = `${i * 200}ms`;
+	namespan.appendChild(span);
+}
+if (crazy) {
+	const interval = setInterval((int) => {
+		var idx = 0;
+		var mad = randint(1, 50) == 10;
+		if (randint(1, 250) == 5) {
+			namespan.childNodes.forEach((elem) => {
+				elem.innerText = elem.getAttribute("original");
+				elem.classList = []
+				elem.style.color = "";
+			});
+			clearInterval(interval);
+			return;
+		}
+		namespan.childNodes.forEach((elem) => {
+			if (mad) {
+				elem.innerText = " Code2=s ".charAt(idx);
+				elem.style.color = "#ff0000";
+			} else {
+				elem.innerText = elem.getAttribute("original");
+				elem.style.color = `rgb(${randint(0, 255)},${randint(0, 255)},${randint(0, 255)})`;
+			}
+			idx++;
+		});
+	}, 200);
+}
+const navbuttons = document.querySelectorAll("div#nav > button");
+navbuttons.forEach((elem) => {
+	elem.addEventListener("click", () => {
+		open_content(elem.id);
+		navbuttons.forEach((button) => {
+			button.classList.remove("selected");
+		});
+		elem.classList.add("selected");
+		if (nav.classList.contains("expanded")) {
+			nav.animate([{ left: "0%" }, { left: "-50%" }], {
+				duration: navexptime,
+				easing: "ease-out"
+			});
+			hanmbger.classList.remove("clicked");
+			setTimeout(() => {
+				nav.classList.remove("expanded");
+			}, navexptime);
+		}
+	});
+});
+const bodycontent = document.querySelectorAll("div#body > div");
+function open_content(id) {
+	bodycontent.forEach((elem) => {
+		if (elem.id === id) {
+			elem.classList.remove("hidden");
+			elem.classList.remove("none");
+		} else {
+			elem.classList.add("hidden");
+			setTimeout(() => {
+				elem.classList.add("none");
+			}, 250);
+		}
+	});
+}
+
+bodycontent.forEach((elem) => {
+	const spans = elem.querySelectorAll("span");
+	spans.forEach((element) => {
+		const indent = element.getAttribute("indent");
+		if (indent !== null) {
+			element.style.paddingLeft = `${indent}em`;
+		}
+	});
+})
 </script>
 </html>
