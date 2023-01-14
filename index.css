@@ -4,8 +4,8 @@
 @import url("fonts.css");
 
 html {
-	margin: 0px;
-	padding: 0px;
+	margin: 0;
+	padding: 0
 }
 
 body {
@@ -18,9 +18,9 @@ body {
 	display: grid;
 	grid-template-columns: 15% 85%;
 	grid-template-rows: 72px auto;
-	margin: 0px;
-	padding: 0px;
-	overflow-x: hidden;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden
 }
 
 div#head {
@@ -29,14 +29,14 @@ div#head {
 
 	width: 100%;
 	font-size: 42px;
-	padding: 4px 0px;
+	padding: 4px 0;
 	text-align: center;
 	background-color: var(--sidebar-colour);
-	box-shadow: 0px 0px 3px var(--sidebar-colour);
+	box-shadow: 0 0 3px var(--sidebar-colour);
 
 	display: flex;
 	justify-content: space-around;
-	align-items: center;
+	align-items: center
 }
 
 span.headanimate1 {
@@ -44,7 +44,7 @@ span.headanimate1 {
 	animation-duration: 3s;
 	animation-iteration-count: infinite;
 	animation-timing-function: cubic-bezier(0.17, 0.84, 0.28, 1.32);
-	position: relative;
+	position: relative
 }
 
 span.headanimate2 {
@@ -52,7 +52,7 @@ span.headanimate2 {
 	animation-duration: 5s;
 	animation-iteration-count: infinite;
 	animation-timing-function: cubic-bezier(0.17, 0.84, 0.28, 1.32);
-	position: relative;
+	position: relative
 }
 
 span.headanimate3 {
@@ -60,7 +60,7 @@ span.headanimate3 {
 	animation-duration: 3.5s;
 	animation-iteration-count: infinite;
 	animation-timing-function: cubic-bezier(0.17, 0.84, 0.28, 1.32);
-	position: relative;
+	position: relative
 }
 
 span.headanimate4 {
@@ -68,20 +68,20 @@ span.headanimate4 {
 	animation-duration: 2s;
 	animation-iteration-count: infinite;
 	animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
-	position: relative;
+	position: relative
 }
 
 div#head span#menu {
-	display: none;
+	display: none
 }
 
 div#projects hr {
-	width: 90%;
+	width: 90%
 }
 
 div#projects div#flex {
 	justify-content: space-evenly;
-	align-items: center;
+	align-items: center
 }
 
 div#projects div#grid {
@@ -90,108 +90,108 @@ div#projects div#grid {
 	row-gap: 16px;
 	column-gap: 4px;
 	width: calc(100% - 16px - 12px);
-	justify-items: center;
+	justify-items: center
 }
 
 div#projects div#flex {
-	flex-direction: column;
+	flex-direction: column
 }
 
 div#projects div#grid img {
-	width: 64px;
+	width: 64px
 }
 
 a {
 	color: var(--link-colour);
 	text-decoration: none;
-	transition-duration: 250ms;
+	transition-duration: 250ms
 }
 
 a:hover {
-	text-shadow: 0px 0px 5px;
+	text-shadow: 0 0 5px
 }
 
 a:visited {
-	color: var(--link-colour);
+	color: var(--link-colour)
 }
 
 @keyframes updown {
 	0% {
-		top: 0px;
+		top: 0
 	}
 	25% {
-		top: -16px;
+		top: -16px
 	}
 	50% {
-		top: 0px;
+		top: 0
 	}
 	75% {
-		top: 16px;
+		top: 16px
 	}
 	100% {
-		top: 0px;
+		top: 0
 	}
 }
 
 @keyframes sideside {
 	0% {
-		left: 0px;
+		left: 0
 	}
 	25% {
-		left: -8px;
+		left: -8px
 	}
 	50% {
-		left: 0px;
+		left: 0
 	}
 	75% {
-		left: 8px;
+		left: 8px
 	}
 	100% {
-		left: 0px;
+		left: 0
 	}
 }
 
 @keyframes circle {
 	0% {
-		top: 0px;
-		left: -8px;
+		top: 0;
+		left: -8px
 	}
 	25% {
 		top: -8px;
-		left: 0px;
+		left: 0
 	}
 	50% {
 		left: 8px;
-		top: 0px;
+		top: 0
 	}
 	75% {
 		top: 8px;
-		left: 0px;
+		left: 0
 	}
 	100% {
 		left: -8px;
-		top: 0px;
+		top: 0
 	}
 }
 
 @keyframes wave {
 	0% {
-		top: 0px;
+		top: 0
 	}
 	25% {
-		top: -8px;
+		top: -8px
 	}
 	75% {
-		top: 8px;
+		top: 8px
 	}
 	100% {
-		top: 0px;
+		top: 0
 	}
 }
 
 @media screen and (max-width: 1080px) {
 	div#head {
-		font-size: 32px;
+		font-size: 32px
 	}
 	div#head span#menu {
 		display: inline;
@@ -200,14 +200,14 @@ a:visited {
 		position: absolute;
 		left: 4px;
 		top: 20px;
-		transition-duration: 300ms;
+		transition-duration: 300ms
 	}
 
 	div#head span#menu.clicked {
-		text-shadow: 0px 0px 5px;
+		text-shadow: 0 0 5px
 	}
 }
 
 div#expand {
-	flex-grow: 1;
+	flex-grow: 1
 }

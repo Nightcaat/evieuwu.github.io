@@ -15,7 +15,7 @@ body {
 	"side select"
 	"footer footer";
 	grid-template-columns: 25vw 75vw;
-	grid-template-rows: 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh;
+	grid-template-rows: 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh
 }
 
 button {
@@ -25,10 +25,10 @@ button {
 	background-color: #111;
 	transition-duration: 250ms;
 	color: #fff;
-	padding: 8px;
+	padding: 8px
 }
 button:hover {
-	box-shadow: 0px 0px 8px #555;
+	box-shadow: 0 0 8px #555
 }
 
 div#header {
@@ -40,15 +40,15 @@ div#header {
 	border-radius: 16px;
 	margin: 16px;
 	border: #333 solid 2px;
-	box-shadow: 0px 0px 16px #222;
+	box-shadow: 0 0 16px #222;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	align-items: center;
+	align-items: center
 }
 div#header > div#back > a {
 	height: 100%;
-	color: #555;
+	color: #555
 }
 div#header > div#osSelect > select {
 	background-color: #555;
@@ -56,7 +56,7 @@ div#header > div#osSelect > select {
 	padding: 0 8px;
 	font-size: 24px;
 	border-radius: 16px;
-	border: unset;
+	border: unset
 }
 
 div#output {
@@ -68,7 +68,7 @@ div#output {
 	width: calc(100% - 32px);
 	height: 100%;
 	border-radius: 50%;
-	margin: 0 16px;
+	margin: 0 16px
 }
 div#output > div#outputCmd {
 	position: absolute;
@@ -79,23 +79,23 @@ div#output > div#outputCmd {
 	padding: 8px;
 	border-radius: 16px;
 	background-color: #161616;
-	border: #222 solid 2px;
+	border: #222 solid 2px
 }
 div#output > span {
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
 	left: 16px;
-	z-index: 1;
+	z-index: 1
 }
 div#output > button {
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
-	right: 16px;
+	right: 16px
 }
 div#output > button:hover {
-	box-shadow: 0px 0px 8px #555;
+	box-shadow: 0 0 8px #555
 }
 
 div#sections {
@@ -104,7 +104,7 @@ div#sections {
 	flex-direction: row;
 	justify-content: space-evenly;
 	height: calc(100% - 32px);
-	margin: 16px;
+	margin: 16px
 }
 div#sections > div {
 	display: flex;
@@ -113,27 +113,27 @@ div#sections > div {
 	height: calc(100% - 16px - 4px);
 	border: #333 solid 2px;
 	border-radius: 16px;
-	margin: 0px 8px;
+	margin: 0 8px;
 	padding: 8px;
-	box-shadow: 0px 0px 16px #222;
+	box-shadow: 0 0 16px #222;
 	flex-grow: 1;
-	text-align: center;
+	text-align: center
 }
 div#sections > div > button {
-	width: unset;
+	width: unset
 }
 div#sections > div > button:disabled {
 	background-color: #777;
 	border: #222 solid 2px;
-	box-shadow: 0px 0px 10px #222;
-	color: #000;
+	box-shadow: 0 0 10px #222;
+	color: #000
 }
 
 div#footer {
 	grid-area: footer;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: center
 }
 
 div#outputSections {
@@ -145,11 +145,11 @@ div#outputSections {
 	text-align: center;
 	border-radius: 16px;
 	border: #333 solid 2px;
-	box-shadow: 0px 0px 16px #222;
+	box-shadow: 0 0 16px #222;
 	width: calc(100% - 32px - 4px);
 	height: calc(100% - 36px);
 	margin: 16px;
-	overflow: hidden;
+	overflow: hidden
 }
 div#outputSections > div#instructions {
 	width: 100%;
@@ -157,7 +157,7 @@ div#outputSections > div#instructions {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	overflow: scroll;
+	overflow: scroll
 }
 div#outputSections > div#instructions > div#instruction {
 	display: flex;
@@ -168,10 +168,10 @@ div#outputSections > div#instructions > div#instruction {
 	border: #333 solid 2px;
 	padding: 8px;
 	line-height: 100%;
-	margin-top: 8px;
+	margin-top: 8px
 }
 div#outputSections > div#instructions > div#instruction > span {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: center
 }

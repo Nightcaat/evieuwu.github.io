@@ -4,14 +4,14 @@ body {
 	display: unset;
 	flex-direction: column;
 	justify-content: start;
-	align-items: center;
+	align-items: center
 }
 
 hr {
-	flex-grow: 1;
+	flex-grow: 1
 }
 
 footer {
 	display: flex;
-	justify-content: center;
+	justify-content: center
 }

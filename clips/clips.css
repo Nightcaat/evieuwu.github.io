@@ -7,7 +7,7 @@ div#head {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	font-size: 24px;
+	font-size: 24px
 }
 
 div#clips {
@@ -20,14 +20,14 @@ div#clips {
 	padding: 8px;
 	margin: 4px;
 	grid-column-start: 1;
-	grid-column-end: 3;
+	grid-column-end: 3
 }
 
 div#clip {
 	padding: 8px;
 	border-radius: 16px;
 	margin: 4px;
-	background-color: var(--bg-colour);
+	background-color: var(--bg-colour)
 }
 
 button {
@@ -35,11 +35,11 @@ button {
 	border-radius: 4px;
 	background-color: #cdb4db;
 	border: unset;
-	transition-duration: 250ms;
+	transition-duration: 250ms
 }
 
 button:hover {
-	box-shadow: #000 0px 0px 5px;
+	box-shadow: #000 0 0 5px
 }
 
 div#actions {
@@ -48,34 +48,34 @@ div#actions {
 	column-gap: 4%;
 	row-gap: 8px;
 	align-items: center;
-	justify-items: center;
+	justify-items: center
 }
 
 div#clip > a {
-	width: 100%;
+	width: 100%
 }
 
 div#clip > a > img {
-	width: 100%;
+	width: 100%
 }
 
 select#filter {
 	background-color: var(--button-colour);
 	border: none;
 	border-radius: 8px;
-	padding: 4px;
+	padding: 4px
 }
 
 @media screen and (max-width: 1080px) {
 	div#clips {
 		grid-template-columns: 48% 48%;
-		column-gap: 4%;
+		column-gap: 4%
 	}
 	div#head {
-		font-size: 20px;
+		font-size: 20px
 	}
 	div#clip {
 		font-size: 16px;
-		text-align: center;
+		text-align: center
 	}
 }

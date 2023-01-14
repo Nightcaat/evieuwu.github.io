@@ -4,15 +4,15 @@ div#body div {
 	transition-duration: 500ms;
 
 	display: flex;
-	flex-direction: column;
+	flex-direction: column
 }
 
 div.hidden {
-	display: none !important;
+	display: none !important
 }
 
 div.none {
-	display: none !important;
+	display: none !important
 }
 
 div#body div#title {
@@ -25,38 +25,38 @@ div#body div#title {
 
 	border-radius: 8px;
 
-	background-color: var(--sidebar-colour);
+	background-color: var(--sidebar-colour)
 }
 
 div#body div#flex {
 	display: flex;
 	flex-direction: row;
-	flex-grow: 1;
+	flex-grow: 1
 }
 
 div#body div#flexcol {
 	display: flex;
 	flex-direction: column;
-	flex-grow: 1;
+	flex-grow: 1
 }
 
 div#body div#grid {
 	display: grid;
-	grid-template-columns: 50% 50%;
+	grid-template-columns: 50% 50%
 }
 
 @media screen and (max-width: 1080px) {
 	div#body div#title {
-		font-size: 24px;
+		font-size: 24px
 	}
 
 	div#body div {
-		font-size: 16px;
+		font-size: 16px
 	}
 
 	div#body {
 		grid-column-start: 1;
 		grid-column-end: 3;
-		grid-row-start: 2;
+		grid-row-start: 2
 	}
 }

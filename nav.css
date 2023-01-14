@@ -7,7 +7,7 @@ div#nav {
 	border-top: 2px var(--bg-colour) solid;
 
 	background-color: var(--sidebar-colour);
-	box-shadow: 0px 0px 3px var(--sidebar-colour);
+	box-shadow: 0 0 3px var(--sidebar-colour)
 }
 
 div#nav button, div#nav a {
@@ -26,33 +26,33 @@ div#nav button, div#nav a {
 	padding: 8px;
 	margin: 4px;
 
-	cursor: pointer;
+	cursor: pointer
 }
 
 div#nav button:first-child {
-	margin-top: 8px;
+	margin-top: 8px
 }
 
 div#nav a > button {
 	padding: 0;
 	margin: 0;
 	border-radius: 0;
-	background-color: transparent;
+	background-color: transparent
 }
 
 div#nav button.selected, div#nav button:hover, div#nav a:hover {
 	background-color: var(--button-selected-colour);
-	box-shadow: 0px 0px 4px var(--button-selected-colour);
+	box-shadow: 0 0 4px var(--button-selected-colour)
 }
 
 div#nav span {
 	font-size: 32px;
 	vertical-align: middle;
-	text-align: center;
+	text-align: center
 }
 
 div#nav span#nav {
-	width: 100%;
+	width: 100%
 }
 
 @media screen and (max-width: 1080px) {
@@ -63,13 +63,13 @@ div#nav span#nav {
 		z-index: 1;
 		left: -50%;
 		top: 72px;
-		border-radius: 0 0 16px 0;
+		border-radius: 0 0 16px 0
 	}
 	div#nav span {
-		font-size: 20px;
+		font-size: 20px
 	}
 
 	div#nav.expanded {
-		left: 0%;
+		left: 0%
 	}
 }
